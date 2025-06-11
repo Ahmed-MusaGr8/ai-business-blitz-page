@@ -7,27 +7,39 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 15,
-    hours: 8,
-    minutes: 42,
-    seconds: 30
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
-    }, 1000);
+    // Set target date to 30 days from now (you can adjust this date as needed)
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 30);
+    targetDate.setHours(0, 0, 0, 0); // Set to midnight for consistency
+    
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+      
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    // Update immediately
+    updateTimer();
+    
+    // Update every second
+    const timer = setInterval(updateTimer, 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -286,7 +298,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section - Modified to have only 2 options with the right styling */}
       <section className="py-12 lg:py-20 bg-slate-800/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 lg:mb-16">
@@ -294,84 +306,76 @@ const Index = () => {
             <p className="text-lg lg:text-xl text-gray-300">Invest in your future. The returns are unlimited.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Early Bird",
-                price: "$497",
-                originalPrice: "$997",
-                popular: false,
-                features: [
-                  "5-day challenge access",
-                  "All learning materials",
-                  "Group mentorship sessions",
-                  "Prize pool eligibility",
-                  "Recording access",
-                  "Community access"
-                ]
-              },
-              {
-                name: "Standard",
-                price: "$997",
-                originalPrice: null,
-                popular: true,
-                features: [
-                  "Everything in Early Bird",
-                  "1-on-1 mentor session",
-                  "VIP networking events",
-                  "Priority Q&A access",
-                  "Bonus masterclasses",
-                  "6-month community access"
-                ]
-              },
-              {
-                name: "VIP Experience",
-                price: "$1,997",
-                originalPrice: null,
-                popular: false,
-                features: [
-                  "Everything in Standard",
-                  "Direct mentor WhatsApp access",
-                  "Private dinner with mentors",
-                  "Guaranteed pitch feedback",
-                  "12-month mastermind access",
-                  "Investment intro opportunities"
-                ]
-              }
-            ].map((tier, index) => (
-              <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-blue-400' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
-                {tier.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500">
-                    Most Popular
-                  </Badge>
-                )}
-                <CardHeader className="text-center">
-                  <CardTitle className="text-white text-xl lg:text-2xl">{tier.name}</CardTitle>
-                  <div className="py-4">
-                    <div className="text-3xl lg:text-4xl font-bold text-white">{tier.price}</div>
-                    {tier.originalPrice && (
-                      <div className="text-gray-400 line-through text-lg">{tier.originalPrice}</div>
-                    )}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 mb-6">
-                    {tier.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-center text-gray-300">
-                        <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    className={`w-full ${tier.popular ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' : 'bg-slate-600 hover:bg-slate-500'} text-white`}
-                    size="lg"
-                  >
-                    Register Now
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            {/* Early Bird Option */}
+            <Card className="bg-slate-700/50 border-slate-600 hover:scale-105 transition-all">
+              <CardHeader className="text-center">
+                <CardTitle className="text-white text-xl lg:text-2xl">Early Bird</CardTitle>
+                <div className="py-4">
+                  <div className="text-3xl lg:text-4xl font-bold text-white">$497</div>
+                  <div className="text-gray-400 line-through text-lg">$997</div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    "5-day challenge access",
+                    "All learning materials",
+                    "Group mentorship sessions",
+                    "Prize pool eligibility",
+                    "Recording access",
+                    "Community access"
+                  ].map((feature, fIndex) => (
+                    <li key={fIndex} className="flex items-center text-gray-300">
+                      <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button 
+                  className="w-full bg-slate-600 hover:bg-slate-500 text-white"
+                  size="lg"
+                >
+                  Register Now
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Standard Option with VIP styling */}
+            <Card className="relative bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-blue-400 hover:scale-105 transition-all">
+              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500">
+                Most Popular
+              </Badge>
+              <CardHeader className="text-center">
+                <CardTitle className="text-white text-xl lg:text-2xl">Standard</CardTitle>
+                <div className="py-4">
+                  <div className="text-3xl lg:text-4xl font-bold text-white">$997</div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    "Everything in Early Bird",
+                    "1-on-1 mentor session",
+                    "VIP networking events",
+                    "Priority Q&A access",
+                    "Bonus masterclasses",
+                    "6-month community access"
+                  ].map((feature, fIndex) => (
+                    <li key={fIndex} className="flex items-center text-gray-300">
+                      <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button 
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+                  size="lg"
+                >
+                  Register Now
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
