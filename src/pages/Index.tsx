@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -97,10 +96,10 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
-        <div className="relative container mx-auto px-4 py-20 text-center text-white">
+        <div className="relative container mx-auto px-4 py-12 lg:py-20 text-center text-white">
           {/* Logo */}
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-2 text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <div className="mb-6 lg:mb-8">
+            <div className="inline-flex items-center gap-2 text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
                 <span className="text-white text-sm font-bold">ZC</span>
               </div>
@@ -108,19 +107,19 @@ const Index = () => {
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent leading-tight">
             Build Your AI Empire
             <br />
-            <span className="text-3xl md:text-5xl">From Zero to Billions</span>
+            <span className="text-2xl md:text-3xl lg:text-5xl">From Zero to Billions</span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl lg:text-2xl mb-6 lg:mb-8 text-gray-300 max-w-4xl mx-auto">
             Learn from billionaire mentors, master AI business building, and compete for 
             <span className="text-yellow-400 font-bold"> $200,000 in prizes</span>
           </p>
 
           {/* Key Benefits */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-6 lg:mb-8">
             <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-400">
               <Users className="w-4 h-4 mr-1" />
               Billionaire Mentors
@@ -136,7 +135,7 @@ const Index = () => {
           </div>
 
           {/* Countdown Timer */}
-          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 mb-8 max-w-2xl mx-auto border border-white/10">
+          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 lg:p-6 mb-6 lg:mb-8 max-w-2xl mx-auto border border-white/10">
             <h3 className="text-lg font-semibold mb-4">Challenge Starts In:</h3>
             <div className="grid grid-cols-4 gap-4">
               {[
@@ -146,61 +145,63 @@ const Index = () => {
                 { label: "Seconds", value: timeLeft.seconds }
               ].map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-yellow-400">{item.value}</div>
+                  <div className="text-2xl lg:text-3xl font-bold text-yellow-400">{item.value}</div>
                   <div className="text-sm text-gray-400">{item.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-6 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all">
-            Secure Your Spot Now
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <div className="max-w-md mx-auto">
+            <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-6 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all">
+              Secure Your Spot Now
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
           
           <p className="text-sm text-gray-400 mt-4">Early Bird Special: Save $500 • Limited Time</p>
         </div>
       </section>
 
       {/* The Challenge Section */}
-      <section className="py-20 bg-slate-800/50">
+      <section className="py-12 lg:py-20 bg-slate-800/50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">The Ultimate AI Business Challenge</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">The Ultimate AI Business Challenge</h2>
+            <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
               5 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                icon: <Star className="h-8 w-8" />,
+                icon: <Star className="h-6 w-6 lg:h-8 lg:w-8" />,
                 title: "Zero to One Mastery",
                 description: "Learn to validate and launch AI-powered business ideas from scratch, even with zero experience"
               },
               {
-                icon: <DollarSign className="h-8 w-8" />,
+                icon: <DollarSign className="h-6 w-6 lg:h-8 lg:w-8" />,
                 title: "Scaling Strategies",
                 description: "Discover how to scale one-person operations to billion-dollar enterprises using AI automation"
               },
               {
-                icon: <Play className="h-8 w-8" />,
+                icon: <Play className="h-6 w-6 lg:h-8 lg:w-8" />,
                 title: "No-Code AI Tools",
                 description: "Master the latest no-code and low-code platforms to build powerful AI applications without programming"
               },
               {
-                icon: <Users className="h-8 w-8" />,
+                icon: <Users className="h-6 w-6 lg:h-8 lg:w-8" />,
                 title: "Billionaire Mentorship",
                 description: "Direct access to successful entrepreneurs who've built and scaled AI-powered businesses"
               },
               {
-                icon: <Trophy className="h-8 w-8" />,
+                icon: <Trophy className="h-6 w-6 lg:h-8 lg:w-8" />,
                 title: "Real Networking",
                 description: "Connect with like-minded entrepreneurs, investors, and industry leaders in AI and tech"
               },
               {
-                icon: <Check className="h-8 w-8" />,
+                icon: <Check className="h-6 w-6 lg:h-8 lg:w-8" />,
                 title: "Budget-Friendly Building",
                 description: "Learn to build effective solutions on a budget using smart AI tools and lean methodologies"
               }
@@ -208,7 +209,7 @@ const Index = () => {
               <Card key={index} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all">
                 <CardHeader>
                   <div className="text-blue-400 mb-2">{item.icon}</div>
-                  <CardTitle className="text-white">{item.title}</CardTitle>
+                  <CardTitle className="text-white text-lg lg:text-xl">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-gray-300">{item.description}</CardDescription>
@@ -220,27 +221,27 @@ const Index = () => {
       </section>
 
       {/* Mentors Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-900 to-purple-900/30">
+      <section className="py-12 lg:py-20 bg-gradient-to-r from-slate-900 to-purple-900/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Learn From Billionaire Mentors</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Learn From Billionaire Mentors</h2>
+            <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
               Get direct access to industry titans who've built billion-dollar AI empires
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {mentors.map((mentor, index) => (
               <Card key={index} className="bg-slate-800/50 border-slate-600 text-center overflow-hidden hover:bg-slate-800/70 transition-all">
                 <CardHeader>
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-400">
+                  <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-400">
                     <img 
                       src={mentor.image} 
                       alt={mentor.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <CardTitle className="text-white text-xl">{mentor.name}</CardTitle>
+                  <CardTitle className="text-white text-lg lg:text-xl">{mentor.name}</CardTitle>
                   <CardDescription className="text-blue-400 font-semibold">{mentor.title}</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -253,32 +254,32 @@ const Index = () => {
       </section>
 
       {/* Prize Pool Section */}
-      <section className="py-20 bg-gradient-to-r from-yellow-900/20 to-orange-900/20">
+      <section className="py-12 lg:py-20 bg-gradient-to-r from-yellow-900/20 to-orange-900/20">
         <div className="container mx-auto px-4 text-center">
-          <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black rounded-2xl p-12 max-w-4xl mx-auto">
-            <Trophy className="h-16 w-16 mx-auto mb-6" />
-            <h2 className="text-5xl font-bold mb-4">$200,000</h2>
-            <h3 className="text-2xl font-semibold mb-6">Total Prize Pool</h3>
+          <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black rounded-2xl p-6 lg:p-12 max-w-4xl mx-auto">
+            <Trophy className="h-12 w-12 lg:h-16 lg:w-16 mx-auto mb-4 lg:mb-6" />
+            <h2 className="text-4xl lg:text-5xl font-bold mb-3 lg:mb-4">$200,000</h2>
+            <h3 className="text-xl lg:text-2xl font-semibold mb-4 lg:mb-6">Total Prize Pool</h3>
             
-            <div className="grid md:grid-cols-3 gap-6 text-left">
-              <div className="bg-white/10 rounded-xl p-6">
-                <div className="text-2xl font-bold mb-2">$100,000</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 text-left">
+              <div className="bg-white/10 rounded-xl p-4 lg:p-6">
+                <div className="text-xl lg:text-2xl font-bold mb-2">$100,000</div>
                 <div className="text-lg font-semibold mb-2">Grand Prize Winner</div>
                 <div className="text-sm">Most innovative AI business concept with clear path to scale</div>
               </div>
-              <div className="bg-white/10 rounded-xl p-6">
-                <div className="text-2xl font-bold mb-2">$50,000</div>
+              <div className="bg-white/10 rounded-xl p-4 lg:p-6">
+                <div className="text-xl lg:text-2xl font-bold mb-2">$50,000</div>
                 <div className="text-lg font-semibold mb-2">Runner-up</div>
                 <div className="text-sm">Outstanding execution and business viability demonstration</div>
               </div>
-              <div className="bg-white/10 rounded-xl p-6">
-                <div className="text-2xl font-bold mb-2">$50,000</div>
+              <div className="bg-white/10 rounded-xl p-4 lg:p-6 md:col-span-2 lg:col-span-1">
+                <div className="text-xl lg:text-2xl font-bold mb-2">$50,000</div>
                 <div className="text-lg font-semibold mb-2">Category Winners</div>
                 <div className="text-sm">Best in innovation, social impact, and technical excellence</div>
               </div>
             </div>
             
-            <p className="mt-8 text-lg">
+            <p className="mt-6 lg:mt-8 text-lg">
               <strong>All registered participants are eligible to win!</strong>
             </p>
           </div>
@@ -286,14 +287,14 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 bg-slate-800/50">
+      <section className="py-12 lg:py-20 bg-slate-800/50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Choose Your Path to Success</h2>
-            <p className="text-xl text-gray-300">Invest in your future. The returns are unlimited.</p>
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Choose Your Path to Success</h2>
+            <p className="text-lg lg:text-xl text-gray-300">Invest in your future. The returns are unlimited.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {[
               {
                 name: "Early Bird",
@@ -345,9 +346,9 @@ const Index = () => {
                   </Badge>
                 )}
                 <CardHeader className="text-center">
-                  <CardTitle className="text-white text-2xl">{tier.name}</CardTitle>
+                  <CardTitle className="text-white text-xl lg:text-2xl">{tier.name}</CardTitle>
                   <div className="py-4">
-                    <div className="text-4xl font-bold text-white">{tier.price}</div>
+                    <div className="text-3xl lg:text-4xl font-bold text-white">{tier.price}</div>
                     {tier.originalPrice && (
                       <div className="text-gray-400 line-through text-lg">{tier.originalPrice}</div>
                     )}
@@ -376,14 +377,14 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-900/30 to-blue-900/30">
+      <section className="py-12 lg:py-20 bg-gradient-to-r from-purple-900/30 to-blue-900/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Success Stories</h2>
-            <p className="text-xl text-gray-300">See how past participants transformed their lives</p>
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Success Stories</h2>
+            <p className="text-lg lg:text-xl text-gray-300">See how past participants transformed their lives</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="bg-slate-800/50 border-slate-600">
                 <CardHeader>
@@ -392,7 +393,7 @@ const Index = () => {
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
-                      <CardTitle className="text-white">{testimonial.name}</CardTitle>
+                      <CardTitle className="text-white text-lg">{testimonial.name}</CardTitle>
                       <CardDescription className="text-gray-400">{testimonial.role}</CardDescription>
                     </div>
                   </div>
@@ -410,18 +411,18 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-slate-800/50">
+      <section className="py-12 lg:py-20 bg-slate-800/50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-300">Get all the details you need</p>
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Frequently Asked Questions</h2>
+            <p className="text-lg lg:text-xl text-gray-300">Get all the details you need</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-6">
-                  <AccordionTrigger className="text-white hover:text-blue-400">
+                  <AccordionTrigger className="text-white hover:text-blue-400 text-left">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-300">
@@ -435,33 +436,35 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-12 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">
             Your AI Empire Awaits
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg lg:text-xl text-blue-100 mb-6 lg:mb-8 max-w-3xl mx-auto">
             Join thousands of entrepreneurs who are building the future with AI. 
             Don't let this opportunity slip away.
           </p>
           
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
-            Claim Your Spot Now
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <div className="max-w-md mx-auto">
+            <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
+              Claim Your Spot Now
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
           
-          <p className="text-blue-100 mt-6">
+          <p className="text-blue-100 mt-6 text-base">
             🔥 Early Bird Pricing Ends Soon • 🏆 $200K Prize Pool • 🚀 5-Day Challenge
           </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 py-12">
+      <footer className="bg-slate-900 py-8 lg:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 text-xl font-bold text-white mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="md:col-span-2 lg:col-span-1">
+              <div className="flex items-center gap-2 text-lg lg:text-xl font-bold text-white mb-4">
                 <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded"></div>
                 Zero Code Challenge
               </div>
@@ -471,7 +474,7 @@ const Index = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+              <h4 className="font-semibold text-white mb-4 text-lg">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">About</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Mentors</a></li>
@@ -481,7 +484,7 @@ const Index = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-4">Support</h4>
+              <h4 className="font-semibold text-white mb-4 text-lg">Support</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
@@ -491,7 +494,7 @@ const Index = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-4">Legal</h4>
+              <h4 className="font-semibold text-white mb-4 text-lg">Legal</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
