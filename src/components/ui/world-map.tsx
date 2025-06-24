@@ -3,6 +3,8 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import DottedMap from "dotted-map";
+import { useTheme } from "next-themes";
 
 interface MapProps {
   dots?: Array<{
@@ -17,6 +19,16 @@ export function WorldMap({
   lineColor = "#0ea5e9",
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const map = new DottedMap({ height: 100, grid: "diagonal" });
+
+  const { theme } = useTheme();
+
+  const svgMap = map.getSVG({
+    radius: 0.22,
+    color: theme === "dark" ? "#FFFFFF40" : "#00000040",
+    shape: "circle",
+    backgroundColor: theme === "dark" ? "black" : "white",
+  });
 
   const projectPoint = (lat: number, lng: number) => {
     const x = (lng + 180) * (800 / 360);
@@ -35,37 +47,10 @@ export function WorldMap({
 
   return (
     <div className="w-full aspect-[2/1] dark:bg-black bg-slate-900 rounded-lg relative font-sans">
-      {/* Simple world map background using CSS */}
-      <div className="absolute inset-0 opacity-30">
-        <svg viewBox="0 0 800 400" className="w-full h-full">
-          {/* Simplified world continents */}
-          <path
-            d="M 150 150 Q 200 120 250 140 Q 300 160 350 150 Q 400 140 450 160 Q 500 180 550 170 Q 600 160 650 180"
-            fill="none"
-            stroke="rgba(255,255,255,0.3)"
-            strokeWidth="2"
-          />
-          <path
-            d="M 100 200 Q 150 180 200 190 Q 250 200 300 190 Q 350 180 400 200 Q 450 220 500 210"
-            fill="none"
-            stroke="rgba(255,255,255,0.3)"
-            strokeWidth="2"
-          />
-          <path
-            d="M 200 250 Q 250 230 300 240 Q 350 250 400 240 Q 450 230 500 250"
-            fill="none"
-            stroke="rgba(255,255,255,0.3)"
-            strokeWidth="2"
-          />
-          {/* Add some dots to represent cities */}
-          <circle cx="200" cy="150" r="2" fill="rgba(255,255,255,0.4)" />
-          <circle cx="350" cy="180" r="2" fill="rgba(255,255,255,0.4)" />
-          <circle cx="500" cy="160" r="2" fill="rgba(255,255,255,0.4)" />
-          <circle cx="250" cy="220" r="2" fill="rgba(255,255,255,0.4)" />
-          <circle cx="400" cy="240" r="2" fill="rgba(255,255,255,0.4)" />
-        </svg>
-      </div>
-      
+      <div
+        className="h-full w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] pointer-events-none select-none"
+        dangerouslySetInnerHTML={{ __html: svgMap }}
+      />
       <svg
         ref={svgRef}
         viewBox="0 0 800 400"
