@@ -143,18 +143,48 @@ const Index = () => {
       {/* Global Countdown Timer */}
       <GlobalCountdownTimer />
 
-      {/* The Challenge Section - Replaced with Radial Timeline */}
+      {/* The Challenge Section - Now as Banner */}
       <section className="py-12 lg:py-20 bg-slate-800/50">
-        <div className="container mx-auto px-4 mb-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">The Ultimate AI Business Challenge</h2>
-            <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-              7 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
-            </p>
+        <div className="container mx-auto px-4">
+          {/* Banner Card */}
+          <div className="relative overflow-hidden bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 rounded-2xl p-8 lg:p-12 max-w-6xl mx-auto">
+            {/* Background Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-orange-900/30"></div>
+            
+            {/* Abstract Background Shape */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            
+            {/* Content */}
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Left Content */}
+              <div>
+                <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  THE ULTIMATE AI BUSINESS CHALLENGE
+                </h2>
+                <p className="text-lg lg:text-xl text-gray-300 mb-8 leading-relaxed">
+                  7 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
+                </p>
+                <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all">
+                  Join the Challenge
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+              
+              {/* Right Visual Element */}
+              <div className="relative">
+                <div className="w-full h-64 lg:h-80 bg-gradient-to-br from-orange-400 via-yellow-500 to-orange-600 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-1 transition-transform duration-300">
+                  <div className="absolute inset-4 bg-gradient-to-br from-white/10 to-transparent rounded-xl backdrop-blur-sm border border-white/20"></div>
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="text-white/90 text-sm font-medium mb-2">AI Challenge 2024</div>
+                    <div className="text-white text-xl lg:text-2xl font-bold">$200K Prize Pool</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
-        <div className="h-screen">
+        <div className="h-screen mt-12">
           <AIBusinessChallengeTimeline />
         </div>
       </section>
