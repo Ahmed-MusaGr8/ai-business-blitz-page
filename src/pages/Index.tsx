@@ -9,6 +9,8 @@ import { AIBusinessChallengeTimeline } from "@/components/ui/radial-timeline-dem
 import GlobalCountdownTimer from "@/components/ui/global-countdown-timer";
 import { WorldMap } from "@/components/ui/world-map";
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
+import { Footer } from "@/components/ui/footer";
+import { Hexagon, Github, Twitter } from "lucide-react";
 
 const Index = () => {
   const mentors = [{
@@ -252,16 +254,7 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section with World Map */}
-      <section className="py-12 lg:py-20 bg-black">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-md mx-auto mb-8">
-            <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
-              Claim Your Spot Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-        
+      <section className="py-12 lg:py-20 bg-black">        
         {/* World Map showing global participation */}
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8">
@@ -272,6 +265,16 @@ const Index = () => {
               Entrepreneurs from around the world are joining the challenge - both online and at our Silicon Valley headquarters
             </p>
           </div>
+          
+          <div className="container mx-auto px-4 text-center mb-8">
+            <div className="max-w-md mx-auto">
+              <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
+                Claim Your Spot Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+          
           <WorldMap
             dots={[
               {
@@ -313,7 +316,36 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <StackedCircularFooter />
+      <Footer
+        logo={<Hexagon className="h-10 w-10" />}
+        brandName="AI Challenge"
+        socialLinks={[
+          {
+            icon: <Twitter className="h-5 w-5" />,
+            href: "https://twitter.com",
+            label: "Twitter",
+          },
+          {
+            icon: <Github className="h-5 w-5" />,
+            href: "https://github.com",
+            label: "GitHub",
+          },
+        ]}
+        mainLinks={[
+          { href: "/challenge", label: "Challenge" },
+          { href: "/mentors", label: "Mentors" },
+          { href: "/prizes", label: "Prizes" },
+          { href: "/contact", label: "Contact" },
+        ]}
+        legalLinks={[
+          { href: "/privacy", label: "Privacy" },
+          { href: "/terms", label: "Terms" },
+        ]}
+        copyright={{
+          text: "© 2024 AI Challenge",
+          license: "All rights reserved",
+        }}
+      />
     </div>;
 };
 export default Index;
