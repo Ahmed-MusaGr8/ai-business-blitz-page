@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { DemoHeroGeometric } from "@/components/ui/demo";
 
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -93,73 +94,61 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
-        <div className="relative container mx-auto px-4 py-12 lg:py-20 text-center text-white">
-          {/* Logo */}
-          <div className="mb-6 lg:mb-8">
-            <div className="inline-flex items-center gap-2 text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                <span className="text-white text-sm font-bold">ZC</span>
+      {/* New Hero Section */}
+      <section className="relative">
+        <DemoHeroGeometric />
+        
+        {/* Overlay content */}
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="container mx-auto px-4 text-center text-white mt-20">
+            {/* Key Benefits */}
+            <div className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-6 lg:mb-8">
+              <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-400">
+                <Users className="w-4 h-4 mr-1" />
+                Billionaire Mentors
+              </Badge>
+              <Badge variant="secondary" className="bg-purple-500/20 text-purple-300 border-purple-400">
+                <Trophy className="w-4 h-4 mr-1" />
+                $200K Prize Pool
+              </Badge>
+              <Badge variant="secondary" className="bg-pink-500/20 text-pink-300 border-pink-400">
+                <Globe className="w-4 h-4 mr-1" />
+                Hybrid Format
+              </Badge>
+            </div>
+
+            <p className="text-lg md:text-xl lg:text-2xl mb-6 lg:mb-8 text-gray-300 max-w-4xl mx-auto">
+              Learn from billionaire mentors, master AI business building, and compete for 
+              <span className="text-yellow-400 font-bold"> $200,000 in prizes</span>
+            </p>
+
+            {/* Countdown Timer */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 lg:p-6 mb-6 lg:mb-8 max-w-2xl mx-auto border border-white/10">
+              <h3 className="text-lg font-semibold mb-4">Challenge Starts In:</h3>
+              <div className="grid grid-cols-4 gap-4">
+                {[
+                  { label: "Days", value: timeLeft.days },
+                  { label: "Hours", value: timeLeft.hours },
+                  { label: "Minutes", value: timeLeft.minutes },
+                  { label: "Seconds", value: timeLeft.seconds }
+                ].map((item, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl lg:text-3xl font-bold text-yellow-400">{item.value}</div>
+                    <div className="text-sm text-gray-400">{item.label}</div>
+                  </div>
+                ))}
               </div>
-              Zero Code Challenge
             </div>
-          </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent leading-tight">
-            Build Your AI Empire
-            <br />
-            <span className="text-2xl md:text-3xl lg:text-5xl">From Zero to Billions</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl lg:text-2xl mb-6 lg:mb-8 text-gray-300 max-w-4xl mx-auto">
-            Learn from billionaire mentors, master AI business building, and compete for 
-            <span className="text-yellow-400 font-bold"> $200,000 in prizes</span>
-          </p>
-
-          {/* Key Benefits */}
-          <div className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-6 lg:mb-8">
-            <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-400">
-              <Users className="w-4 h-4 mr-1" />
-              Billionaire Mentors
-            </Badge>
-            <Badge variant="secondary" className="bg-purple-500/20 text-purple-300 border-purple-400">
-              <Trophy className="w-4 h-4 mr-1" />
-              $200K Prize Pool
-            </Badge>
-            <Badge variant="secondary" className="bg-pink-500/20 text-pink-300 border-pink-400">
-              <Globe className="w-4 h-4 mr-1" />
-              Hybrid Format
-            </Badge>
-          </div>
-
-          {/* Countdown Timer */}
-          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 lg:p-6 mb-6 lg:mb-8 max-w-2xl mx-auto border border-white/10">
-            <h3 className="text-lg font-semibold mb-4">Challenge Starts In:</h3>
-            <div className="grid grid-cols-4 gap-4">
-              {[
-                { label: "Days", value: timeLeft.days },
-                { label: "Hours", value: timeLeft.hours },
-                { label: "Minutes", value: timeLeft.minutes },
-                { label: "Seconds", value: timeLeft.seconds }
-              ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-yellow-400">{item.value}</div>
-                  <div className="text-sm text-gray-400">{item.label}</div>
-                </div>
-              ))}
+            <div className="max-w-md mx-auto">
+              <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-6 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all">
+                Secure Your Spot Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </div>
+            
+            <p className="text-sm text-gray-400 mt-4">Early Bird Special: Save $500 • Limited Time</p>
           </div>
-
-          <div className="max-w-md mx-auto">
-            <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-6 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all">
-              Secure Your Spot Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-          
-          <p className="text-sm text-gray-400 mt-4">Early Bird Special: Save $500 • Limited Time</p>
         </div>
       </section>
 
