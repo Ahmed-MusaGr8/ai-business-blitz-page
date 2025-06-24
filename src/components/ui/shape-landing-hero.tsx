@@ -1,8 +1,8 @@
+
 "use client";
 
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion } from "framer-motion";
 import { Circle, ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -72,15 +72,7 @@ function ElegantShape({
     );
 }
 
-function HeroGeometric({
-    badge = "Design Collective",
-    title1 = "Elevate Your Digital Vision",
-    title2 = "Crafting Exceptional Websites",
-}: {
-    badge?: string;
-    title1?: string;
-    title2?: string;
-}) {
+function HeroGeometric() {
     const fadeUpVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0 },
@@ -152,7 +144,7 @@ function HeroGeometric({
                     >
                         <Circle className="h-2 w-2 fill-rose-500/80" />
                         <span className="text-sm text-white/60 tracking-wide">
-                            {badge}
+                            Zero Code Challenge
                         </span>
                     </motion.div>
 
@@ -168,7 +160,7 @@ function HeroGeometric({
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
                             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                                {title1}
+                                Build Your AI Empire
                             </span>
                             <br />
                             <span
@@ -176,7 +168,7 @@ function HeroGeometric({
                                     "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 "
                                 )}
                             >
-                                {title2}
+                                Zero Code Required
                             </span>
                         </h1>
                     </motion.div>

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,47 +12,6 @@ import { WorldMap } from "@/components/ui/world-map";
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
 
 const Index = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 15,
-    hours: 8,
-    minutes: 42,
-    seconds: 30
-  });
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return {
-            ...prev,
-            seconds: prev.seconds - 1
-          };
-        } else if (prev.minutes > 0) {
-          return {
-            ...prev,
-            minutes: prev.minutes - 1,
-            seconds: 59
-          };
-        } else if (prev.hours > 0) {
-          return {
-            ...prev,
-            hours: prev.hours - 1,
-            minutes: 59,
-            seconds: 59
-          };
-        } else if (prev.days > 0) {
-          return {
-            ...prev,
-            days: prev.days - 1,
-            hours: 23,
-            minutes: 59,
-            seconds: 59
-          };
-        }
-        return prev;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
   const mentors = [{
     name: "Sarah Chen",
     title: "AI Pioneer & Billionaire",
@@ -68,6 +28,7 @@ const Index = () => {
     bio: "Former Google AI lead, now building billion-dollar ventures",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
   }];
+
   const testimonials = [{
     name: "Alex Johnson",
     role: "2023 Winner",
@@ -79,6 +40,7 @@ const Index = () => {
     quote: "The mentorship was invaluable. Direct access to billionaires who actually care about your success.",
     amount: "Runner-up"
   }];
+
   const faqs = [{
     question: "What exactly is the Zero Code Challenge?",
     answer: "A hybrid 7-day intensive where you'll learn to build AI-powered businesses from scratch, mentored by billionaires and industry leaders. Participants compete for a $200K prize pool while gaining real-world skills."

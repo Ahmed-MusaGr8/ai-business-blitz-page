@@ -1,45 +1,11 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useCountdown } from "@/hooks/useCountdown";
 
 const GlobalCountdownTimer = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  useEffect(() => {
-    // Set a fixed future date (65 days from now - you can adjust this base date)
-    // Using a fixed date to ensure consistency across all visitors
-    const targetDate = new Date('2025-03-07T00:00:00Z').getTime();
-    
-    const updateTimer = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        setTimeLeft({ days, hours, minutes, seconds });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
-
-    // Update immediately
-    updateTimer();
-    
-    // Update every second
-    const timer = setInterval(updateTimer, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
+  // Set target date to March 7, 2025
+  const timeLeft = useCountdown('2025-03-07T00:00:00Z');
 
   const formatNumber = (num: number) => {
     return num.toString().padStart(2, '0');
