@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -253,26 +252,14 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section with World Map */}
-      <section className="py-12 lg:py-20 bg-slate-900">
+      <section className="py-12 lg:py-20 bg-black">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">
-            Your AI Empire Awaits
-          </h2>
-          <p className="text-lg lg:text-xl text-blue-100 mb-6 lg:mb-8 max-w-3xl mx-auto">
-            Join thousands of entrepreneurs who are building the future with AI. 
-            Don't let this opportunity slip away.
-          </p>
-          
           <div className="max-w-md mx-auto mb-8">
             <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
               Claim Your Spot Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
-          
-          <p className="text-blue-100 mb-12 text-base">
-            🔥 Early Bird Pricing Ends Soon • 🏆 $200K Prize Pool • 🚀 7-Day Challenge
-          </p>
         </div>
         
         {/* World Map showing global participation */}
