@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { DemoHeroGeometric } from "@/components/ui/demo";
 import { AIBusinessChallengeTimeline } from "@/components/ui/radial-timeline-demo";
+import GlobalCountdownTimer from "@/components/ui/global-countdown-timer";
 
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -78,7 +79,7 @@ const Index = () => {
   }];
   const faqs = [{
     question: "What exactly is the Zero Code Challenge?",
-    answer: "A hybrid 5-day intensive where you'll learn to build AI-powered businesses from scratch, mentored by billionaires and industry leaders. Participants compete for a $200K prize pool while gaining real-world skills."
+    answer: "A hybrid 7-day intensive where you'll learn to build AI-powered businesses from scratch, mentored by billionaires and industry leaders. Participants compete for a $200K prize pool while gaining real-world skills."
   }, {
     question: "Do I need coding experience?",
     answer: "No! This is specifically designed for beginners. We'll teach you 'zero code' and 'low code' solutions to build powerful AI businesses without traditional programming."
@@ -92,16 +93,15 @@ const Index = () => {
     question: "What's included in my registration?",
     answer: "All learning materials, direct mentor access, networking events, meals (for in-person), recording access, and eligibility for the full $200K prize pool."
   }];
+  
   return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* New Hero Section */}
       <section className="relative">
         <DemoHeroGeometric />
-        
-        {/* Overlay content */}
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          
-        </div>
       </section>
+
+      {/* Global Countdown Timer */}
+      <GlobalCountdownTimer />
 
       {/* The Challenge Section - Replaced with Radial Timeline */}
       <section className="py-12 lg:py-20 bg-slate-800/50">
@@ -109,7 +109,7 @@ const Index = () => {
           <div className="text-center mb-8">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">The Ultimate AI Business Challenge</h2>
             <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-              5 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
+              7 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
             </p>
           </div>
         </div>
@@ -193,7 +193,7 @@ const Index = () => {
             price: "$497",
             originalPrice: "$997",
             popular: false,
-            features: ["5-day challenge access", "All learning materials", "Group mentorship sessions", "Prize pool eligibility", "Recording access", "Community access"]
+            features: ["7-day challenge access", "All learning materials", "Group mentorship sessions", "Prize pool eligibility", "Recording access", "Community access"]
           }, {
             name: "Standard",
             price: "$997",
@@ -307,7 +307,7 @@ const Index = () => {
           </div>
           
           <p className="text-blue-100 mt-6 text-base">
-            🔥 Early Bird Pricing Ends Soon • 🏆 $200K Prize Pool • 🚀 5-Day Challenge
+            🔥 Early Bird Pricing Ends Soon • 🏆 $200K Prize Pool • 🚀 7-Day Challenge
           </p>
         </div>
       </section>
