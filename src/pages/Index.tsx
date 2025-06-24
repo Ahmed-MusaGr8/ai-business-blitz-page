@@ -7,6 +7,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { DemoHeroGeometric } from "@/components/ui/demo";
 import { AIBusinessChallengeTimeline } from "@/components/ui/radial-timeline-demo";
 import GlobalCountdownTimer from "@/components/ui/global-countdown-timer";
+import { WorldMap } from "@/components/ui/world-map";
+import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
 
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -288,8 +290,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-12 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      {/* Final CTA Section with World Map */}
+      <section className="py-12 lg:py-20 bg-slate-900">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">
             Your AI Empire Awaits
@@ -299,68 +301,70 @@ const Index = () => {
             Don't let this opportunity slip away.
           </p>
           
-          <div className="max-w-md mx-auto">
+          <div className="max-w-md mx-auto mb-8">
             <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
               Claim Your Spot Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
           
-          <p className="text-blue-100 mt-6 text-base">
+          <p className="text-blue-100 mb-12 text-base">
             🔥 Early Bird Pricing Ends Soon • 🏆 $200K Prize Pool • 🚀 7-Day Challenge
           </p>
+        </div>
+        
+        {/* World Map showing global participation */}
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <p className="font-bold text-2xl md:text-3xl text-white mb-4">
+              Global Challenge Participants
+            </p>
+            <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto">
+              Entrepreneurs from around the world are joining the challenge - both online and at our Silicon Valley headquarters
+            </p>
+          </div>
+          <WorldMap
+            dots={[
+              {
+                start: {
+                  lat: 37.4419,
+                  lng: -122.1430,
+                }, // Silicon Valley (HQ)
+                end: {
+                  lat: 40.7128,
+                  lng: -74.0060,
+                }, // New York
+              },
+              {
+                start: { lat: 37.4419, lng: -122.1430 }, // Silicon Valley (HQ)
+                end: {
+                  lat: 51.5074,
+                  lng: -0.1278,
+                }, // London
+              },
+              {
+                start: { lat: 37.4419, lng: -122.1430 }, // Silicon Valley (HQ)
+                end: { lat: 35.6762, lng: 139.6503 }, // Tokyo
+              },
+              {
+                start: { lat: 51.5074, lng: -0.1278 }, // London
+                end: { lat: 28.6139, lng: 77.209 }, // New Delhi
+              },
+              {
+                start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+                end: { lat: -33.8688, lng: 151.2093 }, // Sydney
+              },
+              {
+                start: { lat: -33.8688, lng: 151.2093 }, // Sydney
+                end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+              },
+            ]}
+          />
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 py-8 lg:py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            <div className="md:col-span-2 lg:col-span-1">
-              <div className="flex items-center gap-2 text-lg lg:text-xl font-bold text-white mb-4">
-                <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded"></div>
-                Zero Code Challenge
-              </div>
-              <p className="text-gray-400">
-                Empowering entrepreneurs to build AI-powered billion-dollar businesses.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-4 text-lg">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Mentors</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Prize Pool</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Register</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-4 text-lg">Support</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Technical Support</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Refund Policy</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-4 text-lg">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Zero Code Challenge. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <StackedCircularFooter />
     </div>;
 };
 export default Index;

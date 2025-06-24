@@ -12,9 +12,9 @@ const GlobalCountdownTimer = () => {
   });
 
   useEffect(() => {
-    // Set a fixed future date (65 days from a specific date)
-    // Using January 1, 2025 as the base date for consistency
-    const targetDate = new Date('2025-03-07T00:00:00Z').getTime(); // 65 days from Jan 1, 2025
+    // Set a fixed future date (65 days from now - you can adjust this base date)
+    // Using a fixed date to ensure consistency across all visitors
+    const targetDate = new Date('2025-03-07T00:00:00Z').getTime();
     
     const updateTimer = () => {
       const now = new Date().getTime();
