@@ -1,8 +1,8 @@
-
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Circle } from "lucide-react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 function ElegantShape({
@@ -46,7 +46,7 @@ function ElegantShape({
                 }}
                 transition={{
                     duration: 12,
-                    repeat: Infinity,
+                    repeat: Number.POSITIVE_INFINITY,
                     ease: "easeInOut",
                 }}
                 style={{
@@ -80,15 +80,9 @@ function HeroGeometric({
     title1?: string;
     title2?: string;
 }) {
-    const fadeUpVariants: Variants = {
-        hidden: { 
-            opacity: 0, 
-            y: 30 
-        },
-        visible: { 
-            opacity: 1, 
-            y: 0 
-        },
+    const fadeUpVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0 },
     };
 
     return (
@@ -197,8 +191,7 @@ function HeroGeometric({
                         }}
                     >
                         <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-                            Crafting exceptional digital experiences through
-                            innovative design and cutting-edge technology.
+                            Learn from billionaire mentors, master AI business building, and compete for $200,000 in prizes
                         </p>
                     </motion.div>
                 </div>

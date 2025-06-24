@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { DemoHeroGeometric } from "@/components/ui/demo";
+import { AIBusinessChallengeTimeline } from "@/components/ui/radial-timeline-demo";
+
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 15,
@@ -101,51 +103,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* The Challenge Section */}
+      {/* The Challenge Section - Replaced with Radial Timeline */}
       <section className="py-12 lg:py-20 bg-slate-800/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 lg:mb-16">
+        <div className="container mx-auto px-4 mb-8">
+          <div className="text-center mb-8">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">The Ultimate AI Business Challenge</h2>
             <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
               5 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[{
-            icon: <Star className="h-6 w-6 lg:h-8 lg:w-8" />,
-            title: "Zero to One Mastery",
-            description: "Learn to validate and launch AI-powered business ideas from scratch, even with zero experience"
-          }, {
-            icon: <DollarSign className="h-6 w-6 lg:h-8 lg:w-8" />,
-            title: "Scaling Strategies",
-            description: "Discover how to scale one-person operations to billion-dollar enterprises using AI automation"
-          }, {
-            icon: <Play className="h-6 w-6 lg:h-8 lg:w-8" />,
-            title: "No-Code AI Tools",
-            description: "Master the latest no-code and low-code platforms to build powerful AI applications without programming"
-          }, {
-            icon: <Users className="h-6 w-6 lg:h-8 lg:w-8" />,
-            title: "Billionaire Mentorship",
-            description: "Direct access to successful entrepreneurs who've built and scaled AI-powered businesses"
-          }, {
-            icon: <Trophy className="h-6 w-6 lg:h-8 lg:w-8" />,
-            title: "Real Networking",
-            description: "Connect with like-minded entrepreneurs, investors, and industry leaders in AI and tech"
-          }, {
-            icon: <Check className="h-6 w-6 lg:h-8 lg:w-8" />,
-            title: "Budget-Friendly Building",
-            description: "Learn to build effective solutions on a budget using smart AI tools and lean methodologies"
-          }].map((item, index) => <Card key={index} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all">
-                <CardHeader>
-                  <div className="text-blue-400 mb-2">{item.icon}</div>
-                  <CardTitle className="text-white text-lg lg:text-xl">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-300">{item.description}</CardDescription>
-                </CardContent>
-              </Card>)}
-          </div>
+        </div>
+        
+        <div className="h-screen">
+          <AIBusinessChallengeTimeline />
         </div>
       </section>
 
