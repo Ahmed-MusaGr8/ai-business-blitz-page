@@ -21,6 +21,13 @@ export const useCountdown = (targetDate: string) => {
     const target = new Date(targetDate).getTime();
     const difference = target - now;
 
+    console.log('Countdown calculation:', {
+      now: new Date(now).toISOString(),
+      target: new Date(target).toISOString(),
+      difference,
+      targetDate
+    });
+
     if (difference > 0) {
       return {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -35,11 +42,14 @@ export const useCountdown = (targetDate: string) => {
 
   useEffect(() => {
     // Calculate initial time
-    setTimeLeft(calculateTimeLeft());
+    const initialTime = calculateTimeLeft();
+    setTimeLeft(initialTime);
+    console.log('Initial countdown time:', initialTime);
 
     // Update every second
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      const newTime = calculateTimeLeft();
+      setTimeLeft(newTime);
     }, 1000);
 
     return () => clearInterval(timer);

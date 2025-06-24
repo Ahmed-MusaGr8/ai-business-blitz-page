@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -134,7 +135,8 @@ const Index = () => {
     },
   ];
   
-  return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+  return (
+    <div className="min-h-screen bg-black">
       {/* New Hero Section */}
       <section className="relative">
         <DemoHeroGeometric />
@@ -144,7 +146,7 @@ const Index = () => {
       <GlobalCountdownTimer />
 
       {/* The Challenge Section - Now as Banner */}
-      <section className="py-12 lg:py-20 bg-slate-800/50">
+      <section className="py-12 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           {/* Banner Card */}
           <div className="relative overflow-hidden bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 rounded-2xl p-8 lg:p-12 max-w-6xl mx-auto">
@@ -190,7 +192,7 @@ const Index = () => {
       </section>
 
       {/* Mentors Section */}
-      <section className="py-12 lg:py-20 bg-gradient-to-r from-slate-900 to-purple-900/30">
+      <section className="py-12 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Learn From Billionaire Mentors</h2>
@@ -200,7 +202,8 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {mentors.map((mentor, index) => <Card key={index} className="bg-slate-800/50 border-slate-600 text-center overflow-hidden hover:bg-slate-800/70 transition-all">
+            {mentors.map((mentor, index) => (
+              <Card key={index} className="bg-slate-800/50 border-slate-600 text-center overflow-hidden hover:bg-slate-800/70 transition-all">
                 <CardHeader>
                   <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-400">
                     <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover" />
@@ -211,7 +214,8 @@ const Index = () => {
                 <CardContent>
                   <p className="text-gray-300">{mentor.bio}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -327,7 +331,7 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-12 lg:py-20 bg-slate-800/50">
+      <section className="py-12 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Choose Your Path to Success</h2>
@@ -353,10 +357,13 @@ const Index = () => {
             originalPrice: null,
             popular: false,
             features: ["Everything in Standard", "Direct mentor WhatsApp access", "Private dinner with mentors", "Guaranteed pitch feedback", "12-month mastermind access", "Investment intro opportunities"]
-          }].map((tier, index) => <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-blue-400' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
-                {tier.popular && <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500">
+          }].map((tier, index) => (
+            <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-blue-400' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
+                {tier.popular && (
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500">
                     Most Popular
-                  </Badge>}
+                  </Badge>
+                )}
                 <CardHeader className="text-center">
                   <CardTitle className="text-white text-xl lg:text-2xl">{tier.name}</CardTitle>
                   <div className="py-4">
@@ -366,22 +373,25 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 mb-6">
-                    {tier.features.map((feature, fIndex) => <li key={fIndex} className="flex items-center text-gray-300">
+                    {tier.features.map((feature, fIndex) => (
+                      <li key={fIndex} className="flex items-center text-gray-300">
                         <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
                         {feature}
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
                   <Button className={`w-full ${tier.popular ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' : 'bg-slate-600 hover:bg-slate-500'} text-white`} size="lg">
                     Register Now
                   </Button>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 lg:py-20 bg-gradient-to-r from-purple-900/30 to-blue-900/30">
+      <section className="py-12 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Success Stories</h2>
@@ -389,7 +399,8 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => <Card key={index} className="bg-slate-800/50 border-slate-600">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-slate-800/50 border-slate-600">
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -407,13 +418,14 @@ const Index = () => {
                     {testimonial.amount}
                   </Badge>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 lg:py-20 bg-slate-800/50">
+      <section className="py-12 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Frequently Asked Questions</h2>
@@ -422,14 +434,16 @@ const Index = () => {
 
           <div className="max-w-4xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-6">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-6">
                   <AccordionTrigger className="text-white hover:text-blue-400 text-left">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-300">
                     {faq.answer}
                   </AccordionContent>
-                </AccordionItem>)}
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </div>
@@ -443,7 +457,7 @@ const Index = () => {
             <p className="font-bold text-2xl md:text-3xl text-white mb-4">
               Global Challenge Participants
             </p>
-            <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
               Entrepreneurs from around the world are joining the challenge - both online and at our Silicon Valley headquarters
             </p>
           </div>
@@ -499,7 +513,7 @@ const Index = () => {
 
       {/* Footer */}
       <Footer
-        logo={<Hexagon className="h-10 w-10" />}
+        logo={<Hexagon className="h-10 w-10 text-white" />}
         brandName="AI Challenge"
         socialLinks={[
           {
@@ -528,6 +542,8 @@ const Index = () => {
           license: "All rights reserved",
         }}
       />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
