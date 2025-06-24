@@ -10,6 +10,7 @@ import GlobalCountdownTimer from "@/components/ui/global-countdown-timer";
 import { WorldMap } from "@/components/ui/world-map";
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
 import { Footer } from "@/components/ui/footer";
+import { Timeline } from "@/components/ui/timeline";
 import { Hexagon, Github, Twitter } from "lucide-react";
 
 const Index = () => {
@@ -58,6 +59,80 @@ const Index = () => {
     question: "What's included in my registration?",
     answer: "All learning materials, direct mentor access, networking events, meals (for in-person), recording access, and eligibility for the full $200K prize pool."
   }];
+
+  const timelineData = [
+    {
+      title: "Day 1-2",
+      content: (
+        <div>
+          <h3 className="text-white text-xl font-bold mb-4">Foundation & Ideation</h3>
+          <p className="text-gray-300 text-sm md:text-base mb-6">
+            Learn AI fundamentals and discover your billion-dollar business idea through expert workshops and mentorship sessions.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-slate-700/50 rounded-lg p-4">
+              <h4 className="text-blue-400 font-semibold mb-2">AI Fundamentals</h4>
+              <p className="text-gray-300 text-sm">Master the basics of AI tools and automation platforms</p>
+            </div>
+            <div className="bg-slate-700/50 rounded-lg p-4">
+              <h4 className="text-purple-400 font-semibold mb-2">Business Ideation</h4>
+              <p className="text-gray-300 text-sm">Discover profitable AI business opportunities</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Day 3-4",
+      content: (
+        <div>
+          <h3 className="text-white text-xl font-bold mb-4">Build & Prototype</h3>
+          <p className="text-gray-300 text-sm md:text-base mb-6">
+            Transform your idea into reality using no-code AI platforms and get hands-on mentorship from industry experts.
+          </p>
+          <div className="space-y-3">
+            <div className="flex items-center text-green-400 text-sm md:text-base">
+              <Check className="h-4 w-4 mr-2" />
+              Build your AI-powered MVP
+            </div>
+            <div className="flex items-center text-green-400 text-sm md:text-base">
+              <Check className="h-4 w-4 mr-2" />
+              Create automated workflows
+            </div>
+            <div className="flex items-center text-green-400 text-sm md:text-base">
+              <Check className="h-4 w-4 mr-2" />
+              Design user interfaces
+            </div>
+            <div className="flex items-center text-green-400 text-sm md:text-base">
+              <Check className="h-4 w-4 mr-2" />
+              Test with real users
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Day 5-7",
+      content: (
+        <div>
+          <h3 className="text-white text-xl font-bold mb-4">Scale & Pitch</h3>
+          <p className="text-gray-300 text-sm md:text-base mb-6">
+            Perfect your business model, create your pitch, and present to our panel of billionaire judges for the $200K prize pool.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-lg p-4 border border-yellow-500/30">
+              <h4 className="text-yellow-400 font-semibold mb-2">Business Strategy</h4>
+              <p className="text-gray-300 text-sm">Develop go-to-market and scaling strategies</p>
+            </div>
+            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg p-4 border border-green-500/30">
+              <h4 className="text-green-400 font-semibold mb-2">Final Pitch</h4>
+              <p className="text-gray-300 text-sm">Present to billionaire judges for prizes</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
   
   return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* New Hero Section */}
@@ -109,6 +184,83 @@ const Index = () => {
               </Card>)}
           </div>
         </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-12 lg:py-20 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-8">HOW IT WORKS</h2>
+            
+            {/* Steps */}
+            <div className="flex items-center justify-center mb-16">
+              <div className="flex items-center space-x-8 lg:space-x-16">
+                {/* Step 1 */}
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl mb-4 mx-auto">
+                    1
+                  </div>
+                  <p className="text-white text-sm lg:text-base max-w-xs">
+                    Register for the Challenge via our platform
+                  </p>
+                </div>
+                
+                {/* Line */}
+                <div className="w-16 lg:w-32 h-0.5 bg-white"></div>
+                
+                {/* Step 2 */}
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl mb-4 mx-auto">
+                    2
+                  </div>
+                  <p className="text-white text-sm lg:text-base max-w-xs">
+                    Get your Challenge Pack email with access details
+                  </p>
+                </div>
+                
+                {/* Line */}
+                <div className="w-16 lg:w-32 h-0.5 bg-white"></div>
+                
+                {/* Step 3 */}
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl mb-4 mx-auto">
+                    3
+                  </div>
+                  <p className="text-white text-sm lg:text-base max-w-xs">
+                    Access the tools and start building your AI empire
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Banner */}
+            <div className="relative">
+              {/* Lightning bolts */}
+              <div className="absolute left-4 lg:left-16 top-1/2 transform -translate-y-1/2">
+                <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform rotate-12" 
+                     style={{clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'}}></div>
+              </div>
+              <div className="absolute right-4 lg:right-16 top-1/2 transform -translate-y-1/2">
+                <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform -rotate-12" 
+                     style={{clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'}}></div>
+              </div>
+              
+              <div className="text-center">
+                <h3 className="text-4xl lg:text-6xl font-bold text-white mb-4">
+                  THE CHALLENGE IS<br />LIVE!
+                </h3>
+                <p className="text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto">
+                  Every participant will receive their Challenge Pack automatically via email within 48 hours of registering. We launch the Challenge in...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Challenge Timeline Section */}
+      <section className="bg-black">
+        <Timeline data={timelineData} />
       </section>
 
       {/* Prize Pool Section */}
