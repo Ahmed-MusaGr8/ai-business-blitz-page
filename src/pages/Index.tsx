@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { DemoHeroGeometric } from "@/components/ui/demo";
-
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 15,
@@ -13,142 +12,92 @@ const Index = () => {
     minutes: 42,
     seconds: 30
   });
-
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
+          return {
+            ...prev,
+            seconds: prev.seconds - 1
+          };
         } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+          return {
+            ...prev,
+            minutes: prev.minutes - 1,
+            seconds: 59
+          };
         } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
+          return {
+            ...prev,
+            hours: prev.hours - 1,
+            minutes: 59,
+            seconds: 59
+          };
         } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
+          return {
+            ...prev,
+            days: prev.days - 1,
+            hours: 23,
+            minutes: 59,
+            seconds: 59
+          };
         }
         return prev;
       });
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
-
-  const mentors = [
-    {
-      name: "Sarah Chen",
-      title: "AI Pioneer & Billionaire",
-      bio: "Founded 3 unicorn companies, specialized in AI automation",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=400&h=400&fit=crop&crop=face"
-    },
-    {
-      name: "Marcus Rodriguez",
-      title: "Tech Mogul & Investor",
-      bio: "Built and sold companies worth $2.8B, AI industry expert",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
-    },
-    {
-      name: "Dr. Aisha Patel",
-      title: "ML Research & Entrepreneur",
-      bio: "Former Google AI lead, now building billion-dollar ventures",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Alex Johnson",
-      role: "2023 Winner",
-      quote: "This challenge changed my life. Went from zero coding experience to launching my AI startup.",
-      amount: "$50,000 Winner"
-    },
-    {
-      name: "Maria Santos",
-      role: "Tech Entrepreneur",
-      quote: "The mentorship was invaluable. Direct access to billionaires who actually care about your success.",
-      amount: "Runner-up"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "What exactly is the Zero Code Challenge?",
-      answer: "A hybrid 5-day intensive where you'll learn to build AI-powered businesses from scratch, mentored by billionaires and industry leaders. Participants compete for a $200K prize pool while gaining real-world skills."
-    },
-    {
-      question: "Do I need coding experience?",
-      answer: "No! This is specifically designed for beginners. We'll teach you 'zero code' and 'low code' solutions to build powerful AI businesses without traditional programming."
-    },
-    {
-      question: "How does the hybrid format work?",
-      answer: "You can participate either in-person at our Silicon Valley headquarters or join virtually with full access to all sessions, mentorship, and networking opportunities."
-    },
-    {
-      question: "What are the qualification criteria for prizes?",
-      answer: "All registered participants are eligible. Prizes are awarded based on innovation, business viability, presentation quality, and mentor feedback on your AI business concept."
-    },
-    {
-      question: "What's included in my registration?",
-      answer: "All learning materials, direct mentor access, networking events, meals (for in-person), recording access, and eligibility for the full $200K prize pool."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+  const mentors = [{
+    name: "Sarah Chen",
+    title: "AI Pioneer & Billionaire",
+    bio: "Founded 3 unicorn companies, specialized in AI automation",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=400&h=400&fit=crop&crop=face"
+  }, {
+    name: "Marcus Rodriguez",
+    title: "Tech Mogul & Investor",
+    bio: "Built and sold companies worth $2.8B, AI industry expert",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+  }, {
+    name: "Dr. Aisha Patel",
+    title: "ML Research & Entrepreneur",
+    bio: "Former Google AI lead, now building billion-dollar ventures",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
+  }];
+  const testimonials = [{
+    name: "Alex Johnson",
+    role: "2023 Winner",
+    quote: "This challenge changed my life. Went from zero coding experience to launching my AI startup.",
+    amount: "$50,000 Winner"
+  }, {
+    name: "Maria Santos",
+    role: "Tech Entrepreneur",
+    quote: "The mentorship was invaluable. Direct access to billionaires who actually care about your success.",
+    amount: "Runner-up"
+  }];
+  const faqs = [{
+    question: "What exactly is the Zero Code Challenge?",
+    answer: "A hybrid 5-day intensive where you'll learn to build AI-powered businesses from scratch, mentored by billionaires and industry leaders. Participants compete for a $200K prize pool while gaining real-world skills."
+  }, {
+    question: "Do I need coding experience?",
+    answer: "No! This is specifically designed for beginners. We'll teach you 'zero code' and 'low code' solutions to build powerful AI businesses without traditional programming."
+  }, {
+    question: "How does the hybrid format work?",
+    answer: "You can participate either in-person at our Silicon Valley headquarters or join virtually with full access to all sessions, mentorship, and networking opportunities."
+  }, {
+    question: "What are the qualification criteria for prizes?",
+    answer: "All registered participants are eligible. Prizes are awarded based on innovation, business viability, presentation quality, and mentor feedback on your AI business concept."
+  }, {
+    question: "What's included in my registration?",
+    answer: "All learning materials, direct mentor access, networking events, meals (for in-person), recording access, and eligibility for the full $200K prize pool."
+  }];
+  return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* New Hero Section */}
       <section className="relative">
         <DemoHeroGeometric />
         
         {/* Overlay content */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="container mx-auto px-4 text-center text-white mt-20">
-            {/* Key Benefits */}
-            <div className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-6 lg:mb-8">
-              <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-400">
-                <Users className="w-4 h-4 mr-1" />
-                Billionaire Mentors
-              </Badge>
-              <Badge variant="secondary" className="bg-purple-500/20 text-purple-300 border-purple-400">
-                <Trophy className="w-4 h-4 mr-1" />
-                $200K Prize Pool
-              </Badge>
-              <Badge variant="secondary" className="bg-pink-500/20 text-pink-300 border-pink-400">
-                <Globe className="w-4 h-4 mr-1" />
-                Hybrid Format
-              </Badge>
-            </div>
-
-            <p className="text-lg md:text-xl lg:text-2xl mb-6 lg:mb-8 text-gray-300 max-w-4xl mx-auto">
-              Learn from billionaire mentors, master AI business building, and compete for 
-              <span className="text-yellow-400 font-bold"> $200,000 in prizes</span>
-            </p>
-
-            {/* Countdown Timer */}
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 lg:p-6 mb-6 lg:mb-8 max-w-2xl mx-auto border border-white/10">
-              <h3 className="text-lg font-semibold mb-4">Challenge Starts In:</h3>
-              <div className="grid grid-cols-4 gap-4">
-                {[
-                  { label: "Days", value: timeLeft.days },
-                  { label: "Hours", value: timeLeft.hours },
-                  { label: "Minutes", value: timeLeft.minutes },
-                  { label: "Seconds", value: timeLeft.seconds }
-                ].map((item, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl lg:text-3xl font-bold text-yellow-400">{item.value}</div>
-                    <div className="text-sm text-gray-400">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="max-w-md mx-auto">
-              <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-6 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all">
-                Secure Your Spot Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-            
-            <p className="text-sm text-gray-400 mt-4">Early Bird Special: Save $500 • Limited Time</p>
-          </div>
+          
         </div>
       </section>
 
@@ -163,39 +112,31 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              {
-                icon: <Star className="h-6 w-6 lg:h-8 lg:w-8" />,
-                title: "Zero to One Mastery",
-                description: "Learn to validate and launch AI-powered business ideas from scratch, even with zero experience"
-              },
-              {
-                icon: <DollarSign className="h-6 w-6 lg:h-8 lg:w-8" />,
-                title: "Scaling Strategies",
-                description: "Discover how to scale one-person operations to billion-dollar enterprises using AI automation"
-              },
-              {
-                icon: <Play className="h-6 w-6 lg:h-8 lg:w-8" />,
-                title: "No-Code AI Tools",
-                description: "Master the latest no-code and low-code platforms to build powerful AI applications without programming"
-              },
-              {
-                icon: <Users className="h-6 w-6 lg:h-8 lg:w-8" />,
-                title: "Billionaire Mentorship",
-                description: "Direct access to successful entrepreneurs who've built and scaled AI-powered businesses"
-              },
-              {
-                icon: <Trophy className="h-6 w-6 lg:h-8 lg:w-8" />,
-                title: "Real Networking",
-                description: "Connect with like-minded entrepreneurs, investors, and industry leaders in AI and tech"
-              },
-              {
-                icon: <Check className="h-6 w-6 lg:h-8 lg:w-8" />,
-                title: "Budget-Friendly Building",
-                description: "Learn to build effective solutions on a budget using smart AI tools and lean methodologies"
-              }
-            ].map((item, index) => (
-              <Card key={index} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all">
+            {[{
+            icon: <Star className="h-6 w-6 lg:h-8 lg:w-8" />,
+            title: "Zero to One Mastery",
+            description: "Learn to validate and launch AI-powered business ideas from scratch, even with zero experience"
+          }, {
+            icon: <DollarSign className="h-6 w-6 lg:h-8 lg:w-8" />,
+            title: "Scaling Strategies",
+            description: "Discover how to scale one-person operations to billion-dollar enterprises using AI automation"
+          }, {
+            icon: <Play className="h-6 w-6 lg:h-8 lg:w-8" />,
+            title: "No-Code AI Tools",
+            description: "Master the latest no-code and low-code platforms to build powerful AI applications without programming"
+          }, {
+            icon: <Users className="h-6 w-6 lg:h-8 lg:w-8" />,
+            title: "Billionaire Mentorship",
+            description: "Direct access to successful entrepreneurs who've built and scaled AI-powered businesses"
+          }, {
+            icon: <Trophy className="h-6 w-6 lg:h-8 lg:w-8" />,
+            title: "Real Networking",
+            description: "Connect with like-minded entrepreneurs, investors, and industry leaders in AI and tech"
+          }, {
+            icon: <Check className="h-6 w-6 lg:h-8 lg:w-8" />,
+            title: "Budget-Friendly Building",
+            description: "Learn to build effective solutions on a budget using smart AI tools and lean methodologies"
+          }].map((item, index) => <Card key={index} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all">
                 <CardHeader>
                   <div className="text-blue-400 mb-2">{item.icon}</div>
                   <CardTitle className="text-white text-lg lg:text-xl">{item.title}</CardTitle>
@@ -203,8 +144,7 @@ const Index = () => {
                 <CardContent>
                   <CardDescription className="text-gray-300">{item.description}</CardDescription>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -220,15 +160,10 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {mentors.map((mentor, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-600 text-center overflow-hidden hover:bg-slate-800/70 transition-all">
+            {mentors.map((mentor, index) => <Card key={index} className="bg-slate-800/50 border-slate-600 text-center overflow-hidden hover:bg-slate-800/70 transition-all">
                 <CardHeader>
                   <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-400">
-                    <img 
-                      src={mentor.image} 
-                      alt={mentor.name}
-                      className="w-full h-full object-cover"
-                    />
+                    <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover" />
                   </div>
                   <CardTitle className="text-white text-lg lg:text-xl">{mentor.name}</CardTitle>
                   <CardDescription className="text-blue-400 font-semibold">{mentor.title}</CardDescription>
@@ -236,8 +171,7 @@ const Index = () => {
                 <CardContent>
                   <p className="text-gray-300">{mentor.bio}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -284,83 +218,47 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Early Bird",
-                price: "$497",
-                originalPrice: "$997",
-                popular: false,
-                features: [
-                  "5-day challenge access",
-                  "All learning materials",
-                  "Group mentorship sessions",
-                  "Prize pool eligibility",
-                  "Recording access",
-                  "Community access"
-                ]
-              },
-              {
-                name: "Standard",
-                price: "$997",
-                originalPrice: null,
-                popular: true,
-                features: [
-                  "Everything in Early Bird",
-                  "1-on-1 mentor session",
-                  "VIP networking events",
-                  "Priority Q&A access",
-                  "Bonus masterclasses",
-                  "6-month community access"
-                ]
-              },
-              {
-                name: "VIP Experience",
-                price: "$1,997",
-                originalPrice: null,
-                popular: false,
-                features: [
-                  "Everything in Standard",
-                  "Direct mentor WhatsApp access",
-                  "Private dinner with mentors",
-                  "Guaranteed pitch feedback",
-                  "12-month mastermind access",
-                  "Investment intro opportunities"
-                ]
-              }
-            ].map((tier, index) => (
-              <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-blue-400' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
-                {tier.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500">
+            {[{
+            name: "Early Bird",
+            price: "$497",
+            originalPrice: "$997",
+            popular: false,
+            features: ["5-day challenge access", "All learning materials", "Group mentorship sessions", "Prize pool eligibility", "Recording access", "Community access"]
+          }, {
+            name: "Standard",
+            price: "$997",
+            originalPrice: null,
+            popular: true,
+            features: ["Everything in Early Bird", "1-on-1 mentor session", "VIP networking events", "Priority Q&A access", "Bonus masterclasses", "6-month community access"]
+          }, {
+            name: "VIP Experience",
+            price: "$1,997",
+            originalPrice: null,
+            popular: false,
+            features: ["Everything in Standard", "Direct mentor WhatsApp access", "Private dinner with mentors", "Guaranteed pitch feedback", "12-month mastermind access", "Investment intro opportunities"]
+          }].map((tier, index) => <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-blue-400' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
+                {tier.popular && <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500">
                     Most Popular
-                  </Badge>
-                )}
+                  </Badge>}
                 <CardHeader className="text-center">
                   <CardTitle className="text-white text-xl lg:text-2xl">{tier.name}</CardTitle>
                   <div className="py-4">
                     <div className="text-3xl lg:text-4xl font-bold text-white">{tier.price}</div>
-                    {tier.originalPrice && (
-                      <div className="text-gray-400 line-through text-lg">{tier.originalPrice}</div>
-                    )}
+                    {tier.originalPrice && <div className="text-gray-400 line-through text-lg">{tier.originalPrice}</div>}
                   </div>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 mb-6">
-                    {tier.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-center text-gray-300">
+                    {tier.features.map((feature, fIndex) => <li key={fIndex} className="flex items-center text-gray-300">
                         <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
                         {feature}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
-                  <Button 
-                    className={`w-full ${tier.popular ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' : 'bg-slate-600 hover:bg-slate-500'} text-white`}
-                    size="lg"
-                  >
+                  <Button className={`w-full ${tier.popular ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' : 'bg-slate-600 hover:bg-slate-500'} text-white`} size="lg">
                     Register Now
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -374,8 +272,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-600">
+            {testimonials.map((testimonial, index) => <Card key={index} className="bg-slate-800/50 border-slate-600">
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -393,8 +290,7 @@ const Index = () => {
                     {testimonial.amount}
                   </Badge>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -409,16 +305,14 @@ const Index = () => {
 
           <div className="max-w-4xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-6">
+              {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-6">
                   <AccordionTrigger className="text-white hover:text-blue-400 text-left">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-300">
                     {faq.answer}
                   </AccordionContent>
-                </AccordionItem>
-              ))}
+                </AccordionItem>)}
             </Accordion>
           </div>
         </div>
@@ -497,8 +391,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
