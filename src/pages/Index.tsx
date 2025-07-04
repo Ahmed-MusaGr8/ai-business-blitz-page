@@ -18,7 +18,7 @@ const Index = () => {
     name: "Sarah Chen",
     title: "AI Pioneer & Billionaire", 
     bio: "Founded 3 unicorn companies, specialized in AI automation",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=400&h=400&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face"
   }, {
     name: "Marcus Rodriguez",
     title: "Tech Mogul & Investor",
@@ -212,7 +212,7 @@ const Index = () => {
                   {/* Name label */}
                   <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-black border border-white px-3 py-1 text-white text-sm font-medium uppercase tracking-wider">
-                      {mentor.name.replace(' ', '').toUpperCase()}
+                      {mentor.name.startsWith('Dr.') ? mentor.name.split(' ').slice(0, 2).join(' ').replace(' ', '').toUpperCase() : mentor.name.split(' ')[0].toUpperCase()}
                     </div>
                   </div>
                 </div>
