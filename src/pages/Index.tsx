@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,7 +12,6 @@ import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
 import { Footer } from "@/components/ui/footer";
 import { Timeline } from "@/components/ui/timeline";
 import { Hexagon, Github, Twitter } from "lucide-react";
-
 const Index = () => {
   const mentors = [{
     name: "Sarah Chen",
@@ -31,7 +29,6 @@ const Index = () => {
     bio: "Former Google AI lead, now building billion-dollar ventures",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
   }];
-
   const testimonials = [{
     name: "Alex Johnson",
     role: "2023 Winner",
@@ -43,7 +40,6 @@ const Index = () => {
     quote: "The mentorship was invaluable. Direct access to billionaires who actually care about your success.",
     amount: "Runner-up"
   }];
-
   const faqs = [{
     question: "What exactly is the Zero Code Challenge?",
     answer: "A hybrid 7-day intensive where you'll learn to build AI-powered businesses from scratch, mentored by billionaires and industry leaders. Participants compete for a $200K prize pool while gaining real-world skills."
@@ -60,12 +56,9 @@ const Index = () => {
     question: "What's included in my registration?",
     answer: "All learning materials, direct mentor access, networking events, meals (for in-person), recording access, and eligibility for the full $200K prize pool."
   }];
-
-  const timelineData = [
-    {
-      title: "Day 1-2",
-      content: (
-        <div>
+  const timelineData = [{
+    title: "Day 1-2",
+    content: <div>
           <h3 className="text-white text-xl font-bold mb-4">Foundation & Ideation</h3>
           <p className="text-gray-300 text-sm md:text-base mb-6">
             Learn AI fundamentals and discover your billion-dollar business idea through expert workshops and mentorship sessions.
@@ -81,12 +74,9 @@ const Index = () => {
             </div>
           </div>
         </div>
-      ),
-    },
-    {
-      title: "Day 3-4",
-      content: (
-        <div>
+  }, {
+    title: "Day 3-4",
+    content: <div>
           <h3 className="text-white text-xl font-bold mb-4">Build & Prototype</h3>
           <p className="text-gray-300 text-sm md:text-base mb-6">
             Transform your idea into reality using no-code AI platforms and get hands-on mentorship from industry experts.
@@ -110,12 +100,9 @@ const Index = () => {
             </div>
           </div>
         </div>
-      ),
-    },
-    {
-      title: "Day 5-7",
-      content: (
-        <div>
+  }, {
+    title: "Day 5-7",
+    content: <div>
           <h3 className="text-white text-xl font-bold mb-4">Scale & Pitch</h3>
           <p className="text-gray-300 text-sm md:text-base mb-6">
             Perfect your business model, create your pitch, and present to our panel of billionaire judges for the $200K prize pool.
@@ -131,12 +118,8 @@ const Index = () => {
             </div>
           </div>
         </div>
-      ),
-    },
-  ];
-  
-  return (
-    <div className="min-h-screen bg-black">
+  }];
+  return <div className="min-h-screen bg-black">
       {/* New Hero Section */}
       <section className="relative">
         <DemoHeroGeometric />
@@ -202,8 +185,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {mentors.map((mentor, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-600 text-center overflow-hidden hover:bg-slate-800/70 transition-all">
+            {mentors.map((mentor, index) => <Card key={index} className="bg-slate-800/50 border-slate-600 text-center overflow-hidden hover:bg-slate-800/70 transition-all">
                 <CardHeader>
                   <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-400">
                     <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover" />
@@ -214,8 +196,7 @@ const Index = () => {
                 <CardContent>
                   <p className="text-gray-300">{mentor.bio}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -271,12 +252,14 @@ const Index = () => {
             <div className="relative">
               {/* Lightning bolts */}
               <div className="absolute left-4 lg:left-16 top-1/2 transform -translate-y-1/2">
-                <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform rotate-12" 
-                     style={{clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'}}></div>
+                <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform rotate-12" style={{
+                clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'
+              }}></div>
               </div>
               <div className="absolute right-4 lg:right-16 top-1/2 transform -translate-y-1/2">
-                <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform -rotate-12" 
-                     style={{clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'}}></div>
+                <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform -rotate-12" style={{
+                clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'
+              }}></div>
               </div>
               
               <div className="text-center">
@@ -357,13 +340,10 @@ const Index = () => {
             originalPrice: null,
             popular: false,
             features: ["Everything in Standard", "Direct mentor WhatsApp access", "Private dinner with mentors", "Guaranteed pitch feedback", "12-month mastermind access", "Investment intro opportunities"]
-          }].map((tier, index) => (
-            <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-blue-400' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
-                {tier.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500">
+          }].map((tier, index) => <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-blue-400' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
+                {tier.popular && <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500">
                     Most Popular
-                  </Badge>
-                )}
+                  </Badge>}
                 <CardHeader className="text-center">
                   <CardTitle className="text-white text-xl lg:text-2xl">{tier.name}</CardTitle>
                   <div className="py-4">
@@ -373,19 +353,16 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 mb-6">
-                    {tier.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-center text-gray-300">
+                    {tier.features.map((feature, fIndex) => <li key={fIndex} className="flex items-center text-gray-300">
                         <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
                         {feature}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                   <Button className={`w-full ${tier.popular ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' : 'bg-slate-600 hover:bg-slate-500'} text-white`} size="lg">
                     Register Now
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -399,8 +376,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-600">
+            {testimonials.map((testimonial, index) => <Card key={index} className="bg-slate-800/50 border-slate-600">
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -418,8 +394,7 @@ const Index = () => {
                     {testimonial.amount}
                   </Badge>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -434,16 +409,14 @@ const Index = () => {
 
           <div className="max-w-4xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-6">
+              {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-6">
                   <AccordionTrigger className="text-white hover:text-blue-400 text-left">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-300">
                     {faq.answer}
                   </AccordionContent>
-                </AccordionItem>
-              ))}
+                </AccordionItem>)}
             </Accordion>
           </div>
         </div>
@@ -457,9 +430,7 @@ const Index = () => {
             <p className="font-bold text-2xl md:text-3xl text-white mb-4">
               Global Challenge Participants
             </p>
-            <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-              Entrepreneurs from around the world are joining the challenge - both online and at our Silicon Valley headquarters
-            </p>
+            <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto mb-8">Entrepreneurs from around the world are joining the challenge - both online and on site at our studio.</p>
           </div>
           
           <div className="container mx-auto px-4 text-center mb-8">
@@ -471,79 +442,101 @@ const Index = () => {
             </div>
           </div>
           
-          <WorldMap
-            dots={[
-              {
-                start: {
-                  lat: 37.4419,
-                  lng: -122.1430,
-                }, // Silicon Valley (HQ)
-                end: {
-                  lat: 40.7128,
-                  lng: -74.0060,
-                }, // New York
-              },
-              {
-                start: { lat: 37.4419, lng: -122.1430 }, // Silicon Valley (HQ)
-                end: {
-                  lat: 51.5074,
-                  lng: -0.1278,
-                }, // London
-              },
-              {
-                start: { lat: 37.4419, lng: -122.1430 }, // Silicon Valley (HQ)
-                end: { lat: 35.6762, lng: 139.6503 }, // Tokyo
-              },
-              {
-                start: { lat: 51.5074, lng: -0.1278 }, // London
-                end: { lat: 28.6139, lng: 77.209 }, // New Delhi
-              },
-              {
-                start: { lat: 28.6139, lng: 77.209 }, // New Delhi
-                end: { lat: -33.8688, lng: 151.2093 }, // Sydney
-              },
-              {
-                start: { lat: -33.8688, lng: 151.2093 }, // Sydney
-                end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
-              },
-            ]}
-          />
+          <WorldMap dots={[{
+          start: {
+            lat: 37.4419,
+            lng: -122.1430
+          },
+          // Silicon Valley (HQ)
+          end: {
+            lat: 40.7128,
+            lng: -74.0060
+          } // New York
+        }, {
+          start: {
+            lat: 37.4419,
+            lng: -122.1430
+          },
+          // Silicon Valley (HQ)
+          end: {
+            lat: 51.5074,
+            lng: -0.1278
+          } // London
+        }, {
+          start: {
+            lat: 37.4419,
+            lng: -122.1430
+          },
+          // Silicon Valley (HQ)
+          end: {
+            lat: 35.6762,
+            lng: 139.6503
+          } // Tokyo
+        }, {
+          start: {
+            lat: 51.5074,
+            lng: -0.1278
+          },
+          // London
+          end: {
+            lat: 28.6139,
+            lng: 77.209
+          } // New Delhi
+        }, {
+          start: {
+            lat: 28.6139,
+            lng: 77.209
+          },
+          // New Delhi
+          end: {
+            lat: -33.8688,
+            lng: 151.2093
+          } // Sydney
+        }, {
+          start: {
+            lat: -33.8688,
+            lng: 151.2093
+          },
+          // Sydney
+          end: {
+            lat: -1.2921,
+            lng: 36.8219
+          } // Nairobi
+        }]} />
         </div>
       </section>
 
       {/* Footer */}
-      <Footer
-        logo={<Hexagon className="h-10 w-10 text-white" />}
-        brandName="AI Challenge"
-        socialLinks={[
-          {
-            icon: <Twitter className="h-5 w-5" />,
-            href: "https://twitter.com",
-            label: "Twitter",
-          },
-          {
-            icon: <Github className="h-5 w-5" />,
-            href: "https://github.com",
-            label: "GitHub",
-          },
-        ]}
-        mainLinks={[
-          { href: "/challenge", label: "Challenge" },
-          { href: "/mentors", label: "Mentors" },
-          { href: "/prizes", label: "Prizes" },
-          { href: "/contact", label: "Contact" },
-        ]}
-        legalLinks={[
-          { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" },
-        ]}
-        copyright={{
-          text: "© 2024 AI Challenge",
-          license: "All rights reserved",
-        }}
-      />
-    </div>
-  );
+      <Footer logo={<Hexagon className="h-10 w-10 text-white" />} brandName="AI Challenge" socialLinks={[{
+      icon: <Twitter className="h-5 w-5" />,
+      href: "https://twitter.com",
+      label: "Twitter"
+    }, {
+      icon: <Github className="h-5 w-5" />,
+      href: "https://github.com",
+      label: "GitHub"
+    }]} mainLinks={[{
+      href: "/challenge",
+      label: "Challenge"
+    }, {
+      href: "/mentors",
+      label: "Mentors"
+    }, {
+      href: "/prizes",
+      label: "Prizes"
+    }, {
+      href: "/contact",
+      label: "Contact"
+    }]} legalLinks={[{
+      href: "/privacy",
+      label: "Privacy"
+    }, {
+      href: "/terms",
+      label: "Terms"
+    }]} copyright={{
+      text: "© 2024 AI Challenge",
+      license: "All rights reserved"
+    }} />
+    </div>;
 };
-
 export default Index;
