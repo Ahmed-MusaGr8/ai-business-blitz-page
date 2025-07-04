@@ -64,43 +64,43 @@ const Index = () => {
   const timelineData = [{
     title: "Day 1-2",
     content: <div>
-          <h3 className="text-white text-xl font-bold mb-4">Foundation & Ideation</h3>
-          <p className="text-gray-300 text-sm md:text-base mb-6">
+          <h3 className="text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4">Foundation & Ideation</h3>
+          <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
             Learn AI fundamentals and discover your billion-dollar business idea through expert workshops and mentorship sessions.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-slate-700/50 rounded-lg p-4">
-              <h4 className="text-blue-400 font-semibold mb-2">AI Fundamentals</h4>
-              <p className="text-gray-300 text-sm">Master the basics of AI tools and automation platforms</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="bg-slate-700/50 rounded-lg p-3 sm:p-4">
+              <h4 className="text-blue-400 font-semibold mb-2 text-sm sm:text-base">AI Fundamentals</h4>
+              <p className="text-gray-300 text-xs sm:text-sm">Master the basics of AI tools and automation platforms</p>
             </div>
-            <div className="bg-slate-700/50 rounded-lg p-4">
-              <h4 className="text-purple-400 font-semibold mb-2">Business Ideation</h4>
-              <p className="text-gray-300 text-sm">Discover profitable AI business opportunities</p>
+            <div className="bg-slate-700/50 rounded-lg p-3 sm:p-4">
+              <h4 className="text-purple-400 font-semibold mb-2 text-sm sm:text-base">Business Ideation</h4>
+              <p className="text-gray-300 text-xs sm:text-sm">Discover profitable AI business opportunities</p>
             </div>
           </div>
         </div>
   }, {
     title: "Day 3-4",
     content: <div>
-          <h3 className="text-white text-xl font-bold mb-4">Build & Prototype</h3>
-          <p className="text-gray-300 text-sm md:text-base mb-6">
+          <h3 className="text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4">Build & Prototype</h3>
+          <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
             Transform your idea into reality using no-code AI platforms and get hands-on mentorship from industry experts.
           </p>
-          <div className="space-y-3">
-            <div className="flex items-center text-green-400 text-sm md:text-base">
-              <Check className="h-4 w-4 mr-2 flex-shrink-0" />
+          <div className="space-y-2 sm:space-y-3">
+            <div className="flex items-center text-green-400 text-sm sm:text-base">
+              <Check className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
               Build your AI-powered MVP
             </div>
-            <div className="flex items-center text-green-400 text-sm md:text-base">
-              <Check className="h-4 w-4 mr-2 flex-shrink-0" />
+            <div className="flex items-center text-green-400 text-sm sm:text-base">
+              <Check className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
               Create automated workflows
             </div>
-            <div className="flex items-center text-green-400 text-sm md:text-base">
-              <Check className="h-4 w-4 mr-2 flex-shrink-0" />
+            <div className="flex items-center text-green-400 text-sm sm:text-base">
+              <Check className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
               Design user interfaces
             </div>
-            <div className="flex items-center text-green-400 text-sm md:text-base">
-              <Check className="h-4 w-4 mr-2 flex-shrink-0" />
+            <div className="flex items-center text-green-400 text-sm sm:text-base">
+              <Check className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
               Test with real users
             </div>
           </div>
@@ -108,18 +108,18 @@ const Index = () => {
   }, {
     title: "Day 5-7",
     content: <div>
-          <h3 className="text-white text-xl font-bold mb-4">Scale & Pitch</h3>
-          <p className="text-gray-300 text-sm md:text-base mb-6">
+          <h3 className="text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4">Scale & Pitch</h3>
+          <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
             Perfect your business model, create your pitch, and present to our panel of billionaire judges for the $200K prize pool.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-lg p-4 border border-yellow-500/30">
-              <h4 className="text-yellow-400 font-semibold mb-2">Business Strategy</h4>
-              <p className="text-gray-300 text-sm">Develop go-to-market and scaling strategies</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-lg p-3 sm:p-4 border border-yellow-500/30">
+              <h4 className="text-yellow-400 font-semibold mb-2 text-sm sm:text-base">Business Strategy</h4>
+              <p className="text-gray-300 text-xs sm:text-sm">Develop go-to-market and scaling strategies</p>
             </div>
-            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg p-4 border border-green-500/30">
-              <h4 className="text-green-400 font-semibold mb-2">Final Pitch</h4>
-              <p className="text-gray-300 text-sm">Present to billionaire judges for prizes</p>
+            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg p-3 sm:p-4 border border-green-500/30">
+              <h4 className="text-green-400 font-semibold mb-2 text-sm sm:text-base">Final Pitch</h4>
+              <p className="text-gray-300 text-xs sm:text-sm">Present to billionaire judges for prizes</p>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ const Index = () => {
 
   // Create ZC SVG Icon component
   const ZCIcon = () => (
-    <svg viewBox="0 0 32 32" className="h-10 w-10 text-white">
+    <svg viewBox="0 0 32 32" className="h-8 w-8 sm:h-10 sm:w-10 text-white">
       <rect width="32" height="32" rx="6" fill="currentColor"/>
       <text x="16" y="22" textAnchor="middle" fill="black" fontFamily="system-ui" fontSize="14" fontWeight="bold">ZC</text>
     </svg>
@@ -143,32 +143,32 @@ const Index = () => {
       <GlobalCountdownTimer />
 
       {/* Banner Section */}
-      <section className="py-8 lg:py-16 bg-black">
+      <section className="py-8 sm:py-12 lg:py-16 bg-black">
         <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 rounded-2xl p-6 lg:p-12 max-w-6xl mx-auto">
+          <div className="relative overflow-hidden bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-12 max-w-6xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-orange-900/30"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-96 lg:h-96 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
             
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
               <div>
-                <h2 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 lg:mb-6 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 leading-tight">
                   THE ULTIMATE AI BUSINESS CHALLENGE FOR BUILDERS
                 </h2>
-                <p className="text-sm sm:text-base lg:text-xl text-gray-300 mb-6 lg:mb-8 leading-relaxed">
+                <p className="text-sm sm:text-base lg:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                   7 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
                 </p>
-                <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-base lg:text-lg px-6 lg:px-8 py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
+                <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
                   Join the Challenge
                   <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
                 </Button>
               </div>
               
-              <div className="relative">
-                <div className="w-full h-48 sm:h-64 lg:h-80 bg-gradient-to-br from-orange-400 via-yellow-500 to-orange-600 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-1 transition-transform duration-300">
-                  <div className="absolute inset-4 bg-gradient-to-br from-white/10 to-transparent rounded-xl backdrop-blur-sm border border-white/20"></div>
-                  <div className="absolute bottom-4 lg:bottom-6 left-4 lg:left-6 right-4 lg:right-6">
-                    <div className="text-white/90 text-xs lg:text-sm font-medium mb-2">AI Challenge 2024</div>
-                    <div className="text-white text-lg lg:text-2xl font-bold">$200K Prize Grant</div>
+              <div className="relative mt-6 lg:mt-0">
+                <div className="w-full h-32 sm:h-48 md:h-64 lg:h-80 bg-gradient-to-br from-orange-400 via-yellow-500 to-orange-600 rounded-xl sm:rounded-2xl shadow-2xl transform rotate-1 sm:rotate-3 hover:rotate-1 transition-transform duration-300">
+                  <div className="absolute inset-2 sm:inset-4 bg-gradient-to-br from-white/10 to-transparent rounded-lg sm:rounded-xl backdrop-blur-sm border border-white/20"></div>
+                  <div className="absolute bottom-2 sm:bottom-4 lg:bottom-6 left-2 sm:left-4 lg:left-6 right-2 sm:right-4 lg:right-6">
+                    <div className="text-white/90 text-xs sm:text-sm lg:text-sm font-medium mb-1 sm:mb-2">AI Challenge 2024</div>
+                    <div className="text-white text-sm sm:text-lg lg:text-2xl font-bold">$200K Prize Grant</div>
                   </div>
                 </div>
               </div>
@@ -182,27 +182,27 @@ const Index = () => {
       </section>
 
       {/* Mentors Section */}
-      <section className="py-12 lg:py-20 bg-black">
+      <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Learn From Billionaire Mentors</h2>
-            <p className="text-base lg:text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Learn From Billionaire Mentors</h2>
+            <p className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-3xl mx-auto">
               Get direct access to industry titans who've built billion-dollar businesses
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
             {mentors.map((mentor, index) => (
               <div key={index} className="text-center group">
-                <div className="relative mb-6">
+                <div className="relative mb-4 sm:mb-6">
                   {/* Corner brackets */}
-                  <div className="absolute -top-2 -left-2 w-6 h-6 border-l-2 border-t-2 border-white z-10"></div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 border-r-2 border-t-2 border-white z-10"></div>
-                  <div className="absolute -bottom-2 -left-2 w-6 h-6 border-l-2 border-b-2 border-white z-10"></div>
-                  <div className="absolute -bottom-2 -right-2 w-6 h-6 border-r-2 border-b-2 border-white z-10"></div>
+                  <div className="absolute -top-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-t-2 border-white z-10"></div>
+                  <div className="absolute -top-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-t-2 border-white z-10"></div>
+                  <div className="absolute -bottom-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-b-2 border-white z-10"></div>
+                  <div className="absolute -bottom-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-b-2 border-white z-10"></div>
                   
                   {/* Image container */}
-                  <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto overflow-hidden bg-gray-800">
+                  <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto overflow-hidden bg-gray-800">
                     <img 
                       src={mentor.image} 
                       alt={mentor.name} 
@@ -211,18 +211,18 @@ const Index = () => {
                   </div>
                   
                   {/* Name label */}
-                  <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-black border border-white px-3 py-1 text-white text-sm font-medium uppercase tracking-wider">
+                  <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-black border border-white px-2 sm:px-3 py-1 text-white text-xs sm:text-sm font-medium uppercase tracking-wider">
                       {mentor.name.startsWith('Dr.') ? mentor.name.split(' ').slice(0, 2).join(' ').replace(' ', '').toUpperCase() : mentor.name.split(' ')[0].toUpperCase()}
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-8 space-y-2">
-                  <h3 className="text-white text-xl lg:text-2xl font-bold">{mentor.name}</h3>
-                  <p className="text-blue-400 font-semibold text-base lg:text-lg">{mentor.title}</p>
-                  <p className="text-gray-300 text-sm lg:text-base">{mentor.bio}</p>
-                  <button className="text-gray-400 hover:text-white text-sm transition-colors">
+                <div className="mt-6 sm:mt-8 space-y-1 sm:space-y-2">
+                  <h3 className="text-white text-lg sm:text-xl lg:text-2xl font-bold">{mentor.name}</h3>
+                  <p className="text-blue-400 font-semibold text-sm sm:text-base lg:text-lg">{mentor.title}</p>
+                  <p className="text-gray-300 text-xs sm:text-sm lg:text-base px-2">{mentor.bio}</p>
+                  <button className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">
                     Follow {mentor.name.split(' ')[0]} →
                   </button>
                 </div>
@@ -233,70 +233,70 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-12 lg:py-20 bg-black">
+      <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-6 lg:mb-8">HOW IT WORKS</h2>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 lg:mb-8">HOW IT WORKS</h2>
             
             {/* Steps */}
-            <div className="flex flex-col lg:flex-row items-center justify-center mb-12 lg:mb-16 space-y-8 lg:space-y-0">
-              <div className="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 lg:space-x-8 xl:space-x-16">
+            <div className="flex flex-col lg:flex-row items-center justify-center mb-8 sm:mb-12 lg:mb-16 space-y-6 sm:space-y-8 lg:space-y-0">
+              <div className="flex flex-col lg:flex-row items-center space-y-6 sm:space-y-8 lg:space-y-0 lg:space-x-6 xl:space-x-16">
                 {/* Step 1 */}
                 <div className="text-center max-w-xs">
-                  <div className="relative inline-block mb-4">
+                  <div className="relative inline-block mb-3 sm:mb-4">
                     {/* Corner brackets */}
-                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-white"></div>
-                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-white"></div>
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-white"></div>
-                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-white"></div>
+                    <div className="absolute -top-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-t-2 border-white"></div>
+                    <div className="absolute -top-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-t-2 border-white"></div>
+                    <div className="absolute -bottom-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-b-2 border-white"></div>
+                    <div className="absolute -bottom-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-b-2 border-white"></div>
                     
-                    <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-xl">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
                       1
                     </div>
                   </div>
-                  <p className="text-white text-sm lg:text-base">
+                  <p className="text-white text-xs sm:text-sm lg:text-base px-2">
                     Register for the Challenge via our platform
                   </p>
                 </div>
                 
                 {/* Line */}
-                <div className="w-0.5 h-16 lg:w-16 lg:h-0.5 xl:w-32 bg-white lg:block hidden"></div>
+                <div className="w-0.5 h-8 sm:h-12 lg:w-12 xl:w-32 lg:h-0.5 bg-white lg:block hidden"></div>
                 
                 {/* Step 2 */}
                 <div className="text-center max-w-xs">
-                  <div className="relative inline-block mb-4">
+                  <div className="relative inline-block mb-3 sm:mb-4">
                     {/* Corner brackets */}
-                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-white"></div>
-                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-white"></div>
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-white"></div>
-                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-white"></div>
+                    <div className="absolute -top-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-t-2 border-white"></div>
+                    <div className="absolute -top-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-t-2 border-white"></div>
+                    <div className="absolute -bottom-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-b-2 border-white"></div>
+                    <div className="absolute -bottom-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-b-2 border-white"></div>
                     
-                    <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-xl">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
                       2
                     </div>
                   </div>
-                  <p className="text-white text-sm lg:text-base">
+                  <p className="text-white text-xs sm:text-sm lg:text-base px-2">
                     Get your Challenge Pack email with access details
                   </p>
                 </div>
                 
                 {/* Line */}
-                <div className="w-0.5 h-16 lg:w-16 lg:h-0.5 xl:w-32 bg-white lg:block hidden"></div>
+                <div className="w-0.5 h-8 sm:h-12 lg:w-12 xl:w-32 lg:h-0.5 bg-white lg:block hidden"></div>
                 
                 {/* Step 3 */}
                 <div className="text-center max-w-xs">
-                  <div className="relative inline-block mb-4">
+                  <div className="relative inline-block mb-3 sm:mb-4">
                     {/* Corner brackets */}
-                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-white"></div>
-                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-white"></div>
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-white"></div>
-                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-white"></div>
+                    <div className="absolute -top-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-t-2 border-white"></div>
+                    <div className="absolute -top-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-t-2 border-white"></div>
+                    <div className="absolute -bottom-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-b-2 border-white"></div>
+                    <div className="absolute -bottom-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-b-2 border-white"></div>
                     
-                    <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-xl">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
                       3
                     </div>
                   </div>
-                  <p className="text-white text-sm lg:text-base">
+                  <p className="text-white text-xs sm:text-sm lg:text-base px-2">
                     Access the tools and start building your AI empire
                   </p>
                 </div>
@@ -306,22 +306,22 @@ const Index = () => {
             {/* Main Banner */}
             <div className="relative">
               {/* Lightning bolts */}
-              <div className="absolute left-2 lg:left-16 top-1/2 transform -translate-y-1/2">
-                <div className="w-12 h-12 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform rotate-12" style={{
+              <div className="absolute left-2 sm:left-8 lg:left-16 top-1/2 transform -translate-y-1/2">
+                <div className="w-8 h-8 sm:w-12 sm:h-12 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform rotate-12" style={{
                 clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'
               }}></div>
               </div>
-              <div className="absolute right-2 lg:right-16 top-1/2 transform -translate-y-1/2">
-                <div className="w-12 h-12 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform -rotate-12" style={{
+              <div className="absolute right-2 sm:right-8 lg:right-16 top-1/2 transform -translate-y-1/2">
+                <div className="w-8 h-8 sm:w-12 sm:h-12 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform -rotate-12" style={{
                 clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'
               }}></div>
               </div>
               
-              <div className="text-center px-4 lg:px-16">
-                <h3 className="text-2xl sm:text-3xl lg:text-6xl font-bold text-white mb-4">
+              <div className="text-center px-4 sm:px-8 lg:px-16">
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-6xl font-bold text-white mb-3 sm:mb-4">
                   THE CHALLENGE IS<br />LIVE!
                 </h3>
-                <p className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-2xl mx-auto">
+                <p className="text-xs sm:text-sm md:text-base lg:text-xl text-gray-300 max-w-2xl mx-auto">
                   Every participant will receive their Challenge Pack automatically via email within 48 hours of registering. We launch the Challenge in...
                 </p>
               </div>
@@ -336,32 +336,32 @@ const Index = () => {
       </section>
 
       {/* Prize Pool Section */}
-      <section className="py-12 lg:py-20 bg-gradient-to-r from-yellow-900/20 to-orange-900/20">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-yellow-900/20 to-orange-900/20">
         <div className="container mx-auto px-4 text-center">
-          <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black rounded-2xl p-6 lg:p-12 max-w-4xl mx-auto">
-            <Trophy className="h-12 w-12 lg:h-16 lg:w-16 mx-auto mb-4 lg:mb-6" />
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 lg:mb-4">$200,000</h2>
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 lg:mb-6">Total Prize Grant</h3>
+          <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-12 max-w-4xl mx-auto">
+            <Trophy className="h-8 w-8 sm:h-12 sm:w-12 lg:h-16 lg:w-16 mx-auto mb-3 sm:mb-4 lg:mb-6" />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 lg:mb-4">$200,000</h2>
+            <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-3 sm:mb-4 lg:mb-6">Total Prize Grant</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 text-left">
-              <div className="bg-white/10 rounded-xl p-4 lg:p-6">
-                <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">$100,000</div>
-                <div className="text-base lg:text-lg font-semibold mb-2">Grand Prize Winner</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-left">
+              <div className="bg-white/10 rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6">
+                <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">$100,000</div>
+                <div className="text-sm sm:text-base lg:text-lg font-semibold mb-1 sm:mb-2">Grand Prize Winner</div>
                 <div className="text-xs sm:text-sm">Most innovative AI business concept with clear path to scale</div>
               </div>
-              <div className="bg-white/10 rounded-xl p-4 lg:p-6">
-                <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">$50,000</div>
-                <div className="text-base lg:text-lg font-semibold mb-2">Runner-up</div>
+              <div className="bg-white/10 rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6">
+                <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">$50,000</div>
+                <div className="text-sm sm:text-base lg:text-lg font-semibold mb-1 sm:mb-2">Runner-up</div>
                 <div className="text-xs sm:text-sm">Outstanding execution and business viability demonstration</div>
               </div>
-              <div className="bg-white/10 rounded-xl p-4 lg:p-6 md:col-span-2 lg:col-span-1">
-                <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">$50,000</div>
-                <div className="text-base lg:text-lg font-semibold mb-2">Category Winners</div>
+              <div className="bg-white/10 rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 sm:col-span-2 lg:col-span-1">
+                <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">$50,000</div>
+                <div className="text-sm sm:text-base lg:text-lg font-semibold mb-1 sm:mb-2">Category Winners</div>
                 <div className="text-xs sm:text-sm">Best in innovation, social impact, and technical excellence</div>
               </div>
             </div>
             
-            <p className="mt-6 lg:mt-8 text-base lg:text-lg">
+            <p className="mt-4 sm:mt-6 lg:mt-8 text-sm sm:text-base lg:text-lg">
               <strong>All registered participants are eligible to win!</strong>
             </p>
           </div>
@@ -369,14 +369,14 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-12 lg:py-20 bg-black">
+      <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Choose Your Path to Success</h2>
-            <p className="text-base lg:text-xl text-gray-300">Invest in your future. The returns are unlimited.</p>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Choose Your Path to Success</h2>
+            <p className="text-sm sm:text-base lg:text-xl text-gray-300">Invest in your future. The returns are unlimited.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
             {[{
             name: "Early Bird",
             price: "$497",
@@ -396,24 +396,24 @@ const Index = () => {
             popular: false,
             features: ["Everything in Standard", "Direct mentor WhatsApp access", "Private dinner with mentors", "Guaranteed pitch feedback", "12-month mastermind access", "Investment intro opportunities"]
           }].map((tier, index) => <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-slate-800/80 to-slate-900/80 border-slate-600' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
-                {tier.popular && <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-slate-700 text-white border-slate-600">
+                {tier.popular && <Badge className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 bg-slate-700 text-white border-slate-600 text-xs sm:text-sm">
                     Most Popular
                   </Badge>}
-                <CardHeader className="text-center p-4 lg:p-6">
-                  <CardTitle className="text-white text-lg sm:text-xl lg:text-2xl">{tier.name}</CardTitle>
-                  <div className="py-4">
-                    <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{tier.price}</div>
-                    {tier.originalPrice && <div className="text-gray-400 line-through text-base lg:text-lg">{tier.originalPrice}</div>}
+                <CardHeader className="text-center p-3 sm:p-4 lg:p-6">
+                  <CardTitle className="text-white text-base sm:text-lg lg:text-2xl">{tier.name}</CardTitle>
+                  <div className="py-3 sm:py-4">
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">{tier.price}</div>
+                    {tier.originalPrice && <div className="text-gray-400 line-through text-sm sm:text-base lg:text-lg">{tier.originalPrice}</div>}
                   </div>
                 </CardHeader>
-                <CardContent className="p-4 lg:p-6 pt-0">
-                  <ul className="space-y-3 mb-6">
-                    {tier.features.map((feature, fIndex) => <li key={fIndex} className="flex items-center text-gray-300 text-sm lg:text-base">
-                        <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
+                <CardContent className="p-3 sm:p-4 lg:p-6 pt-0">
+                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                    {tier.features.map((feature, fIndex) => <li key={fIndex} className="flex items-center text-gray-300 text-xs sm:text-sm lg:text-base">
+                        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2 flex-shrink-0" />
                         {feature}
                       </li>)}
                   </ul>
-                  <Button className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white`} size="lg">
+                  <Button className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} size="lg">
                     Register Now
                   </Button>
                 </CardContent>
@@ -423,29 +423,29 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 lg:py-20 bg-black">
+      <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Success Stories</h2>
-            <p className="text-base lg:text-xl text-gray-300">See how past participants transformed their lives</p>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Success Stories</h2>
+            <p className="text-sm sm:text-base lg:text-xl text-gray-300">See how past participants transformed their lives</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => <Card key={index} className="bg-slate-800/50 border-slate-600">
-                <CardHeader className="p-4 lg:p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                <CardHeader className="p-3 sm:p-4 lg:p-6">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
-                      <CardTitle className="text-white text-base lg:text-lg">{testimonial.name}</CardTitle>
-                      <CardDescription className="text-gray-400 text-sm lg:text-base">{testimonial.role}</CardDescription>
+                      <CardTitle className="text-white text-sm sm:text-base lg:text-lg">{testimonial.name}</CardTitle>
+                      <CardDescription className="text-gray-400 text-xs sm:text-sm lg:text-base">{testimonial.role}</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="p-4 lg:p-6 pt-0">
-                  <p className="text-gray-300 mb-4 text-sm lg:text-base">"{testimonial.quote}"</p>
-                  <Badge variant="secondary" className="bg-yellow-500/20 text-yellow-300 border-yellow-400">
+                <CardContent className="p-3 sm:p-4 lg:p-6 pt-0">
+                  <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base">"{testimonial.quote}"</p>
+                  <Badge variant="secondary" className="bg-yellow-500/20 text-yellow-300 border-yellow-400 text-xs sm:text-sm">
                     {testimonial.amount}
                   </Badge>
                 </CardContent>
@@ -455,20 +455,20 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 lg:py-20 bg-black">
+      <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">Frequently Asked Questions</h2>
-            <p className="text-base lg:text-xl text-gray-300">Get all the details you need</p>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Frequently Asked Questions</h2>
+            <p className="text-sm sm:text-base lg:text-xl text-gray-300">Get all the details you need</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-4 lg:px-6">
-                  <AccordionTrigger className="text-white hover:text-blue-400 text-left text-sm lg:text-base">
+            <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+              {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-slate-700/50 border-slate-600 rounded-lg px-3 sm:px-4 lg:px-6">
+                  <AccordionTrigger className="text-white hover:text-blue-400 text-left text-xs sm:text-sm lg:text-base py-3 sm:py-4">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-300 text-sm lg:text-base">
+                  <AccordionContent className="text-gray-300 text-xs sm:text-sm lg:text-base pb-3 sm:pb-4">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>)}
@@ -478,18 +478,18 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section with World Map */}
-      <section className="py-12 lg:py-20 bg-black">        
+      <section className="py-12 sm:py-16 lg:py-20 bg-black">        
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <p className="font-bold text-xl sm:text-2xl md:text-3xl text-white mb-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-3 sm:mb-4">
               Global Challenge Participants
             </p>
-            <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto mb-8">Entrepreneurs from around the world are joining the challenge - both online and on site at our studio.</p>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8">Entrepreneurs from around the world are joining the challenge - both online and on site at our studio.</p>
           </div>
           
-          <div className="container mx-auto px-4 text-center mb-8">
-            <div className="max-w-md mx-auto">
-              <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-base lg:text-lg px-8 lg:px-12 py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
+          <div className="container mx-auto px-4 text-center mb-6 sm:mb-8">
+            <div className="max-w-sm mx-auto">
+              <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
                 Claim Your Spot Now
                 <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
               </Button>
@@ -561,11 +561,11 @@ const Index = () => {
         logo={<ZCIcon />} 
         brandName="ZeroCode Challenge" 
         socialLinks={[{
-          icon: <Twitter className="h-5 w-5" />,
+          icon: <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />,
           href: "https://twitter.com",
           label: "Twitter"
         }, {
-          icon: <Linkedin className="h-5 w-5" />,
+          icon: <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />,
           href: "https://linkedin.com",
           label: "LinkedIn"
         }]} 

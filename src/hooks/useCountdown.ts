@@ -21,13 +21,16 @@ export const useCountdown = (targetDate: string) => {
     const target = new Date(targetDate).getTime();
     const difference = target - now;
 
-    console.log('Countdown calculation:', {
-      now: new Date(now).toISOString(),
-      target: new Date(target).toISOString(),
-      difference,
-      targetDate,
-      isValid: !isNaN(target)
-    });
+    // Only log in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Countdown calculation:', {
+        now: new Date(now).toISOString(),
+        target: new Date(target).toISOString(),
+        difference,
+        targetDate,
+        isValid: !isNaN(target)
+      });
+    }
 
     if (difference > 0) {
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -38,14 +41,21 @@ export const useCountdown = (targetDate: string) => {
       return { days, hours, minutes, seconds };
     }
     
+    // If target date is in the past, return zeros
     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   }, [targetDate]);
 
   useEffect(() => {
+    // Validate target date
+    const target = new Date(targetDate);
+    if (isNaN(target.getTime())) {
+      console.error('Invalid target date provided to countdown:', targetDate);
+      return;
+    }
+
     // Calculate initial time immediately
     const initialTime = calculateTimeLeft();
     setTimeLeft(initialTime);
-    console.log('Initial countdown time set:', initialTime);
 
     // Set up interval to update every second
     const timer = setInterval(() => {
@@ -58,7 +68,6 @@ export const useCountdown = (targetDate: string) => {
           prevTime.minutes !== newTime.minutes ||
           prevTime.seconds !== newTime.seconds
         ) {
-          console.log('Countdown updated:', newTime);
           return newTime;
         }
         return prevTime;
@@ -67,10 +76,9 @@ export const useCountdown = (targetDate: string) => {
 
     // Cleanup interval on unmount
     return () => {
-      console.log('Countdown timer cleanup');
       clearInterval(timer);
     };
-  }, [calculateTimeLeft]);
+  }, [calculateTimeLeft, targetDate]);
 
   return timeLeft;
 };
