@@ -167,7 +167,7 @@ const Index = () => {
                   <div className="absolute inset-4 bg-gradient-to-br from-white/10 to-transparent rounded-xl backdrop-blur-sm border border-white/20"></div>
                   <div className="absolute bottom-4 lg:bottom-6 left-4 lg:left-6 right-4 lg:right-6">
                     <div className="text-white/90 text-xs lg:text-sm font-medium mb-2">AI Challenge 2024</div>
-                    <div className="text-white text-lg lg:text-2xl font-bold">$200K Prize Pool</div>
+                    <div className="text-white text-lg lg:text-2xl font-bold">$200K Prize Grant</div>
                   </div>
                 </div>
               </div>
@@ -316,7 +316,7 @@ const Index = () => {
           <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black rounded-2xl p-6 lg:p-12 max-w-4xl mx-auto">
             <Trophy className="h-12 w-12 lg:h-16 lg:w-16 mx-auto mb-4 lg:mb-6" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 lg:mb-4">$200,000</h2>
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 lg:mb-6">Total Prize Pool</h3>
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 lg:mb-6">Total Prize Grant</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 text-left">
               <div className="bg-white/10 rounded-xl p-4 lg:p-6">
