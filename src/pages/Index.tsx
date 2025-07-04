@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,7 +16,7 @@ import { Hexagon, Linkedin, Twitter } from "lucide-react";
 const Index = () => {
   const mentors = [{
     name: "Sarah Chen",
-    title: "AI Pioneer & Billionaire",
+    title: "AI Pioneer & Billionaire", 
     bio: "Founded 3 unicorn companies, specialized in AI automation",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=400&h=400&fit=crop&crop=face"
   }, {
@@ -191,19 +190,43 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {mentors.map((mentor, index) => <Card key={index} className="bg-slate-800/50 border-slate-600 text-center overflow-hidden hover:bg-slate-800/70 transition-all">
-                <CardHeader className="p-4 lg:p-6">
-                  <div className="w-20 h-20 lg:w-32 lg:h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-400">
-                    <img src={mentor.image} alt={mentor.name} className="w-full h-full object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+            {mentors.map((mentor, index) => (
+              <div key={index} className="text-center group">
+                <div className="relative mb-6">
+                  {/* Corner brackets */}
+                  <div className="absolute -top-2 -left-2 w-6 h-6 border-l-2 border-t-2 border-white z-10"></div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 border-r-2 border-t-2 border-white z-10"></div>
+                  <div className="absolute -bottom-2 -left-2 w-6 h-6 border-l-2 border-b-2 border-white z-10"></div>
+                  <div className="absolute -bottom-2 -right-2 w-6 h-6 border-r-2 border-b-2 border-white z-10"></div>
+                  
+                  {/* Image container */}
+                  <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto overflow-hidden bg-gray-800">
+                    <img 
+                      src={mentor.image} 
+                      alt={mentor.name} 
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                    />
                   </div>
-                  <CardTitle className="text-white text-base lg:text-xl">{mentor.name}</CardTitle>
-                  <CardDescription className="text-blue-400 font-semibold text-sm lg:text-base">{mentor.title}</CardDescription>
-                </CardHeader>
-                <CardContent className="p-4 lg:p-6 pt-0">
+                  
+                  {/* Name label */}
+                  <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-black border border-white px-3 py-1 text-white text-sm font-medium uppercase tracking-wider">
+                      {mentor.name.replace(' ', '').toUpperCase()}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 space-y-2">
+                  <h3 className="text-white text-xl lg:text-2xl font-bold">{mentor.name}</h3>
+                  <p className="text-blue-400 font-semibold text-base lg:text-lg">{mentor.title}</p>
                   <p className="text-gray-300 text-sm lg:text-base">{mentor.bio}</p>
-                </CardContent>
-              </Card>)}
+                  <button className="text-gray-400 hover:text-white text-sm transition-colors">
+                    Follow {mentor.name.split(' ')[0]} →
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
