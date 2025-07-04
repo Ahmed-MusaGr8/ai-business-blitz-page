@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -242,8 +243,16 @@ const Index = () => {
               <div className="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 lg:space-x-8 xl:space-x-16">
                 {/* Step 1 */}
                 <div className="text-center max-w-xs">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl mb-4 mx-auto">
-                    1
+                  <div className="relative inline-block mb-4">
+                    {/* Corner brackets */}
+                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-white"></div>
+                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-white"></div>
+                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-white"></div>
+                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-white"></div>
+                    
+                    <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-xl">
+                      1
+                    </div>
                   </div>
                   <p className="text-white text-sm lg:text-base">
                     Register for the Challenge via our platform
@@ -255,8 +264,16 @@ const Index = () => {
                 
                 {/* Step 2 */}
                 <div className="text-center max-w-xs">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl mb-4 mx-auto">
-                    2
+                  <div className="relative inline-block mb-4">
+                    {/* Corner brackets */}
+                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-white"></div>
+                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-white"></div>
+                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-white"></div>
+                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-white"></div>
+                    
+                    <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-xl">
+                      2
+                    </div>
                   </div>
                   <p className="text-white text-sm lg:text-base">
                     Get your Challenge Pack email with access details
@@ -268,8 +285,16 @@ const Index = () => {
                 
                 {/* Step 3 */}
                 <div className="text-center max-w-xs">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl mb-4 mx-auto">
-                    3
+                  <div className="relative inline-block mb-4">
+                    {/* Corner brackets */}
+                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-white"></div>
+                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-white"></div>
+                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-white"></div>
+                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-white"></div>
+                    
+                    <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-xl">
+                      3
+                    </div>
                   </div>
                   <p className="text-white text-sm lg:text-base">
                     Access the tools and start building your AI empire
