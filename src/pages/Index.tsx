@@ -376,69 +376,54 @@ const Index = () => {
               <span className="text-gray-400">Available exclusively to registered hackathon participants.</span>
             </p>
             
-            {/* Tools/Partners Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16 max-w-5xl mx-auto">
+            {/* Tools/Partners Grid - Responsive Layout */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
               {/* Lovable */}
               <div className="text-center">
-                <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center mb-4">
+                <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
                   <img 
                     src="/lovable-uploads/6db0d6e0-507c-456c-b582-7b040caa208f.png" 
                     alt="Lovable" 
-                    className="max-h-full max-w-full object-contain"
+                    className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <p className="text-gray-300 text-sm sm:text-base">AI web app builder</p>
-              </div>
-              
-              {/* Vertical Divider */}
-              <div className="hidden lg:flex justify-center">
-                <div className="w-px h-24 bg-gray-600"></div>
+                <p className="text-gray-300 text-xs sm:text-sm lg:text-base">AI web app builder</p>
               </div>
               
               {/* Entri */}
               <div className="text-center">
-                <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center mb-4">
+                <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
                   <img 
                     src="/lovable-uploads/4c4ea64f-7350-4fff-bcf8-733776186042.png" 
                     alt="Entri" 
-                    className="max-h-full max-w-full object-contain"
+                    className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <p className="text-gray-300 text-sm sm:text-base">One free domain</p>
-              </div>
-              
-              {/* Vertical Divider */}
-              <div className="hidden lg:flex justify-center">
-                <div className="w-px h-24 bg-gray-600"></div>
+                <p className="text-gray-300 text-xs sm:text-sm lg:text-base">One free domain</p>
               </div>
               
               {/* RevenueCat */}
               <div className="text-center">
-                <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center mb-4">
+                <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
                   <img 
                     src="/lovable-uploads/56336595-b9a0-406f-bc1e-c18856908d8d.png" 
                     alt="RevenueCat" 
-                    className="max-h-full max-w-full object-contain"
+                    className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <p className="text-gray-300 text-sm sm:text-base">Free payment collection</p>
-              </div>
-              
-              {/* Vertical Divider */}
-              <div className="hidden lg:flex justify-center">
-                <div className="w-px h-24 bg-gray-600"></div>
+                <p className="text-gray-300 text-xs sm:text-sm lg:text-base">Free payment collection</p>
               </div>
               
               {/* Supabase */}
               <div className="text-center">
-                <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center mb-4">
+                <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
                   <img 
                     src="/lovable-uploads/3431972f-21a9-416d-98e9-b4f9cf22979b.png" 
                     alt="Supabase" 
-                    className="max-h-full max-w-full object-contain"
+                    className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <p className="text-gray-300 text-sm sm:text-base">Free database & auth</p>
+                <p className="text-gray-300 text-xs sm:text-sm lg:text-base">Free database & auth</p>
               </div>
             </div>
           </div>
