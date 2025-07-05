@@ -15,14 +15,14 @@ const GlobalCountdownTimer = () => {
     <div className="w-full bg-black py-8 sm:py-10 md:py-12">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-6 sm:mb-8">
-          <div className="relative inline-block px-3 sm:px-4 py-2 mb-3 sm:mb-4">
-            {/* Corner brackets */}
-            <div className="absolute -top-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-t-2 border-white/30"></div>
-            <div className="absolute -top-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-t-2 border-white/30"></div>
-            <div className="absolute -bottom-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-b-2 border-white/30"></div>
-            <div className="absolute -bottom-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-b-2 border-white/30"></div>
+          <div className="relative inline-block px-6 py-2 mb-3 sm:mb-4">
+            {/* Corner brackets - matching Builder Pack style */}
+            <div className="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-gray-400"></div>
+            <div className="absolute -top-3 -right-3 w-8 h-8 border-r-2 border-t-2 border-gray-400"></div>
+            <div className="absolute -bottom-3 -left-3 w-8 h-8 border-l-2 border-b-2 border-gray-400"></div>
+            <div className="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-gray-400"></div>
             
-            <span className="text-white/70 text-xs sm:text-sm tracking-wider uppercase">TIME LEFT TO SUBMIT</span>
+            <span className="text-gray-400 text-sm sm:text-base font-medium tracking-wider">TIME LEFT TO SUBMIT</span>
           </div>
         </div>
         
