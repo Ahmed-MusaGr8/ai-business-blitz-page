@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -170,15 +171,15 @@ const Index = () => {
             
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 leading-tight">
                   THE ULTIMATE AI BUSINESS CHALLENGE FOR BUILDERS
                 </h2>
-                <p className="text-base sm:text-lg lg:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
+                <p className="text-sm sm:text-base lg:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                   7 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
                 </p>
-                <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
+                <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
                   Join the Challenge
-                  <ArrowRight className="ml-2 h-5 w-5 lg:h-6 lg:w-6" />
+                  <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
                 </Button>
               </div>
               
@@ -186,8 +187,8 @@ const Index = () => {
                 <div className="w-full h-32 sm:h-48 md:h-64 lg:h-80 bg-gradient-to-br from-orange-400 via-yellow-500 to-orange-600 rounded-xl sm:rounded-2xl shadow-2xl transform rotate-1 sm:rotate-3 hover:rotate-1 transition-transform duration-300">
                   <div className="absolute inset-2 sm:inset-4 bg-gradient-to-br from-white/10 to-transparent rounded-lg sm:rounded-xl backdrop-blur-sm border border-white/20"></div>
                   <div className="absolute bottom-2 sm:bottom-4 lg:bottom-6 left-2 sm:left-4 lg:left-6 right-2 sm:right-4 lg:right-6">
-                    <div className="text-white/90 text-sm sm:text-base lg:text-lg font-medium mb-1 sm:mb-2">AI Challenge 2024</div>
-                    <div className="text-white text-lg sm:text-xl lg:text-2xl font-bold">$200K Prize Grant</div>
+                    <div className="text-white/90 text-xs sm:text-sm lg:text-sm font-medium mb-1 sm:mb-2">AI Challenge 2024</div>
+                    <div className="text-white text-sm sm:text-lg lg:text-2xl font-bold">$200K Prize Grant</div>
                   </div>
                 </div>
               </div>
@@ -204,8 +205,8 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">Learn From Billionaire Mentors</h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Learn From Billionaire Mentors</h2>
+            <p className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-3xl mx-auto">
               Get direct access to industry titans who've built billion-dollar businesses
             </p>
           </div>
@@ -333,14 +334,14 @@ const Index = () => {
             </div>
             
             <div className="px-8 sm:px-12 lg:px-32">
-              <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8">
                 THE CHALLENGE IS<br />LIVE!
               </h3>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
                 Every participant will receive their Challenge Pack automatically via email<br />
                 within 48 hours after registration. We launch the Challenge in...
               </p>
-              <Button className="bg-gray-100 text-black hover:bg-white text-base sm:text-lg lg:text-xl px-8 py-3 rounded-full font-semibold transition-all">
+              <Button className="bg-gray-100 text-black hover:bg-white text-base sm:text-lg px-8 py-3 rounded-full font-semibold transition-all">
                 Access Challenge Pack
               </Button>
             </div>
@@ -440,28 +441,28 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-12 max-w-4xl mx-auto">
             <Trophy className="h-8 w-8 sm:h-12 sm:w-12 lg:h-16 lg:w-16 mx-auto mb-3 sm:mb-4 lg:mb-6" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-3 lg:mb-4">$200,000</h2>
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-3 sm:mb-4 lg:mb-6">Total Prize Grant</h3>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 lg:mb-4">$200,000</h2>
+            <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-3 sm:mb-4 lg:mb-6">Total Prize Grant</h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-left">
               <div className="bg-white/10 rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6">
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2">$100,000</div>
-                <div className="text-base sm:text-lg lg:text-xl font-semibold mb-1 sm:mb-2">Grand Prize Winner</div>
-                <div className="text-sm sm:text-base">Most innovative AI business concept with clear path to scale</div>
+                <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">$100,000</div>
+                <div className="text-sm sm:text-base lg:text-lg font-semibold mb-1 sm:mb-2">Grand Prize Winner</div>
+                <div className="text-xs sm:text-sm">Most innovative AI business concept with clear path to scale</div>
               </div>
               <div className="bg-white/10 rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6">
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2">$50,000</div>
-                <div className="text-base sm:text-lg lg:text-xl font-semibold mb-1 sm:mb-2">Runner-up</div>
-                <div className="text-sm sm:text-base">Outstanding execution and business viability demonstration</div>
+                <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">$50,000</div>
+                <div className="text-sm sm:text-base lg:text-lg font-semibold mb-1 sm:mb-2">Runner-up</div>
+                <div className="text-xs sm:text-sm">Outstanding execution and business viability demonstration</div>
               </div>
               <div className="bg-white/10 rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 sm:col-span-2 lg:col-span-1">
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2">$50,000</div>
-                <div className="text-base sm:text-lg lg:text-xl font-semibold mb-1 sm:mb-2">Category Winners</div>
-                <div className="text-sm sm:text-base">Best in innovation, social impact, and technical excellence</div>
+                <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">$50,000</div>
+                <div className="text-sm sm:text-base lg:text-lg font-semibold mb-1 sm:mb-2">Category Winners</div>
+                <div className="text-xs sm:text-sm">Best in innovation, social impact, and technical excellence</div>
               </div>
             </div>
             
-            <p className="mt-4 sm:mt-6 lg:mt-8 text-base sm:text-lg lg:text-xl">
+            <p className="mt-4 sm:mt-6 lg:mt-8 text-sm sm:text-base lg:text-lg">
               <strong>All registered participants are eligible to win!</strong>
             </p>
           </div>
@@ -472,8 +473,8 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">Choose Your Path to Success</h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300">Invest in your future. The returns are unlimited.</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Choose Your Path to Success</h2>
+            <p className="text-sm sm:text-base lg:text-xl text-gray-300">Invest in your future. The returns are unlimited.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
@@ -526,8 +527,8 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">Success Stories</h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300">See how past participants transformed their lives</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Success Stories</h2>
+            <p className="text-sm sm:text-base lg:text-xl text-gray-300">See how past participants transformed their lives</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
@@ -558,8 +559,8 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">Frequently Asked Questions</h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300">Get all the details you need</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Frequently Asked Questions</h2>
+            <p className="text-sm sm:text-base lg:text-xl text-gray-300">Get all the details you need</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -581,17 +582,17 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-black">        
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-6 sm:mb-8">
-            <p className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white mb-3 sm:mb-4">
+            <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-3 sm:mb-4">
               Global Challenge Participants
             </p>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8">Entrepreneurs from around the world are joining the challenge - both online and on site at our studio in Nigeria.</p>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8">Entrepreneurs from around the world are joining the challenge - both online and on site at our studio in Nigeria.</p>
           </div>
           
           <div className="container mx-auto px-4 text-center mb-6 sm:mb-8">
             <div className="max-w-sm mx-auto">
-              <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
+              <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
                 Claim Your Spot Now
-                <ArrowRight className="ml-2 h-5 w-5 lg:h-6 lg:w-6" />
+                <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
               </Button>
             </div>
           </div>
