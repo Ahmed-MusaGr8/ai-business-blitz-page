@@ -377,13 +377,17 @@ const Index = () => {
             </p>
             
             {/* Tools/Partners Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 max-w-5xl mx-auto">
-              {/* Bolt */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16 max-w-5xl mx-auto">
+              {/* Lovable */}
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 italic">
-                  bolt<span className="text-blue-400">.new</span>
+                <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center mb-4">
+                  <img 
+                    src="/lovable-uploads/6db0d6e0-507c-456c-b582-7b040caa208f.png" 
+                    alt="Lovable" 
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
-                <p className="text-gray-300 text-sm sm:text-base">Bolt Pro access</p>
+                <p className="text-gray-300 text-sm sm:text-base">AI web app builder</p>
               </div>
               
               {/* Vertical Divider */}
@@ -393,8 +397,12 @@ const Index = () => {
               
               {/* Entri */}
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-                  <span className="text-blue-400">◉</span>entri
+                <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center mb-4">
+                  <img 
+                    src="/lovable-uploads/4c4ea64f-7350-4fff-bcf8-733776186042.png" 
+                    alt="Entri" 
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
                 <p className="text-gray-300 text-sm sm:text-base">One free domain</p>
               </div>
@@ -406,8 +414,12 @@ const Index = () => {
               
               {/* RevenueCat */}
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-                  RevenueCat
+                <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center mb-4">
+                  <img 
+                    src="/lovable-uploads/56336595-b9a0-406f-bc1e-c18856908d8d.png" 
+                    alt="RevenueCat" 
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
                 <p className="text-gray-300 text-sm sm:text-base">Free payment collection</p>
               </div>
@@ -417,12 +429,16 @@ const Index = () => {
                 <div className="w-px h-24 bg-gray-600"></div>
               </div>
               
-              {/* & MORE! */}
+              {/* Supabase */}
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-                  & MORE!
+                <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center mb-4">
+                  <img 
+                    src="/lovable-uploads/3431972f-21a9-416d-98e9-b4f9cf22979b.png" 
+                    alt="Supabase" 
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
-                <p className="text-gray-300 text-sm sm:text-base">See the pack for more</p>
+                <p className="text-gray-300 text-sm sm:text-base">Free database & auth</p>
               </div>
             </div>
           </div>
