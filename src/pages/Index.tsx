@@ -353,15 +353,15 @@ const Index = () => {
       <section className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-6xl mx-auto">
-            {/* Builder Pack Corner Brackets */}
+            {/* Builder Pack Corner Brackets - Updated to match TIME LEFT TO SUBMIT style */}
             <div className="relative inline-block mb-8 sm:mb-12">
-              <div className="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-gray-400"></div>
-              <div className="absolute -top-3 -right-3 w-8 h-8 border-r-2 border-t-2 border-gray-400"></div>
-              <div className="absolute -bottom-3 -left-3 w-8 h-8 border-l-2 border-b-2 border-gray-400"></div>
-              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-gray-400"></div>
-              <div className="px-6 py-2 text-gray-400 text-sm sm:text-base font-medium tracking-wider">
+              <div className="absolute -top-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-t-2 border-white/30"></div>
+              <div className="absolute -top-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-t-2 border-white/30"></div>
+              <div className="absolute -bottom-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-b-2 border-white/30"></div>
+              <div className="absolute -bottom-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-b-2 border-white/30"></div>
+              <span className="text-white/70 text-xs sm:text-sm tracking-wider uppercase px-3 sm:px-4 py-2">
                 BUILDER PACK
-              </div>
+              </span>
             </div>
             
             {/* Main Heading */}
