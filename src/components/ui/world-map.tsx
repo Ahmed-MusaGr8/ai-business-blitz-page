@@ -12,11 +12,13 @@ interface MapProps {
     end: { lat: number; lng: number; label?: string };
   }>;
   lineColor?: string;
+  centralHub?: { lat: number; lng: number; label?: string };
 }
 
 export function WorldMap({
   dots = [],
   lineColor = "#0ea5e9",
+  centralHub,
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const { theme } = useTheme();
@@ -59,6 +61,11 @@ export function WorldMap({
     }));
   }, [dots, projectPoint]);
 
+  // Project central hub if provided
+  const projectedCentralHub = useMemo(() => {
+    return centralHub ? projectPoint(centralHub.lat, centralHub.lng) : null;
+  }, [centralHub, projectPoint]);
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4">
       <div className="w-full aspect-[2/1] bg-black rounded-lg relative font-sans">
@@ -73,6 +80,52 @@ export function WorldMap({
           viewBox="0 0 800 400"
           className="w-full h-full absolute inset-0 pointer-events-none select-none"
         >
+          {/* Nigeria highlight - approximate outline */}
+          {centralHub && (
+            <g key="nigeria-highlight">
+              <motion.circle
+                cx={projectedCentralHub?.x}
+                cy={projectedCentralHub?.y}
+                r="8"
+                fill="none"
+                stroke="#10B981"
+                strokeWidth="2"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              />
+              <motion.circle
+                cx={projectedCentralHub?.x}
+                cy={projectedCentralHub?.y}
+                r="12"
+                fill="none"
+                stroke="#10B981"
+                strokeWidth="1"
+                opacity="0.6"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.5, delay: 0.8 }}
+              >
+                <animate
+                  attributeName="r"
+                  from="12"
+                  to="20"
+                  dur="3s"
+                  begin="0s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  from="0.6"
+                  to="0.1"
+                  dur="3s"
+                  begin="0s"
+                  repeatCount="indefinite"
+                />
+              </motion.circle>
+            </g>
+          )}
+
           {projectedDots.map((dot, i) => (
             <g key={`path-group-${i}`}>
               <motion.path
@@ -102,7 +155,50 @@ export function WorldMap({
               <stop offset="95%" stopColor={lineColor} stopOpacity="1" />
               <stop offset="100%" stopColor="white" stopOpacity="0" />
             </linearGradient>
+            <radialGradient id="central-hub-gradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#10B981" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#10B981" stopOpacity="0.2" />
+            </radialGradient>
           </defs>
+
+          {/* Central Hub (Nigeria) - Special styling */}
+          {centralHub && projectedCentralHub && (
+            <g key="central-hub">
+              <motion.circle
+                cx={projectedCentralHub.x}
+                cy={projectedCentralHub.y}
+                r="4"
+                fill="#10B981"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.8, delay: 1 }}
+              />
+              <circle
+                cx={projectedCentralHub.x}
+                cy={projectedCentralHub.y}
+                r="4"
+                fill="#10B981"
+                opacity="0.6"
+              >
+                <animate
+                  attributeName="r"
+                  from="4"
+                  to="12"
+                  dur="2s"
+                  begin="0s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  from="0.6"
+                  to="0"
+                  dur="2s"
+                  begin="0s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+            </g>
+          )}
 
           {projectedDots.map((dot, i) => (
             <g key={`points-group-${i}`}>
