@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -371,9 +372,9 @@ const Index = () => {
             
             {/* Subtext */}
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-16 sm:mb-20 leading-relaxed">
-              We've curated the ultimate toolkit for the World's Largest Hackathon—packed<br />
-              with premium tools, credits, and offers from the best platforms in tech.<br />
-              <span className="text-gray-400">Available exclusively to registered hackathon participants.</span>
+              We've curated the ultimate toolkit for the world's first hybrid Zero Code Challenge — packed<br />
+              with premium tools, credits, and exclusive offers from the top platforms in tech.<br />
+              <span className="text-gray-400">Available only to registered Zero Code Challenge participants.</span>
             </p>
             
             {/* Tools/Partners Grid - Responsive Layout */}
