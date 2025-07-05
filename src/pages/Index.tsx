@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -353,12 +352,24 @@ const Index = () => {
       <section className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-6xl mx-auto">
-            {/* Builder Pack Corner Brackets - Updated to match TIME LEFT TO SUBMIT style */}
+            {/* Builder Pack Corner Brackets - Updated to match TIME LEFT TO SUBMIT style with gaps */}
             <div className="relative inline-block mb-8 sm:mb-12">
-              <div className="absolute -top-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-t-2 border-white/30"></div>
-              <div className="absolute -top-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-t-2 border-white/30"></div>
-              <div className="absolute -bottom-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-b-2 border-white/30"></div>
-              <div className="absolute -bottom-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-b-2 border-white/30"></div>
+              {/* Top Left Corner */}
+              <div className="absolute -top-2 -left-2 w-3 sm:w-4 h-0.5 bg-white/30"></div>
+              <div className="absolute -top-2 -left-2 w-0.5 h-3 sm:h-4 bg-white/30"></div>
+              
+              {/* Top Right Corner */}
+              <div className="absolute -top-2 -right-2 w-3 sm:w-4 h-0.5 bg-white/30"></div>
+              <div className="absolute -top-2 -right-2 w-0.5 h-3 sm:h-4 bg-white/30 ml-auto"></div>
+              
+              {/* Bottom Left Corner */}
+              <div className="absolute -bottom-2 -left-2 w-3 sm:w-4 h-0.5 bg-white/30"></div>
+              <div className="absolute -bottom-2 -left-2 w-0.5 h-3 sm:h-4 bg-white/30 mt-auto"></div>
+              
+              {/* Bottom Right Corner */}
+              <div className="absolute -bottom-2 -right-2 w-3 sm:w-4 h-0.5 bg-white/30"></div>
+              <div className="absolute -bottom-2 -right-2 w-0.5 h-3 sm:h-4 bg-white/30 ml-auto mt-auto"></div>
+              
               <span className="text-white/70 text-xs sm:text-sm tracking-wider uppercase px-3 sm:px-4 py-2">
                 BUILDER PACK
               </span>
