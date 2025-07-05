@@ -132,11 +132,11 @@ const Index = () => {
     </svg>
   );
 
-  // 3D Lightning Bolt Component
+  // 3D Lightning Bolt Component - Made responsive
   const LightningBolt = ({ className = "" }) => (
     <div className={`${className}`}>
       <div 
-        className="w-16 h-20 sm:w-20 sm:h-24 lg:w-24 lg:h-28 bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 relative transform rotate-12 shadow-2xl"
+        className="w-8 h-10 sm:w-12 sm:h-16 lg:w-16 lg:h-20 xl:w-24 xl:h-28 bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 relative transform rotate-12 shadow-2xl"
         style={{
           clipPath: 'polygon(20% 0%, 60% 0%, 40% 40%, 100% 40%, 80% 100%, 40% 60%, 0% 60%)',
           filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))',
@@ -154,7 +154,7 @@ const Index = () => {
 
   return <div className="min-h-screen bg-black overflow-x-hidden">
       {/* New Hero Section */}
-      <section className="relative">
+      <section className="relative pt-16 sm:pt-0">
         <DemoHeroGeometric />
       </section>
 
@@ -183,7 +183,7 @@ const Index = () => {
               </div>
               
               <div className="relative mt-6 lg:mt-0">
-                <div className="w-full h-32 sm:h-48 md:h-64 lg:h-80 bg-gradient-to-br from-orange-400 via-yellow-500 to-orange-600 rounded-xl sm:rounded-2xl shadow-2xl transform rotate-1 sm:rotate-3 hover:rotate-1 transition-transform duration-300">
+                <div className="w-full h-24 sm:h-32 md:h-48 lg:h-64 xl:h-80 bg-gradient-to-br from-orange-400 via-yellow-500 to-orange-600 rounded-xl sm:rounded-2xl shadow-2xl transform rotate-1 sm:rotate-3 hover:rotate-1 transition-transform duration-300">
                   <div className="absolute inset-2 sm:inset-4 bg-gradient-to-br from-white/10 to-transparent rounded-lg sm:rounded-xl backdrop-blur-sm border border-white/20"></div>
                   <div className="absolute bottom-2 sm:bottom-4 lg:bottom-6 left-2 sm:left-4 lg:left-6 right-2 sm:right-4 lg:right-6">
                     <div className="text-white/90 text-xs sm:text-sm lg:text-sm font-medium mb-1 sm:mb-2">AI Challenge 2024</div>
@@ -251,7 +251,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Updated How It Works Section */}
+      {/* Updated How It Works Section - Made responsive */}
       <section className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
@@ -259,18 +259,18 @@ const Index = () => {
               HOW IT WORKS
             </h2>
             
-            {/* Steps with connecting line */}
-            <div className="flex flex-col lg:flex-row items-center justify-center max-w-4xl mx-auto">
-              <div className="flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-32">
+            {/* Steps with connecting line - Made responsive */}
+            <div className="flex flex-col items-center justify-center max-w-6xl mx-auto">
+              <div className="flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-16 xl:space-x-32">
                 {/* Step 1 */}
-                <div className="text-center flex-shrink-0">
+                <div className="text-center flex-shrink-0 max-w-xs px-4">
                   <div className="relative inline-block mb-6">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-white rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl bg-black">
                       1
                     </div>
                   </div>
-                  <div className="max-w-xs">
-                    <h3 className="text-white text-lg sm:text-xl font-bold mb-3">
+                  <div>
+                    <h3 className="text-white text-base sm:text-lg lg:text-xl font-bold mb-3 leading-tight">
                       Register for the<br />
                       Hackathon via<br />
                       Devpost
@@ -279,19 +279,19 @@ const Index = () => {
                 </div>
                 
                 {/* Connecting Line 1-2 */}
-                <div className="hidden lg:block w-24 xl:w-32 h-0.5 bg-white relative">
+                <div className="hidden lg:block w-16 xl:w-24 h-0.5 bg-white relative flex-shrink-0">
                   <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full"></div>
                 </div>
                 
                 {/* Step 2 */}
-                <div className="text-center flex-shrink-0">
+                <div className="text-center flex-shrink-0 max-w-xs px-4">
                   <div className="relative inline-block mb-6">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-white rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl bg-black">
                       2
                     </div>
                   </div>
-                  <div className="max-w-xs">
-                    <h3 className="text-white text-lg sm:text-xl font-bold mb-3">
+                  <div>
+                    <h3 className="text-white text-base sm:text-lg lg:text-xl font-bold mb-3 leading-tight">
                       Get your Builder Pack<br />
                       email with reward<br />
                       details
@@ -300,19 +300,19 @@ const Index = () => {
                 </div>
                 
                 {/* Connecting Line 2-3 */}
-                <div className="hidden lg:block w-24 xl:w-32 h-0.5 bg-white relative">
+                <div className="hidden lg:block w-16 xl:w-24 h-0.5 bg-white relative flex-shrink-0">
                   <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full"></div>
                 </div>
                 
                 {/* Step 3 */}
-                <div className="text-center flex-shrink-0">
+                <div className="text-center flex-shrink-0 max-w-xs px-4">
                   <div className="relative inline-block mb-6">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-white rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl bg-black">
                       3
                     </div>
                   </div>
-                  <div className="max-w-xs">
-                    <h3 className="text-white text-lg sm:text-xl font-bold mb-3">
+                  <div>
+                    <h3 className="text-white text-base sm:text-lg lg:text-xl font-bold mb-3 leading-tight">
                       Access the tools and<br />
                       start building May 30
                     </h3>
@@ -322,22 +322,22 @@ const Index = () => {
             </div>
           </div>
 
-          {/* The Challenge Is Live Section */}
+          {/* The Challenge Is Live Section - Made responsive */}
           <div className="relative text-center mb-16 sm:mb-20">
-            {/* Lightning bolts */}
-            <div className="absolute left-4 sm:left-8 lg:left-32 top-1/2 transform -translate-y-1/2 -rotate-12">
+            {/* Lightning bolts - Made responsive and adjusted positioning */}
+            <div className="absolute left-2 sm:left-4 lg:left-16 xl:left-32 top-1/2 transform -translate-y-1/2 -rotate-12">
               <LightningBolt />
             </div>
-            <div className="absolute right-4 sm:right-8 lg:right-32 top-1/2 transform -translate-y-1/2 rotate-12">
+            <div className="absolute right-2 sm:right-4 lg:right-16 xl:right-32 top-1/2 transform -translate-y-1/2 rotate-12">
               <LightningBolt />
             </div>
             
-            <div className="px-8 sm:px-12 lg:px-32">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8">
+            <div className="px-4 sm:px-8 lg:px-16 xl:px-32">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
                 THE CHALLENGE IS<br />LIVE!
               </h3>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-                Every participant will receive their Challenge Pack automatically via email<br />
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8 lg:mb-10 leading-relaxed px-4">
+                Every participant will receive their Challenge Pack automatically via email<br className="hidden sm:block" />
                 within 48 hours after registration. We launch the Challenge in...
               </p>
               <Button className="bg-gray-100 text-black hover:bg-white text-base sm:text-lg px-8 py-3 rounded-full font-semibold transition-all">
