@@ -132,6 +132,26 @@ const Index = () => {
     </svg>
   );
 
+  // 3D Lightning Bolt Component
+  const LightningBolt = ({ className = "" }) => (
+    <div className={`${className}`}>
+      <div 
+        className="w-16 h-20 sm:w-20 sm:h-24 lg:w-24 lg:h-28 bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 relative transform rotate-12 shadow-2xl"
+        style={{
+          clipPath: 'polygon(20% 0%, 60% 0%, 40% 40%, 100% 40%, 80% 100%, 40% 60%, 0% 60%)',
+          filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))',
+        }}
+      >
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-yellow-200/50 to-transparent"
+          style={{
+            clipPath: 'polygon(20% 0%, 60% 0%, 40% 40%, 100% 40%, 80% 100%, 40% 60%, 0% 60%)',
+          }}
+        />
+      </div>
+    </div>
+  );
+
   return <div className="min-h-screen bg-black overflow-x-hidden">
       {/* New Hero Section */}
       <section className="relative">
@@ -231,98 +251,178 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-black">
+      {/* Updated How It Works Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 lg:mb-8">HOW IT WORKS</h2>
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 sm:mb-12 lg:mb-16 tracking-wider">
+              HOW IT WORKS
+            </h2>
             
-            {/* Steps */}
-            <div className="flex flex-col lg:flex-row items-center justify-center mb-8 sm:mb-12 lg:mb-16 space-y-6 sm:space-y-8 lg:space-y-0">
-              <div className="flex flex-col lg:flex-row items-center space-y-6 sm:space-y-8 lg:space-y-0 lg:space-x-6 xl:space-x-16">
+            {/* Steps with connecting line */}
+            <div className="flex flex-col lg:flex-row items-center justify-center max-w-4xl mx-auto">
+              <div className="flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-32">
                 {/* Step 1 */}
-                <div className="text-center max-w-xs">
-                  <div className="relative inline-block mb-3 sm:mb-4">
-                    {/* Corner brackets */}
-                    <div className="absolute -top-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-t-2 border-white"></div>
-                    <div className="absolute -top-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-t-2 border-white"></div>
-                    <div className="absolute -bottom-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-b-2 border-white"></div>
-                    <div className="absolute -bottom-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-b-2 border-white"></div>
-                    
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
+                <div className="text-center flex-shrink-0">
+                  <div className="relative inline-block mb-6">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-white rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl bg-black">
                       1
                     </div>
                   </div>
-                  <p className="text-white text-xs sm:text-sm lg:text-base px-2">
-                    Register for the Challenge via our platform
-                  </p>
+                  <div className="max-w-xs">
+                    <h3 className="text-white text-lg sm:text-xl font-bold mb-3">
+                      Register for the<br />
+                      Hackathon via<br />
+                      Devpost
+                    </h3>
+                  </div>
                 </div>
                 
-                {/* Line */}
-                <div className="w-0.5 h-8 sm:h-12 lg:w-12 xl:w-32 lg:h-0.5 bg-white lg:block hidden"></div>
+                {/* Connecting Line 1-2 */}
+                <div className="hidden lg:block w-24 xl:w-32 h-0.5 bg-white relative">
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full"></div>
+                </div>
                 
                 {/* Step 2 */}
-                <div className="text-center max-w-xs">
-                  <div className="relative inline-block mb-3 sm:mb-4">
-                    {/* Corner brackets */}
-                    <div className="absolute -top-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-t-2 border-white"></div>
-                    <div className="absolute -top-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-t-2 border-white"></div>
-                    <div className="absolute -bottom-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-b-2 border-white"></div>
-                    <div className="absolute -bottom-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-b-2 border-white"></div>
-                    
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
+                <div className="text-center flex-shrink-0">
+                  <div className="relative inline-block mb-6">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-white rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl bg-black">
                       2
                     </div>
                   </div>
-                  <p className="text-white text-xs sm:text-sm lg:text-base px-2">
-                    Get your Challenge Pack email with access details
-                  </p>
+                  <div className="max-w-xs">
+                    <h3 className="text-white text-lg sm:text-xl font-bold mb-3">
+                      Get your Builder Pack<br />
+                      email with reward<br />
+                      details
+                    </h3>
+                  </div>
                 </div>
                 
-                {/* Line */}
-                <div className="w-0.5 h-8 sm:h-12 lg:w-12 xl:w-32 lg:h-0.5 bg-white lg:block hidden"></div>
+                {/* Connecting Line 2-3 */}
+                <div className="hidden lg:block w-24 xl:w-32 h-0.5 bg-white relative">
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full"></div>
+                </div>
                 
                 {/* Step 3 */}
-                <div className="text-center max-w-xs">
-                  <div className="relative inline-block mb-3 sm:mb-4">
-                    {/* Corner brackets */}
-                    <div className="absolute -top-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-t-2 border-white"></div>
-                    <div className="absolute -top-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-t-2 border-white"></div>
-                    <div className="absolute -bottom-2 -left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-b-2 border-white"></div>
-                    <div className="absolute -bottom-2 -right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-b-2 border-white"></div>
-                    
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
+                <div className="text-center flex-shrink-0">
+                  <div className="relative inline-block mb-6">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-white rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl bg-black">
                       3
                     </div>
                   </div>
-                  <p className="text-white text-xs sm:text-sm lg:text-base px-2">
-                    Access the tools and start building your AI empire
-                  </p>
+                  <div className="max-w-xs">
+                    <h3 className="text-white text-lg sm:text-xl font-bold mb-3">
+                      Access the tools and<br />
+                      start building May 30
+                    </h3>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Main Banner */}
-            <div className="relative">
-              {/* Lightning bolts */}
-              <div className="absolute left-2 sm:left-8 lg:left-16 top-1/2 transform -translate-y-1/2">
-                <div className="w-8 h-8 sm:w-12 sm:h-12 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform rotate-12" style={{
-                clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'
-              }}></div>
+          {/* The Challenge Is Live Section */}
+          <div className="relative text-center mb-16 sm:mb-20">
+            {/* Lightning bolts */}
+            <div className="absolute left-4 sm:left-8 lg:left-32 top-1/2 transform -translate-y-1/2 -rotate-12">
+              <LightningBolt />
+            </div>
+            <div className="absolute right-4 sm:right-8 lg:right-32 top-1/2 transform -translate-y-1/2 rotate-12">
+              <LightningBolt />
+            </div>
+            
+            <div className="px-8 sm:px-12 lg:px-32">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8">
+                THE CHALLENGE IS<br />LIVE!
+              </h3>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+                Every participant will receive their Challenge Pack automatically via email<br />
+                within 48 hours after registration. We launch the Challenge in...
+              </p>
+              <Button className="bg-gray-100 text-black hover:bg-white text-base sm:text-lg px-8 py-3 rounded-full font-semibold transition-all">
+                Access Challenge Pack
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Builder Pack Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-6xl mx-auto">
+            {/* Builder Pack Corner Brackets */}
+            <div className="relative inline-block mb-8 sm:mb-12">
+              <div className="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-gray-400"></div>
+              <div className="absolute -top-3 -right-3 w-8 h-8 border-r-2 border-t-2 border-gray-400"></div>
+              <div className="absolute -bottom-3 -left-3 w-8 h-8 border-l-2 border-b-2 border-gray-400"></div>
+              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-gray-400"></div>
+              <div className="px-6 py-2 text-gray-400 text-sm sm:text-base font-medium tracking-wider">
+                BUILDER PACK
               </div>
-              <div className="absolute right-2 sm:right-8 lg:right-16 top-1/2 transform -translate-y-1/2">
-                <div className="w-8 h-8 sm:w-12 sm:h-12 lg:w-24 lg:h-24 bg-gradient-to-r from-yellow-400 to-orange-500 transform -rotate-12" style={{
-                clipPath: 'polygon(0% 40%, 40% 40%, 20% 0%, 100% 35%, 60% 35%, 80% 100%)'
-              }}></div>
+            </div>
+            
+            {/* Main Heading */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 sm:mb-12 leading-tight">
+              BUILDERS, START<br />
+              YOUR ENGINES.
+            </h2>
+            
+            {/* Subtext */}
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-16 sm:mb-20 leading-relaxed">
+              We've curated the ultimate toolkit for the World's Largest Hackathon—packed<br />
+              with premium tools, credits, and offers from the best platforms in tech.<br />
+              <span className="text-gray-400">Available exclusively to registered hackathon participants.</span>
+            </p>
+            
+            {/* Tools/Partners Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 max-w-5xl mx-auto">
+              {/* Bolt */}
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 italic">
+                  bolt<span className="text-blue-400">.new</span>
+                </div>
+                <p className="text-gray-300 text-sm sm:text-base">Bolt Pro access</p>
               </div>
               
-              <div className="text-center px-4 sm:px-8 lg:px-16">
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-6xl font-bold text-white mb-3 sm:mb-4">
-                  THE CHALLENGE IS<br />LIVE!
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base lg:text-xl text-gray-300 max-w-2xl mx-auto">
-                  Every participant will receive their Challenge Pack automatically via email within 48 hours of registering. We launch the Challenge in...
-                </p>
+              {/* Vertical Divider */}
+              <div className="hidden lg:flex justify-center">
+                <div className="w-px h-24 bg-gray-600"></div>
+              </div>
+              
+              {/* Entri */}
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                  <span className="text-blue-400">◉</span>entri
+                </div>
+                <p className="text-gray-300 text-sm sm:text-base">One free domain</p>
+              </div>
+              
+              {/* Vertical Divider */}
+              <div className="hidden lg:flex justify-center">
+                <div className="w-px h-24 bg-gray-600"></div>
+              </div>
+              
+              {/* RevenueCat */}
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                  RevenueCat
+                </div>
+                <p className="text-gray-300 text-sm sm:text-base">Free payment collection</p>
+              </div>
+              
+              {/* Vertical Divider */}
+              <div className="hidden lg:flex justify-center">
+                <div className="w-px h-24 bg-gray-600"></div>
+              </div>
+              
+              {/* & MORE! */}
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                  & MORE!
+                </div>
+                <p className="text-gray-300 text-sm sm:text-base">See the pack for more</p>
               </div>
             </div>
           </div>
