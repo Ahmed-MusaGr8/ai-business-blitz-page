@@ -176,7 +176,11 @@ const Index = () => {
                 <p className="text-sm sm:text-base lg:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                   7 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
                 </p>
-                <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
+                  onClick={() => window.location.href = '/register'}
+                >
                   Join the Challenge
                   <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
                 </Button>
@@ -525,7 +529,11 @@ const Index = () => {
                         {feature}
                       </li>)}
                   </ul>
-                  <Button className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} size="lg">
+                  <Button 
+                    className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} 
+                    size="lg"
+                    onClick={() => window.location.href = '/register'}
+                  >
                     Register Now
                   </Button>
                 </CardContent>
@@ -601,7 +609,11 @@ const Index = () => {
           
           <div className="container mx-auto px-4 text-center mb-6 sm:mb-8">
             <div className="max-w-sm mx-auto">
-              <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all">
+              <Button 
+                size="lg" 
+                className="w-full bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all"
+                onClick={() => window.location.href = '/register'}
+              >
                 Claim Your Spot Now
                 <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
               </Button>
