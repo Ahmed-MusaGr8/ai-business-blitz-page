@@ -41,6 +41,7 @@ export const SponsorsCarousel = () => {
 
   return (
     <div className="text-center py-6">
+      <p className="text-sm text-gray-500 mb-4">Proudly sponsored by</p>
       <div className="flex justify-center items-center h-16">
         <div className="relative w-32 h-16 flex items-center justify-center">
           {sponsors.map((sponsor, index) => (
