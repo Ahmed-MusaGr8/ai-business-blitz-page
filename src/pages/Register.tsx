@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,38 +15,6 @@ import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
 
-// Country data with cities and states
-const countryData = {
-  "🇺🇸 United States": {
-    states: ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],
-    cities: ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose", "Austin", "Jacksonville", "Fort Worth", "Columbus", "Charlotte", "San Francisco", "Indianapolis", "Seattle", "Denver", "Washington", "Boston", "El Paso", "Nashville", "Detroit", "Oklahoma City", "Portland", "Las Vegas", "Memphis", "Louisville", "Baltimore", "Milwaukee", "Albuquerque", "Tucson", "Fresno", "Mesa", "Sacramento", "Atlanta", "Kansas City", "Colorado Springs", "Miami", "Raleigh", "Omaha", "Long Beach", "Virginia Beach", "Oakland", "Minneapolis", "Tulsa", "Tampa", "Arlington", "New Orleans"]
-  },
-  "🇨🇦 Canada": {
-    states: ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories", "Nova Scotia", "Nunavut", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon"],
-    cities: ["Toronto", "Montreal", "Vancouver", "Calgary", "Edmonton", "Ottawa", "Winnipeg", "Quebec City", "Hamilton", "Kitchener", "London", "Victoria", "Halifax", "Oshawa", "Windsor", "Saskatoon", "St. Catharines", "Regina", "Sherbrooke", "Barrie", "Kelowna", "Abbotsford", "Kingston", "Trois-Rivières", "Guelph", "Cambridge", "Whitby", "Coquitlam", "Saanich", "Chatham"]
-  },
-  "🇬🇧 United Kingdom": {
-    states: ["England", "Scotland", "Wales", "Northern Ireland"],
-    cities: ["London", "Birmingham", "Manchester", "Glasgow", "Liverpool", "Leeds", "Sheffield", "Edinburgh", "Bristol", "Cardiff", "Leicester", "Coventry", "Bradford", "Belfast", "Nottingham", "Kingston upon Hull", "Newcastle upon Tyne", "Stoke-on-Trent", "Southampton", "Derby", "Portsmouth", "Brighton", "Plymouth", "Northampton", "Reading", "Luton", "Wolverhampton", "Bolton", "Aberdeen", "Bournemouth"]
-  },
-  "🇦🇺 Australia": {
-    states: ["New South Wales", "Victoria", "Queensland", "Western Australia", "South Australia", "Tasmania", "Australian Capital Territory", "Northern Territory"],
-    cities: ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Gold Coast", "Newcastle", "Canberra", "Central Coast", "Wollongong", "Logan City", "Geelong", "Hobart", "Townsville", "Cairns", "Darwin", "Toowoomba", "Ballarat", "Bendigo", "Albury", "Launceston", "Mackay", "Rockhampton", "Bunbury", "Bundaberg", "Wagga Wagga", "Hervey Bay", "Mildura", "Shepparton", "Port Macquarie"]
-  },
-  "🇩🇪 Germany": {
-    states: ["Baden-Württemberg", "Bavaria", "Berlin", "Brandenburg", "Bremen", "Hamburg", "Hesse", "Lower Saxony", "Mecklenburg-Vorpommern", "North Rhine-Westphalia", "Rhineland-Palatinate", "Saarland", "Saxony", "Saxony-Anhalt", "Schleswig-Holstein", "Thuringia"],
-    cities: ["Berlin", "Hamburg", "Munich", "Cologne", "Frankfurt", "Stuttgart", "Düsseldorf", "Dortmund", "Essen", "Leipzig", "Bremen", "Dresden", "Hanover", "Nuremberg", "Duisburg", "Bochum", "Wuppertal", "Bielefeld", "Bonn", "Münster", "Karlsruhe", "Mannheim", "Augsburg", "Wiesbaden", "Gelsenkirchen", "Mönchengladbach", "Braunschweig", "Chemnitz", "Kiel", "Aachen"]
-  },
-  "🇫🇷 France": {
-    states: ["Auvergne-Rhône-Alpes", "Bourgogne-Franche-Comté", "Brittany", "Centre-Val de Loire", "Corsica", "Grand Est", "Hauts-de-France", "Île-de-France", "Normandy", "Nouvelle-Aquitaine", "Occitania", "Pays de la Loire", "Provence-Alpes-Côte d'Azur"],
-    cities: ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille", "Rennes", "Reims", "Le Havre", "Saint-Étienne", "Toulon", "Grenoble", "Dijon", "Angers", "Saint-Denis", "Villeurbanne", "Le Mans", "Aix-en-Provence", "Clermont-Ferrand", "Brest", "Tours", "Limoges", "Amiens", "Annecy", "Perpignan", "Boulogne-Billancourt"]
-  },
-  "🇮🇳 India": {
-    states: ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"],
-    cities: ["Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam", "Pimpri-Chinchwad", "Patna", "Vadodara", "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi"]
-  }
-};
-
 const formSchema = z.object({
   // Personal Information
   firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -64,6 +31,8 @@ const formSchema = z.object({
   gender: z.string().optional(),
   fieldOfStudy: z.string().min(1, "Field of study is required"),
   university: z.string().min(1, "School/University is required"),
+  experienceLevel: z.string().min(1, "Experience level is required"),
+  dietaryRestrictions: z.string().optional(),
   tshirtSize: z.string().min(1, "T-shirt size is required"),
   
   // Team Information
@@ -107,10 +76,6 @@ const Register = () => {
     }
   });
 
-  const selectedCountry = form.watch("country");
-  const availableStates = selectedCountry ? countryData[selectedCountry as keyof typeof countryData]?.states || [] : [];
-  const availableCities = selectedCountry ? countryData[selectedCountry as keyof typeof countryData]?.cities || [] : [];
-
   const onSubmit = async (data: FormData) => {
     console.log("Form submitted with data:", data);
     
@@ -142,7 +107,7 @@ const Register = () => {
       case 1:
         return ['firstName', 'lastName', 'email', 'phone', 'country', 'city', 'state', 'postalCode'];
       case 2:
-        return ['age', 'fieldOfStudy', 'university', 'tshirtSize'];
+        return ['age', 'fieldOfStudy', 'university', 'experienceLevel', 'tshirtSize'];
       case 3:
         return ['isTeam'];
       case 4:
@@ -157,19 +122,19 @@ const Register = () => {
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center px-4">
-        <Card className="w-full max-w-2xl bg-white border border-gray-200 text-center shadow-lg animate-in fade-in-0 zoom-in-95 duration-500">
+        <Card className="w-full max-w-2xl bg-white border border-gray-200 text-center shadow-lg">
           <CardHeader className="pb-8">
-            <div className="flex justify-center mb-6 animate-in zoom-in-50 duration-700 delay-200">
-              <CheckCircle className="h-16 w-16 text-green-500 animate-pulse" />
+            <div className="flex justify-center mb-6">
+              <CheckCircle className="h-16 w-16 text-green-500" />
             </div>
-            <CardTitle className="text-3xl font-bold text-gray-900 mb-4 animate-in slide-in-from-bottom-4 duration-500 delay-300">
+            <CardTitle className="text-3xl font-bold text-gray-900 mb-4">
               Thank You for Registering!
             </CardTitle>
-            <CardDescription className="text-lg text-gray-600 animate-in slide-in-from-bottom-4 duration-500 delay-400">
+            <CardDescription className="text-lg text-gray-600">
               Your registration for the Zero Code Challenge has been successfully submitted.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6 animate-in slide-in-from-bottom-4 duration-500 delay-500">
+          <CardContent className="space-y-6">
             <div className="bg-gray-50 rounded-lg p-6 text-left">
               <h3 className="text-gray-900 font-semibold mb-3">What's Next?</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
@@ -182,14 +147,14 @@ const Register = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white border-black"
+                className="bg-blue-600 hover:bg-blue-700 text-white"
                 onClick={() => window.open('https://discord.com', '_blank')}
               >
                 Join Discord Community
               </Button>
               <Button 
                 variant="outline" 
-                className="border-black text-gray-700 hover:bg-gray-50"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50"
                 onClick={() => window.location.href = '/'}
               >
                 Back to Home
@@ -204,7 +169,7 @@ const Register = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-black bg-white sticky top-0 z-50">
+      <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -214,20 +179,14 @@ const Register = () => {
                 <p className="text-sm text-gray-500">Registration</p>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="text-right">
-                <h2 className="text-lg font-semibold text-gray-900">Register for the Zero Code Challenge</h2>
-                <p className="text-sm text-gray-500">Step {currentStep} of {totalSteps}</p>
-              </div>
-              <Button 
-                variant="ghost" 
-                className="text-gray-500 hover:text-gray-900"
-                onClick={() => window.location.href = '/'}
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Home
-              </Button>
-            </div>
+            <Button 
+              variant="ghost" 
+              className="text-gray-500 hover:text-gray-900"
+              onClick={() => window.location.href = '/'}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Home
+            </Button>
           </div>
         </div>
       </header>
@@ -235,6 +194,10 @@ const Register = () => {
       <div className="container mx-auto px-4 py-8 max-w-2xl">
         {/* Progress Bar */}
         <div className="mb-8">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-bold text-gray-900">Register for the Zero Code Challenge</h2>
+            <span className="text-sm text-gray-500">Step {currentStep} of {totalSteps}</span>
+          </div>
           <Progress value={(currentStep / totalSteps) * 100} className="h-2" />
         </div>
 
@@ -248,7 +211,7 @@ const Register = () => {
             
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Personal Information</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -264,7 +227,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">First Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="John" {...field} className="bg-white border-black text-gray-900 focus:border-black" />
+                            <Input placeholder="John" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -278,7 +241,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Last Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="Doe" {...field} className="bg-white border-black text-gray-900 focus:border-black" />
+                            <Input placeholder="Doe" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -294,7 +257,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Email Address *</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="john.doe@example.com" {...field} className="bg-white border-black text-gray-900 focus:border-black" />
+                            <Input type="email" placeholder="john.doe@example.com" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -308,7 +271,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Phone Number</FormLabel>
                           <FormControl>
-                            <Input placeholder="+1 (555) 123-4567" {...field} className="bg-white border-black text-gray-900 focus:border-black" />
+                            <Input placeholder="+1 (555) 123-4567" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -316,52 +279,16 @@ const Register = () => {
                     />
                   </div>
 
-                  <FormField
-                    control={form.control}
-                    name="country"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-gray-700">Country *</FormLabel>
-                        <Select onValueChange={(value) => {
-                          field.onChange(value);
-                          form.setValue("city", "");
-                          form.setValue("state", "");
-                        }} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="bg-white border-black text-gray-900">
-                              <SelectValue placeholder="Select your country" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="bg-white border-black">
-                            {Object.keys(countryData).map((country) => (
-                              <SelectItem key={country} value={country}>{country}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                       control={form.control}
-                      name="city"
+                      name="country"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-700">City *</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedCountry}>
-                            <FormControl>
-                              <SelectTrigger className="bg-white border-black text-gray-900">
-                                <SelectValue placeholder="Select your city" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="bg-white border-black">
-                              {availableCities.map((city) => (
-                                <SelectItem key={city} value={city}>{city}</SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                          <FormLabel className="text-gray-700">Country *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="United States" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
+                          </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -369,48 +296,55 @@ const Register = () => {
                     
                     <FormField
                       control={form.control}
-                      name="state"
+                      name="city"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-700">State/Province *</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedCountry}>
-                            <FormControl>
-                              <SelectTrigger className="bg-white border-black text-gray-900">
-                                <SelectValue placeholder="Select your state/province" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="bg-white border-black">
-                              {availableStates.map((state) => (
-                                <SelectItem key={state} value={state}>{state}</SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                          <FormLabel className="text-gray-700">City *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="New York" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
+                          </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                   </div>
 
-                  <FormField
-                    control={form.control}
-                    name="postalCode"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-gray-700">Postal Code *</FormLabel>
-                        <FormControl>
-                          <Input placeholder="10001" {...field} className="bg-white border-black text-gray-900 focus:border-black" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="state"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700">State/Province *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="New York" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="postalCode"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700">Postal Code *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="10001" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 </CardContent>
               </Card>
             )}
 
             {/* Step 2: Demographics & Background */}
             {currentStep === 2 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Background Information</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -426,7 +360,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Age *</FormLabel>
                           <FormControl>
-                            <Input type="number" placeholder="25" {...field} className="bg-white border-black text-gray-900 focus:border-black" />
+                            <Input type="number" placeholder="25" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -441,13 +375,15 @@ const Register = () => {
                           <FormLabel className="text-gray-700">Gender</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <SelectTrigger className="bg-white border-black text-gray-900">
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
                                 <SelectValue placeholder="Select gender (optional)" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-white border-black">
+                            <SelectContent className="bg-white border-gray-300">
                               <SelectItem value="male">Male</SelectItem>
                               <SelectItem value="female">Female</SelectItem>
+                              <SelectItem value="non-binary">Non-binary</SelectItem>
+                              <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -464,11 +400,11 @@ const Register = () => {
                         <FormLabel className="text-gray-700">Major/Field of Study *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-white border-black text-gray-900">
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900">
                               <SelectValue placeholder="Select your field of study" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-white border-black">
+                          <SelectContent className="bg-white border-gray-300">
                             <SelectItem value="computer-science">Computer Science</SelectItem>
                             <SelectItem value="engineering">Engineering</SelectItem>
                             <SelectItem value="business">Business</SelectItem>
@@ -489,7 +425,7 @@ const Register = () => {
                       <FormItem>
                         <FormLabel className="text-gray-700">School/University *</FormLabel>
                         <FormControl>
-                          <Input placeholder="Massachusetts Institute of Technology" {...field} className="bg-white border-black text-gray-900 focus:border-black" />
+                          <Input placeholder="Massachusetts Institute of Technology" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -498,36 +434,83 @@ const Register = () => {
 
                   <FormField
                     control={form.control}
-                    name="tshirtSize"
+                    name="experienceLevel"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-gray-700">T-shirt Size *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="bg-white border-black text-gray-900">
-                              <SelectValue placeholder="Select size" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="bg-white border-black">
-                            <SelectItem value="xs">XS</SelectItem>
-                            <SelectItem value="s">S</SelectItem>
-                            <SelectItem value="m">M</SelectItem>
-                            <SelectItem value="l">L</SelectItem>
-                            <SelectItem value="xl">XL</SelectItem>
-                            <SelectItem value="xxl">XXL</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <FormLabel className="text-gray-700">Years of Experience in Coding/AI *</FormLabel>
+                        <FormControl>
+                          <RadioGroup
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                            className="flex flex-col space-y-2"
+                          >
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="beginner" id="beginner" />
+                              <label htmlFor="beginner" className="text-gray-700 cursor-pointer">Beginner (0-1 years)</label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="intermediate" id="intermediate" />
+                              <label htmlFor="intermediate" className="text-gray-700 cursor-pointer">Intermediate (2-5 years)</label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="advanced" id="advanced" />
+                              <label htmlFor="advanced" className="text-gray-700 cursor-pointer">Advanced (5+ years)</label>
+                            </div>
+                          </RadioGroup>
+                        </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="dietaryRestrictions"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700">Dietary Restrictions</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Vegetarian, Vegan, Allergies, etc." {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="tshirtSize"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700">T-shirt Size *</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                                <SelectValue placeholder="Select size" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-white border-gray-300">
+                              <SelectItem value="xs">XS</SelectItem>
+                              <SelectItem value="s">S</SelectItem>
+                              <SelectItem value="m">M</SelectItem>
+                              <SelectItem value="l">L</SelectItem>
+                              <SelectItem value="xl">XL</SelectItem>
+                              <SelectItem value="xxl">XXL</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 </CardContent>
               </Card>
             )}
 
             {/* Step 3: Team Information */}
             {currentStep === 3 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Team Information</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -571,7 +554,7 @@ const Register = () => {
                           <FormItem>
                             <FormLabel className="text-gray-700">Team Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter your team name" {...field} className="bg-white border-black text-gray-900 focus:border-black" />
+                              <Input placeholder="Enter your team name" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -588,7 +571,7 @@ const Register = () => {
                               <Textarea 
                                 placeholder="List your team members (names and email addresses)" 
                                 {...field} 
-                                className="bg-white border-black text-gray-900 focus:border-black min-h-[100px]" 
+                                className="bg-white border-gray-300 text-gray-900 focus:border-blue-500 min-h-[100px]" 
                               />
                             </FormControl>
                             <FormDescription className="text-gray-500">
@@ -606,7 +589,7 @@ const Register = () => {
 
             {/* Step 4: Event-Specific Questions */}
             {currentStep === 4 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Event-Specific Questions</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -622,11 +605,11 @@ const Register = () => {
                         <FormLabel className="text-gray-700">How did you hear about the challenge? *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-white border-black text-gray-900">
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900">
                               <SelectValue placeholder="Select an option" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-white border-black">
+                          <SelectContent className="bg-white border-gray-300">
                             <SelectItem value="social-media">Social Media</SelectItem>
                             <SelectItem value="friend">Friend/Colleague</SelectItem>
                             <SelectItem value="university">University/School</SelectItem>
@@ -649,7 +632,7 @@ const Register = () => {
                           <Textarea 
                             placeholder="Share your goals and expectations for the challenge..." 
                             {...field} 
-                            className="bg-white border-black text-gray-900 focus:border-black min-h-[120px]" 
+                            className="bg-white border-gray-300 text-gray-900 focus:border-blue-500 min-h-[120px]" 
                           />
                         </FormControl>
                         <FormMessage />
@@ -741,7 +724,7 @@ const Register = () => {
 
             {/* Step 5: Legal and Consent */}
             {currentStep === 5 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Legal and Consent</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -834,7 +817,7 @@ const Register = () => {
                 variant="outline"
                 onClick={prevStep}
                 disabled={currentStep === 1}
-                className="border-black text-gray-700 hover:bg-gray-50"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Previous
@@ -844,7 +827,7 @@ const Register = () => {
                 <Button
                   type="button"
                   onClick={nextStep}
-                  className="bg-blue-600 hover:bg-blue-700 text-white border-black"
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
                 >
                   Next
                   <ArrowRight className="h-4 w-4 ml-2" />
@@ -853,7 +836,7 @@ const Register = () => {
                 <Button
                   type="submit"
                   disabled={form.formState.isSubmitting}
-                  className="bg-green-600 hover:bg-green-700 text-white border-black"
+                  className="bg-green-600 hover:bg-green-700 text-white"
                 >
                   {form.formState.isSubmitting ? "Submitting..." : "Submit Registration"}
                 </Button>
