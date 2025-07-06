@@ -255,7 +255,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Updated How It Works Section - Made responsive */}
+      {/* Updated How It Works Section - Fixed overflow */}
       <section className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
@@ -263,9 +263,9 @@ const Index = () => {
               HOW IT WORKS
             </h2>
             
-            {/* Steps with connecting line - Made responsive */}
+            {/* Steps with connecting line - Fixed spacing to prevent overflow */}
             <div className="flex flex-col items-center justify-center max-w-6xl mx-auto">
-              <div className="flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-16 xl:space-x-32">
+              <div className="flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-12 xl:space-x-16">
                 {/* Step 1 */}
                 <div className="text-center flex-shrink-0 max-w-xs px-4">
                   <div className="relative inline-block mb-6">
@@ -282,8 +282,8 @@ const Index = () => {
                   </div>
                 </div>
                 
-                {/* Connecting Line 1-2 */}
-                <div className="hidden lg:block w-16 xl:w-24 h-0.5 bg-white relative flex-shrink-0">
+                {/* Connecting Line 1-2 - Reduced width */}
+                <div className="hidden lg:block w-12 xl:w-16 h-0.5 bg-white relative flex-shrink-0">
                   <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full"></div>
                 </div>
                 
@@ -303,8 +303,8 @@ const Index = () => {
                   </div>
                 </div>
                 
-                {/* Connecting Line 2-3 */}
-                <div className="hidden lg:block w-16 xl:w-24 h-0.5 bg-white relative flex-shrink-0">
+                {/* Connecting Line 2-3 - Reduced width */}
+                <div className="hidden lg:block w-12 xl:w-16 h-0.5 bg-white relative flex-shrink-0">
                   <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full"></div>
                 </div>
                 
