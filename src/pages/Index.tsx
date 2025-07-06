@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
 import { Footer } from "@/components/ui/footer";
 import { Timeline } from "@/components/ui/timeline";
 import { Hexagon, Linkedin, Twitter } from "lucide-react";
+import { SponsorsCarousel } from "@/components/SponsorsCarousel";
 
 const Index = () => {
   const mentors = [{
@@ -179,7 +181,7 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
-                  onClick={() => window.location.href = '/register'}
+                  onClick={() => window.open('https://www.zerocodechallenge.pro/#/register', '_blank')}
                 >
                   Join the Challenge
                   <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
@@ -203,6 +205,9 @@ const Index = () => {
           <AIBusinessChallengeTimeline />
         </div>
       </section>
+
+      {/* Sponsors Carousel Section */}
+      <SponsorsCarousel />
 
       {/* Mentors Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-black">
@@ -344,7 +349,10 @@ const Index = () => {
                 Every participant will receive their Challenge Pack automatically via email<br className="hidden sm:block" />
                 within 48 hours after registration. We launch the Challenge in...
               </p>
-              <Button className="bg-gray-100 text-black hover:bg-white text-base sm:text-lg px-8 py-3 rounded-full font-semibold transition-all">
+              <Button 
+                className="bg-gray-100 text-black hover:bg-white text-base sm:text-lg px-8 py-3 rounded-full font-semibold transition-all"
+                onClick={() => window.open('https://www.zerocodechallenge.pro/#/register', '_blank')}
+              >
                 Access Challenge Pack
               </Button>
             </div>
@@ -532,7 +540,7 @@ const Index = () => {
                   <Button 
                     className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} 
                     size="lg"
-                    onClick={() => window.location.href = '/register'}
+                    onClick={() => window.open('https://www.zerocodechallenge.pro/#/register', '_blank')}
                   >
                     Register Now
                   </Button>
@@ -612,7 +620,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="w-full bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all"
-                onClick={() => window.location.href = '/register'}
+                onClick={() => window.open('https://www.zerocodechallenge.pro/#/register', '_blank')}
               >
                 Claim Your Spot Now
                 <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
