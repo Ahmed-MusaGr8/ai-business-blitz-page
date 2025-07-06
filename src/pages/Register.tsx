@@ -14,6 +14,7 @@ import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
+import { getCountriesList, getStatesByCountry, getCitiesByCountry, getCitiesByState } from "@/utils/locationData";
 
 const formSchema = z.object({
   // Personal Information
@@ -31,8 +32,6 @@ const formSchema = z.object({
   gender: z.string().optional(),
   fieldOfStudy: z.string().min(1, "Field of study is required"),
   university: z.string().min(1, "School/University is required"),
-  experienceLevel: z.string().min(1, "Experience level is required"),
-  dietaryRestrictions: z.string().optional(),
   tshirtSize: z.string().min(1, "T-shirt size is required"),
   
   // Team Information
@@ -65,6 +64,8 @@ const ZCIcon = () => (
 const Register = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
   const { toast } = useToast();
   const totalSteps = 5;
 
@@ -107,7 +108,7 @@ const Register = () => {
       case 1:
         return ['firstName', 'lastName', 'email', 'phone', 'country', 'city', 'state', 'postalCode'];
       case 2:
-        return ['age', 'fieldOfStudy', 'university', 'experienceLevel', 'tshirtSize'];
+        return ['age', 'fieldOfStudy', 'university', 'tshirtSize'];
       case 3:
         return ['isTeam'];
       case 4:
@@ -118,6 +119,10 @@ const Register = () => {
         return [];
     }
   };
+
+  const countries = getCountriesList();
+  const states = getStatesByCountry(selectedCountry);
+  const cities = selectedState ? getCitiesByState(selectedCountry, selectedState) : getCitiesByCountry(selectedCountry);
 
   if (isSubmitted) {
     return (
@@ -168,15 +173,19 @@ const Register = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      {/* Updated Header with combined titles */}
       <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <ZCIcon />
               <div>
-                <h1 className="text-xl font-bold text-gray-900">Zero Code Challenge</h1>
-                <p className="text-sm text-gray-500">Registration</p>
+                <h1 className="text-xl font-bold text-gray-900">Zero Code Challenge Registration</h1>
+                <div className="flex items-center space-x-4">
+                  <p className="text-sm text-gray-500">Register for the Zero Code Challenge</p>
+                  <span className="text-sm text-gray-500">•</span>
+                  <span className="text-sm text-gray-500">Step {currentStep} of {totalSteps}</span>
+                </div>
               </div>
             </div>
             <Button 
@@ -194,14 +203,10 @@ const Register = () => {
       <div className="container mx-auto px-4 py-8 max-w-2xl">
         {/* Progress Bar */}
         <div className="mb-8">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-gray-900">Register for the Zero Code Challenge</h2>
-            <span className="text-sm text-gray-500">Step {currentStep} of {totalSteps}</span>
-          </div>
           <Progress value={(currentStep / totalSteps) * 100} className="h-2" />
         </div>
 
-        {/* Sponsors Carousel */}
+        {/* Sponsors Carousel - Updated without text */}
         <div className="mb-8">
           <SponsorsCarousel />
         </div>
@@ -279,16 +284,69 @@ const Register = () => {
                     />
                   </div>
 
+                  <FormField
+                    control={form.control}
+                    name="country"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-700">Country *</FormLabel>
+                        <Select onValueChange={(value) => {
+                          field.onChange(value);
+                          setSelectedCountry(value);
+                          setSelectedState("");
+                          form.setValue("state", "");
+                          form.setValue("city", "");
+                        }} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                              <SelectValue placeholder="Select your country" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-white border-gray-300 max-h-60">
+                            {countries.map((country) => (
+                              <SelectItem key={country.code} value={country.code}>
+                                <span className="flex items-center">
+                                  <span className="mr-2">{country.flag}</span>
+                                  {country.name}
+                                </span>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                       control={form.control}
-                      name="country"
+                      name="state"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-700">Country *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="United States" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
+                          <FormLabel className="text-gray-700">State/Province *</FormLabel>
+                          <Select 
+                            onValueChange={(value) => {
+                              field.onChange(value);
+                              setSelectedState(value);
+                              form.setValue("city", "");
+                            }} 
+                            defaultValue={field.value}
+                            disabled={!selectedCountry}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                                <SelectValue placeholder="Select state/province" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-white border-gray-300 max-h-60">
+                              {states.map((state) => (
+                                <SelectItem key={state.name} value={state.name}>
+                                  {state.name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -300,49 +358,48 @@ const Register = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-gray-700">City *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="New York" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
+                          <Select 
+                            onValueChange={field.onChange} 
+                            defaultValue={field.value}
+                            disabled={!selectedCountry}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                                <SelectValue placeholder="Select city" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-white border-gray-300 max-h-60">
+                              {cities.map((city) => (
+                                <SelectItem key={city} value={city}>
+                                  {city}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="state"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-gray-700">State/Province *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="New York" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="postalCode"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-gray-700">Postal Code *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="10001" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+                  <FormField
+                    control={form.control}
+                    name="postalCode"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-700">Postal Code *</FormLabel>
+                        <FormControl>
+                          <Input placeholder="10001" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </CardContent>
               </Card>
             )}
 
-            {/* Step 2: Demographics & Background */}
+            {/* Step 2: Demographics & Background - Updated without removed fields */}
             {currentStep === 2 && (
               <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
@@ -382,8 +439,6 @@ const Register = () => {
                             <SelectContent className="bg-white border-gray-300">
                               <SelectItem value="male">Male</SelectItem>
                               <SelectItem value="female">Female</SelectItem>
-                              <SelectItem value="non-binary">Non-binary</SelectItem>
-                              <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -434,76 +489,29 @@ const Register = () => {
 
                   <FormField
                     control={form.control}
-                    name="experienceLevel"
+                    name="tshirtSize"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-gray-700">Years of Experience in Coding/AI *</FormLabel>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                            className="flex flex-col space-y-2"
-                          >
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="beginner" id="beginner" />
-                              <label htmlFor="beginner" className="text-gray-700 cursor-pointer">Beginner (0-1 years)</label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="intermediate" id="intermediate" />
-                              <label htmlFor="intermediate" className="text-gray-700 cursor-pointer">Intermediate (2-5 years)</label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="advanced" id="advanced" />
-                              <label htmlFor="advanced" className="text-gray-700 cursor-pointer">Advanced (5+ years)</label>
-                            </div>
-                          </RadioGroup>
-                        </FormControl>
+                        <FormLabel className="text-gray-700">T-shirt Size *</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                              <SelectValue placeholder="Select size" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-white border-gray-300">
+                            <SelectItem value="xs">XS</SelectItem>
+                            <SelectItem value="s">S</SelectItem>
+                            <SelectItem value="m">M</SelectItem>
+                            <SelectItem value="l">L</SelectItem>
+                            <SelectItem value="xl">XL</SelectItem>
+                            <SelectItem value="xxl">XXL</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="dietaryRestrictions"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-gray-700">Dietary Restrictions</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Vegetarian, Vegan, Allergies, etc." {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="tshirtSize"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-gray-700">T-shirt Size *</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
-                                <SelectValue placeholder="Select size" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="bg-white border-gray-300">
-                              <SelectItem value="xs">XS</SelectItem>
-                              <SelectItem value="s">S</SelectItem>
-                              <SelectItem value="m">M</SelectItem>
-                              <SelectItem value="l">L</SelectItem>
-                              <SelectItem value="xl">XL</SelectItem>
-                              <SelectItem value="xxl">XXL</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
                 </CardContent>
               </Card>
             )}
