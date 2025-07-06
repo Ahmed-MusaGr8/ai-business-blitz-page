@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Rocket, Users, Zap, Package, Trophy } from "lucide-react";
-import { ShapeLandingHero } from "@/components/ShapeLandingHero";
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 
 const ZCIcon = () => (
   <svg viewBox="0 0 32 32" className="h-8 w-8 text-white">
@@ -64,7 +64,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <ShapeLandingHero />
+        <HeroGeometric />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <div className="mb-8">
             <Badge variant="outline" className="border-white/20 text-white bg-white/10 mb-6">
