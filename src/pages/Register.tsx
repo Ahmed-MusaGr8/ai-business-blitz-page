@@ -122,39 +122,39 @@ const Register = () => {
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center px-4">
-        <Card className="w-full max-w-2xl bg-white border border-black text-center shadow-lg animate-fade-in">
+        <Card className="w-full max-w-2xl bg-white border border-gray-200 text-center shadow-lg">
           <CardHeader className="pb-8">
-            <div className="flex justify-center mb-6 animate-scale-in">
-              <CheckCircle className="h-16 w-16 text-green-500 animate-pulse" />
+            <div className="flex justify-center mb-6">
+              <CheckCircle className="h-16 w-16 text-green-500" />
             </div>
-            <CardTitle className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
+            <CardTitle className="text-3xl font-bold text-gray-900 mb-4">
               Thank You for Registering!
             </CardTitle>
-            <CardDescription className="text-lg text-gray-600 animate-fade-in">
+            <CardDescription className="text-lg text-gray-600">
               Your registration for the Zero Code Challenge has been successfully submitted.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="bg-gray-50 rounded-lg p-6 text-left border border-gray-200 animate-slide-in-right">
+            <div className="bg-gray-50 rounded-lg p-6 text-left">
               <h3 className="text-gray-900 font-semibold mb-3">What's Next?</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
-                <li className="animate-fade-in" style={{ animationDelay: '0.2s' }}>• Check your email for confirmation and onboarding details</li>
-                <li className="animate-fade-in" style={{ animationDelay: '0.4s' }}>• Join our Discord community for updates and networking</li>
-                <li className="animate-fade-in" style={{ animationDelay: '0.6s' }}>• Review the pre-challenge materials we'll send you</li>
-                <li className="animate-fade-in" style={{ animationDelay: '0.8s' }}>• Mark your calendar for the challenge start date</li>
+                <li>• Check your email for confirmation and onboarding details</li>
+                <li>• Join our Discord community for updates and networking</li>
+                <li>• Review the pre-challenge materials we'll send you</li>
+                <li>• Mark your calendar for the challenge start date</li>
               </ul>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '1s' }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                className="bg-black hover:bg-gray-800 text-white border-black transition-all duration-300 hover:scale-105"
+                className="bg-blue-600 hover:bg-blue-700 text-white"
                 onClick={() => window.open('https://discord.com', '_blank')}
               >
                 Join Discord Community
               </Button>
               <Button 
                 variant="outline" 
-                className="border-black text-black hover:bg-black hover:text-white transition-all duration-300 hover:scale-105"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50"
                 onClick={() => window.location.href = '/'}
               >
                 Back to Home
@@ -169,7 +169,7 @@ const Register = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-black bg-white sticky top-0 z-50">
+      <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -181,7 +181,7 @@ const Register = () => {
             </div>
             <Button 
               variant="ghost" 
-              className="text-gray-500 hover:text-gray-900 hover:bg-gray-100"
+              className="text-gray-500 hover:text-gray-900"
               onClick={() => window.location.href = '/'}
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
@@ -211,7 +211,7 @@ const Register = () => {
             
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Personal Information</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -227,7 +227,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">First Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="John" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input placeholder="John" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -241,7 +241,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Last Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="Doe" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input placeholder="Doe" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -257,7 +257,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Email Address *</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="john.doe@example.com" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input type="email" placeholder="john.doe@example.com" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -271,7 +271,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Phone Number</FormLabel>
                           <FormControl>
-                            <Input placeholder="+1 (555) 123-4567" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input placeholder="+1 (555) 123-4567" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -287,7 +287,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Country *</FormLabel>
                           <FormControl>
-                            <Input placeholder="United States" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input placeholder="United States" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -301,7 +301,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">City *</FormLabel>
                           <FormControl>
-                            <Input placeholder="New York" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input placeholder="New York" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -317,7 +317,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">State/Province *</FormLabel>
                           <FormControl>
-                            <Input placeholder="New York" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input placeholder="New York" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -331,7 +331,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Postal Code *</FormLabel>
                           <FormControl>
-                            <Input placeholder="10001" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input placeholder="10001" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -344,7 +344,7 @@ const Register = () => {
 
             {/* Step 2: Demographics & Background */}
             {currentStep === 2 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Background Information</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -360,7 +360,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Age *</FormLabel>
                           <FormControl>
-                            <Input type="number" placeholder="25" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input type="number" placeholder="25" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -375,13 +375,15 @@ const Register = () => {
                           <FormLabel className="text-gray-700">Gender</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <SelectTrigger className="bg-white border-black text-gray-900 focus:border-black focus:ring-black">
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
                                 <SelectValue placeholder="Select gender (optional)" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-white border-black">
+                            <SelectContent className="bg-white border-gray-300">
                               <SelectItem value="male">Male</SelectItem>
                               <SelectItem value="female">Female</SelectItem>
+                              <SelectItem value="non-binary">Non-binary</SelectItem>
+                              <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -398,11 +400,11 @@ const Register = () => {
                         <FormLabel className="text-gray-700">Major/Field of Study *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-white border-black text-gray-900 focus:border-black focus:ring-black">
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900">
                               <SelectValue placeholder="Select your field of study" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-white border-black">
+                          <SelectContent className="bg-white border-gray-300">
                             <SelectItem value="computer-science">Computer Science</SelectItem>
                             <SelectItem value="engineering">Engineering</SelectItem>
                             <SelectItem value="business">Business</SelectItem>
@@ -423,7 +425,7 @@ const Register = () => {
                       <FormItem>
                         <FormLabel className="text-gray-700">School/University *</FormLabel>
                         <FormControl>
-                          <Input placeholder="Massachusetts Institute of Technology" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                          <Input placeholder="Massachusetts Institute of Technology" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -469,7 +471,7 @@ const Register = () => {
                         <FormItem>
                           <FormLabel className="text-gray-700">Dietary Restrictions</FormLabel>
                           <FormControl>
-                            <Input placeholder="Vegetarian, Vegan, Allergies, etc." {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                            <Input placeholder="Vegetarian, Vegan, Allergies, etc." {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -484,11 +486,11 @@ const Register = () => {
                           <FormLabel className="text-gray-700">T-shirt Size *</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <SelectTrigger className="bg-white border-black text-gray-900 focus:border-black focus:ring-black">
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
                                 <SelectValue placeholder="Select size" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-white border-black">
+                            <SelectContent className="bg-white border-gray-300">
                               <SelectItem value="xs">XS</SelectItem>
                               <SelectItem value="s">S</SelectItem>
                               <SelectItem value="m">M</SelectItem>
@@ -508,7 +510,7 @@ const Register = () => {
 
             {/* Step 3: Team Information */}
             {currentStep === 3 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Team Information</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -552,7 +554,7 @@ const Register = () => {
                           <FormItem>
                             <FormLabel className="text-gray-700">Team Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter your team name" {...field} className="bg-white border-black text-gray-900 focus:border-black focus:ring-black" />
+                              <Input placeholder="Enter your team name" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -569,7 +571,7 @@ const Register = () => {
                               <Textarea 
                                 placeholder="List your team members (names and email addresses)" 
                                 {...field} 
-                                className="bg-white border-black text-gray-900 focus:border-black focus:ring-black min-h-[100px]" 
+                                className="bg-white border-gray-300 text-gray-900 focus:border-blue-500 min-h-[100px]" 
                               />
                             </FormControl>
                             <FormDescription className="text-gray-500">
@@ -587,7 +589,7 @@ const Register = () => {
 
             {/* Step 4: Event-Specific Questions */}
             {currentStep === 4 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Event-Specific Questions</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -603,11 +605,11 @@ const Register = () => {
                         <FormLabel className="text-gray-700">How did you hear about the challenge? *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-white border-black text-gray-900 focus:border-black focus:ring-black">
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900">
                               <SelectValue placeholder="Select an option" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-white border-black">
+                          <SelectContent className="bg-white border-gray-300">
                             <SelectItem value="social-media">Social Media</SelectItem>
                             <SelectItem value="friend">Friend/Colleague</SelectItem>
                             <SelectItem value="university">University/School</SelectItem>
@@ -630,7 +632,7 @@ const Register = () => {
                           <Textarea 
                             placeholder="Share your goals and expectations for the challenge..." 
                             {...field} 
-                            className="bg-white border-black text-gray-900 focus:border-black focus:ring-black min-h-[120px]" 
+                            className="bg-white border-gray-300 text-gray-900 focus:border-blue-500 min-h-[120px]" 
                           />
                         </FormControl>
                         <FormMessage />
@@ -722,7 +724,7 @@ const Register = () => {
 
             {/* Step 5: Legal and Consent */}
             {currentStep === 5 && (
-              <Card className="bg-white border border-black shadow-sm">
+              <Card className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-gray-900">Legal and Consent</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -815,7 +817,7 @@ const Register = () => {
                 variant="outline"
                 onClick={prevStep}
                 disabled={currentStep === 1}
-                className="border-black text-black hover:bg-black hover:text-white"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Previous
@@ -825,7 +827,7 @@ const Register = () => {
                 <Button
                   type="button"
                   onClick={nextStep}
-                  className="bg-black hover:bg-gray-800 text-white"
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
                 >
                   Next
                   <ArrowRight className="h-4 w-4 ml-2" />
@@ -834,7 +836,7 @@ const Register = () => {
                 <Button
                   type="submit"
                   disabled={form.formState.isSubmitting}
-                  className="bg-black hover:bg-gray-800 text-white"
+                  className="bg-green-600 hover:bg-green-700 text-white"
                 >
                   {form.formState.isSubmitting ? "Submitting..." : "Submit Registration"}
                 </Button>
