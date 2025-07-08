@@ -1,11 +1,10 @@
-
 "use client";
 
 import { useCountdown } from "@/hooks/useCountdown";
 
 const GlobalCountdownTimer = () => {
-  // Set target date to December 31, 2025 - a future date that will actually count down
-  const timeLeft = useCountdown('2025-12-31T23:59:59Z');
+  // Set target date to September 4, 2025 - submission deadline (4 days before challenge starts on Sept 8)
+  const timeLeft = useCountdown('2025-09-04T23:59:59Z');
 
   const formatNumber = (num: number) => {
     return num.toString().padStart(2, '0');
