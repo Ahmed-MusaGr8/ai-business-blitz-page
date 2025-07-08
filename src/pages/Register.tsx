@@ -14,6 +14,7 @@ import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
+import { getCountriesList, getCitiesByCountry, getStatesByCountry } from "@/utils/locationData";
 
 const formSchema = z.object({
   // Personal Information
@@ -65,6 +66,7 @@ const ZCIcon = () => (
 const Register = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
   const { toast } = useToast();
   const totalSteps = 5;
 
@@ -107,7 +109,7 @@ const Register = () => {
       case 1:
         return ['firstName', 'lastName', 'email', 'phone', 'country', 'city', 'state', 'postalCode'];
       case 2:
-        return ['age', 'fieldOfStudy', 'university', 'experienceLevel', 'tshirtSize'];
+        return ['age', 'fieldOfStudy', 'university', 'tshirtSize'];
       case 3:
         return ['isTeam'];
       case 4:
@@ -119,49 +121,63 @@ const Register = () => {
     }
   };
 
+  const handleCountryChange = (countryCode: string) => {
+    setSelectedCountry(countryCode);
+    // Reset city and state when country changes
+    form.setValue('city', '');
+    form.setValue('state', '');
+  };
+
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-4">
-        <Card className="w-full max-w-2xl bg-white border border-gray-200 text-center shadow-lg">
-          <CardHeader className="pb-8">
-            <div className="flex justify-center mb-6">
-              <CheckCircle className="h-16 w-16 text-green-500" />
-            </div>
-            <CardTitle className="text-3xl font-bold text-gray-900 mb-4">
-              Thank You for Registering!
-            </CardTitle>
-            <CardDescription className="text-lg text-gray-600">
-              Your registration for the Zero Code Challenge has been successfully submitted.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="bg-gray-50 rounded-lg p-6 text-left">
-              <h3 className="text-gray-900 font-semibold mb-3">What's Next?</h3>
-              <ul className="text-gray-600 space-y-2 text-sm">
-                <li>• Check your email for confirmation and onboarding details</li>
-                <li>• Join our Discord community for updates and networking</li>
-                <li>• Review the pre-challenge materials we'll send you</li>
-                <li>• Mark your calendar for the challenge start date</li>
-              </ul>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white"
-                onClick={() => window.open('https://discord.com', '_blank')}
-              >
-                Join Discord Community
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-gray-300 text-gray-700 hover:bg-gray-50"
-                onClick={() => window.location.href = '/'}
-              >
-                Back to Home
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+      <div className="min-h-screen bg-white flex flex-col">
+        <div className="flex-1 flex items-center justify-center px-4">
+          <Card className="w-full max-w-2xl bg-white border border-gray-200 text-center shadow-lg">
+            <CardHeader className="pb-8">
+              <div className="flex justify-center mb-6">
+                <CheckCircle className="h-16 w-16 text-green-500" />
+              </div>
+              <CardTitle className="text-3xl font-bold text-gray-900 mb-4">
+                Thank You for Registering!
+              </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Your registration for the Zero Code Challenge has been successfully submitted.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="bg-gray-50 rounded-lg p-6 text-left">
+                <h3 className="text-gray-900 font-semibold mb-3">What's Next?</h3>
+                <ul className="text-gray-600 space-y-2 text-sm">
+                  <li>• Check your email for confirmation and onboarding details</li>
+                  <li>• Join our Discord community for updates and networking</li>
+                  <li>• Review the pre-challenge materials we'll send you</li>
+                  <li>• Mark your calendar for the challenge start date</li>
+                </ul>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                  onClick={() => window.open('https://discord.com', '_blank')}
+                >
+                  Join Discord Community
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                  onClick={() => window.location.href = '/'}
+                >
+                  Back to Home
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        
+        {/* Sponsors at bottom */}
+        <div className="mt-auto">
+          <SponsorsCarousel />
+        </div>
       </div>
     );
   }
@@ -192,18 +208,13 @@ const Register = () => {
       </header>
 
       <div className="container mx-auto px-4 py-8 max-w-2xl">
-        {/* Progress Bar */}
+        {/* Combined Progress Header */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold text-gray-900">Register for the Zero Code Challenge</h2>
             <span className="text-sm text-gray-500">Step {currentStep} of {totalSteps}</span>
           </div>
           <Progress value={(currentStep / totalSteps) * 100} className="h-2" />
-        </div>
-
-        {/* Sponsors Carousel */}
-        <div className="mb-8">
-          <SponsorsCarousel />
         </div>
 
         <Form {...form}>
@@ -286,9 +297,26 @@ const Register = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-gray-700">Country *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="United States" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
+                          <Select 
+                            onValueChange={(value) => {
+                              field.onChange(value);
+                              handleCountryChange(value);
+                            }} 
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900 z-50">
+                                <SelectValue placeholder="Select your country" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-white border-gray-300 z-50">
+                              {getCountriesList().map((country) => (
+                                <SelectItem key={country.value} value={country.value}>
+                                  {country.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -300,9 +328,20 @@ const Register = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-gray-700">City *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="New York" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
+                          <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedCountry}>
+                            <FormControl>
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900 z-50">
+                                <SelectValue placeholder={selectedCountry ? "Select your city" : "Select country first"} />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-white border-gray-300 z-50">
+                              {getCitiesByCountry(selectedCountry).map((city) => (
+                                <SelectItem key={city.value} value={city.value}>
+                                  {city.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -316,9 +355,20 @@ const Register = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-gray-700">State/Province *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="New York" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
+                          <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedCountry}>
+                            <FormControl>
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900 z-50">
+                                <SelectValue placeholder={selectedCountry ? "Select your state/province" : "Select country first"} />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-white border-gray-300 z-50">
+                              {getStatesByCountry(selectedCountry).map((state) => (
+                                <SelectItem key={state.value} value={state.value}>
+                                  {state.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -375,11 +425,11 @@ const Register = () => {
                           <FormLabel className="text-gray-700">Gender</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                              <SelectTrigger className="bg-white border-gray-300 text-gray-900 z-50">
                                 <SelectValue placeholder="Select gender (optional)" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-white border-gray-300">
+                            <SelectContent className="bg-white border-gray-300 z-50">
                               <SelectItem value="male">Male</SelectItem>
                               <SelectItem value="female">Female</SelectItem>
                               <SelectItem value="non-binary">Non-binary</SelectItem>
@@ -400,11 +450,11 @@ const Register = () => {
                         <FormLabel className="text-gray-700">Major/Field of Study *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900 z-50">
                               <SelectValue placeholder="Select your field of study" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-white border-gray-300">
+                          <SelectContent className="bg-white border-gray-300 z-50">
                             <SelectItem value="computer-science">Computer Science</SelectItem>
                             <SelectItem value="engineering">Engineering</SelectItem>
                             <SelectItem value="business">Business</SelectItem>
@@ -434,76 +484,29 @@ const Register = () => {
 
                   <FormField
                     control={form.control}
-                    name="experienceLevel"
+                    name="tshirtSize"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-gray-700">Years of Experience in Coding/AI *</FormLabel>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                            className="flex flex-col space-y-2"
-                          >
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="beginner" id="beginner" />
-                              <label htmlFor="beginner" className="text-gray-700 cursor-pointer">Beginner (0-1 years)</label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="intermediate" id="intermediate" />
-                              <label htmlFor="intermediate" className="text-gray-700 cursor-pointer">Intermediate (2-5 years)</label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="advanced" id="advanced" />
-                              <label htmlFor="advanced" className="text-gray-700 cursor-pointer">Advanced (5+ years)</label>
-                            </div>
-                          </RadioGroup>
-                        </FormControl>
+                        <FormLabel className="text-gray-700">T-shirt Size *</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900 z-50">
+                              <SelectValue placeholder="Select size" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-white border-gray-300 z-50">
+                            <SelectItem value="xs">XS</SelectItem>
+                            <SelectItem value="s">S</SelectItem>
+                            <SelectItem value="m">M</SelectItem>
+                            <SelectItem value="l">L</SelectItem>
+                            <SelectItem value="xl">XL</SelectItem>
+                            <SelectItem value="xxl">XXL</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="dietaryRestrictions"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-gray-700">Dietary Restrictions</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Vegetarian, Vegan, Allergies, etc." {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="tshirtSize"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-gray-700">T-shirt Size *</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="bg-white border-gray-300 text-gray-900">
-                                <SelectValue placeholder="Select size" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="bg-white border-gray-300">
-                              <SelectItem value="xs">XS</SelectItem>
-                              <SelectItem value="s">S</SelectItem>
-                              <SelectItem value="m">M</SelectItem>
-                              <SelectItem value="l">L</SelectItem>
-                              <SelectItem value="xl">XL</SelectItem>
-                              <SelectItem value="xxl">XXL</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
                 </CardContent>
               </Card>
             )}
@@ -605,11 +608,11 @@ const Register = () => {
                         <FormLabel className="text-gray-700">How did you hear about the challenge? *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                            <SelectTrigger className="bg-white border-gray-300 text-gray-900 z-50">
                               <SelectValue placeholder="Select an option" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-white border-gray-300">
+                          <SelectContent className="bg-white border-gray-300 z-50">
                             <SelectItem value="social-media">Social Media</SelectItem>
                             <SelectItem value="friend">Friend/Colleague</SelectItem>
                             <SelectItem value="university">University/School</SelectItem>
@@ -844,6 +847,11 @@ const Register = () => {
             </div>
           </form>
         </Form>
+        
+        {/* Sponsors at bottom of registration form */}
+        <div className="mt-12">
+          <SponsorsCarousel />
+        </div>
       </div>
     </div>
   );
