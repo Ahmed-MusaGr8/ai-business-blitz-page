@@ -4,7 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Control } from "react-hook-form";
-import { getCountriesList, getStatesByCountry, getCitiesByState } from "@/utils/locationData";
+import { getCountriesList, getStatesByCountry, getCitiesByState, getCitiesByCountry } from "@/utils/locationData";
 import { FormData } from "./formSchema";
 
 interface PersonalInfoStepProps {
@@ -161,14 +161,17 @@ export const PersonalInfoStep = ({
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-gray-700">City *</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedState}>
+                <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedCountry}>
                   <FormControl>
                     <SelectTrigger className="bg-white border-gray-300 text-gray-900">
-                      <SelectValue placeholder={selectedState ? "Select your city" : "Select state first"} />
+                      <SelectValue placeholder={selectedCountry ? "Select your city" : "Select country first"} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent className="bg-white border-gray-300 max-h-60 z-50">
-                    {getCitiesByState(selectedCountry, selectedState).map((city) => (
+                    {(selectedState 
+                      ? getCitiesByState(selectedCountry, selectedState)
+                      : getCitiesByCountry(selectedCountry)
+                    ).map((city) => (
                       <SelectItem key={city.value} value={city.value}>
                         {city.label}
                       </SelectItem>
