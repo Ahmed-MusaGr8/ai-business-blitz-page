@@ -78,7 +78,7 @@ function HeroGeometric() {
     };
 
     return (
-        <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] pt-16 sm:pt-0">
+        <div className="relative min-h-screen w-full flex items-start sm:items-center justify-center overflow-hidden bg-[#030303] pt-20 sm:pt-0">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden">
@@ -128,7 +128,7 @@ function HeroGeometric() {
                 />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 md:px-6">
+            <div className="relative z-10 container mx-auto px-4 md:px-6 mt-8 sm:mt-0">
                 <div className="max-w-3xl mx-auto text-center">
                     <motion.div
                         variants={fadeUpVariants}
