@@ -78,7 +78,7 @@ function HeroGeometric() {
     };
 
     return (
-        <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] pt-12 sm:pt-0">
+        <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] pt-8 sm:pt-0">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden">
@@ -139,7 +139,7 @@ function HeroGeometric() {
                             delay: 0.5,
                             ease: [0.25, 0.4, 0.25, 1],
                         }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-4 sm:mb-6 md:mb-8"
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-3 sm:mb-6 md:mb-8"
                     >
                         <Circle className="h-2 w-2 fill-rose-500/80" />
                         <span className="text-sm text-white/60 tracking-wide">
