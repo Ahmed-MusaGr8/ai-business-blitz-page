@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
+import { Crown } from "lucide-react";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
 
 export const RegistrationSuccess = () => {
@@ -11,10 +11,10 @@ export const RegistrationSuccess = () => {
         <Card className="w-full max-w-2xl bg-white border border-gray-200 text-center shadow-lg">
           <CardHeader className="pb-8">
             <div className="flex justify-center mb-6">
-              <CheckCircle className="h-16 w-16 text-green-500" />
+              <Crown className="h-16 w-16 text-yellow-500" />
             </div>
             <CardTitle className="text-3xl font-bold text-gray-900 mb-4">
-              Thank You for Registering!
+              You are in champ 🙌
             </CardTitle>
             <CardDescription className="text-lg text-gray-600">
               Your registration for the Zero Code Challenge has been successfully submitted.
