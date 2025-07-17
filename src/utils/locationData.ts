@@ -652,10 +652,12 @@ export const countries: Country[] = [
   { code: "VU", name: "Vanuatu", flag: "🇻🇺", states: [{ code: "SEE", name: "Shefa", cities: ["Port Vila", "Luganville", "Norsup", "Isangel", "Sola"] }] }
 ];
 
-export const getCountriesList = () => countries.map(country => ({
-  value: country.code,
-  label: `${country.flag} ${country.name}`
-}));
+export const getCountriesList = () => countries
+  .map(country => ({
+    value: country.code,
+    label: `${country.flag} ${country.name}`
+  }))
+  .sort((a, b) => a.label.localeCompare(b.label));
 
 export const getStatesByCountry = (countryCode: string) => {
   const country = countries.find(c => c.code === countryCode);
