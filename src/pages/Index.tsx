@@ -13,6 +13,7 @@ import { Footer } from "@/components/ui/footer";
 import { Timeline } from "@/components/ui/timeline";
 import { Hexagon, Linkedin, Twitter } from "lucide-react";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
+import { Feature } from "@/components/ui/feature-section-with-bento-grid";
 
 const Index = () => {
   
@@ -192,20 +193,8 @@ const Index = () => {
       {/* Sponsors Carousel Section */}
       <SponsorsCarousel />
 
-      {/* Mentors Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Learn From Billionaire Mentors</h2>
-            <p className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-3xl mx-auto">
-              Get direct access to industry titans who've built billion-dollar businesses
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
-          </div>
-        </div>
-      </section>
+      {/* Mentors Section with Bento Grid */}
+      <Feature />
 
       {/* Updated How It Works Section - Fixed overflow */}
       <section className="py-16 sm:py-20 lg:py-24 bg-black">
