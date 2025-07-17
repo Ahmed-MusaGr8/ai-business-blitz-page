@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { DemoHeroGeometric } from "@/components/ui/demo";
-
 import GlobalCountdownTimer from "@/components/ui/global-countdown-timer";
 import { WorldMap } from "@/components/ui/world-map";
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
@@ -14,9 +13,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { Hexagon, Linkedin, Twitter } from "lucide-react";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
 import { Feature } from "@/components/ui/feature-section-with-bento-grid";
-
 const Index = () => {
-  
   const testimonials = [{
     name: "Alex Johnson",
     role: "2023 Winner",
@@ -28,7 +25,6 @@ const Index = () => {
     quote: "The mentorship was invaluable. Direct access to billionaires who actually care about your success.",
     amount: "Runner-up"
   }];
-  
   const faqs = [{
     question: "What exactly is the Zero Code Challenge?",
     answer: "A hybrid 7-day intensive where you'll learn to build AI-powered businesses from scratch, mentored by billionaires and industry leaders. Participants compete for a $200K prize pool while gaining real-world skills."
@@ -45,7 +41,6 @@ const Index = () => {
     question: "What's included in my registration?",
     answer: "All learning materials, direct mentor access, networking events, meals (for in-person), recording access, and eligibility for the full $200K prize pool."
   }];
-  
   const timelineData = [{
     title: "Day 1-2",
     content: <div>
@@ -111,33 +106,24 @@ const Index = () => {
   }];
 
   // Create ZC SVG Icon component
-  const ZCIcon = () => (
-    <svg viewBox="0 0 32 32" className="h-8 w-8 sm:h-10 sm:w-10 text-white">
-      <rect width="32" height="32" rx="6" fill="currentColor"/>
+  const ZCIcon = () => <svg viewBox="0 0 32 32" className="h-8 w-8 sm:h-10 sm:w-10 text-white">
+      <rect width="32" height="32" rx="6" fill="currentColor" />
       <text x="16" y="22" textAnchor="middle" fill="black" fontFamily="system-ui" fontSize="14" fontWeight="bold">ZC</text>
-    </svg>
-  );
+    </svg>;
 
   // 3D Lightning Bolt Component - Made responsive
-  const LightningBolt = ({ className = "" }) => (
-    <div className={`${className}`}>
-      <div 
-        className="w-8 h-10 sm:w-12 sm:h-16 lg:w-16 lg:h-20 xl:w-24 xl:h-28 bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 relative transform rotate-12 shadow-2xl"
-        style={{
-          clipPath: 'polygon(20% 0%, 60% 0%, 40% 40%, 100% 40%, 80% 100%, 40% 60%, 0% 60%)',
-          filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))',
-        }}
-      >
-        <div 
-          className="absolute inset-0 bg-gradient-to-br from-yellow-200/50 to-transparent"
-          style={{
-            clipPath: 'polygon(20% 0%, 60% 0%, 40% 40%, 100% 40%, 80% 100%, 40% 60%, 0% 60%)',
-          }}
-        />
+  const LightningBolt = ({
+    className = ""
+  }) => <div className={`${className}`}>
+      <div className="w-8 h-10 sm:w-12 sm:h-16 lg:w-16 lg:h-20 xl:w-24 xl:h-28 bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 relative transform rotate-12 shadow-2xl" style={{
+      clipPath: 'polygon(20% 0%, 60% 0%, 40% 40%, 100% 40%, 80% 100%, 40% 60%, 0% 60%)',
+      filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))'
+    }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-200/50 to-transparent" style={{
+        clipPath: 'polygon(20% 0%, 60% 0%, 40% 40%, 100% 40%, 80% 100%, 40% 60%, 0% 60%)'
+      }} />
       </div>
-    </div>
-  );
-
+    </div>;
   return <div className="min-h-screen bg-black overflow-x-hidden">
       {/* New Hero Section */}
       <section className="relative pt-16 sm:pt-0">
@@ -162,11 +148,7 @@ const Index = () => {
                 <p className="text-sm sm:text-base lg:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                   7 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
                 </p>
-                <Button 
-                  size="lg" 
-                  className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
-                  onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}
-                >
+                <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto" onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}>
                   Join the Challenge
                   <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
                 </Button>
@@ -281,10 +263,7 @@ const Index = () => {
                 Every participant will receive their Challenge Pack automatically via email<br className="hidden sm:block" />
                 within 48 hours after registration. We launch the Challenge in...
               </p>
-              <Button 
-                className="bg-gray-100 text-black hover:bg-white text-base sm:text-lg px-8 py-3 rounded-full font-semibold transition-all"
-                onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}
-              >
+              <Button className="bg-gray-100 text-black hover:bg-white text-base sm:text-lg px-8 py-3 rounded-full font-semibold transition-all" onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}>
                 Access Challenge Pack
               </Button>
             </div>
@@ -333,35 +312,7 @@ const Index = () => {
             </p>
             
             {/* Tools/Partners Grid - Responsive Layout */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
-              {/* Lovable */}
-              <div className="text-center">
-                <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
-                </div>
-                <p className="text-gray-300 text-xs sm:text-sm lg:text-base">AI web app builder</p>
-              </div>
-              
-              {/* Entri */}
-              <div className="text-center">
-                <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
-                </div>
-                <p className="text-gray-300 text-xs sm:text-sm lg:text-base">One free domain</p>
-              </div>
-              
-              {/* RevenueCat */}
-              <div className="text-center">
-                <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
-                </div>
-                <p className="text-gray-300 text-xs sm:text-sm lg:text-base">Free payment collection</p>
-              </div>
-              
-              {/* Supabase */}
-              <div className="text-center">
-                <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
-                </div>
-                <p className="text-gray-300 text-xs sm:text-sm lg:text-base">Free database & auth</p>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -449,11 +400,7 @@ const Index = () => {
                         {feature}
                       </li>)}
                   </ul>
-                  <Button 
-                    className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} 
-                    size="lg"
-                    onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}
-                  >
+                  <Button className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} size="lg" onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}>
                     Register Now
                   </Button>
                 </CardContent>
@@ -529,11 +476,7 @@ const Index = () => {
           
           <div className="container mx-auto px-4 text-center mb-6 sm:mb-8">
             <div className="max-w-sm mx-auto">
-              <Button 
-                size="lg" 
-                className="w-full bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all"
-                onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}
-              >
+              <Button size="lg" className="w-full bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-xl shadow-2xl hover:shadow-white/25 transition-all" onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}>
                 Claim Your Spot Now
                 <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
               </Button>
@@ -541,82 +484,106 @@ const Index = () => {
           </div>
           
           <div className="overflow-x-auto">
-            <WorldMap 
-              centralHub={{
-                lat: 9.0820,
-                lng: 8.6753,
-                label: "Nigeria - Challenge Hub"
-              }}
-              dots={[
-                {
-                  start: { lat: 9.0820, lng: 8.6753 }, // Nigeria (Abuja)
-                  end: { lat: 40.7128, lng: -74.0060 } // New York
-                },
-                {
-                  start: { lat: 9.0820, lng: 8.6753 }, // Nigeria (Abuja)
-                  end: { lat: 51.5074, lng: -0.1278 } // London
-                },
-                {
-                  start: { lat: 9.0820, lng: 8.6753 }, // Nigeria (Abuja)
-                  end: { lat: 35.6762, lng: 139.6503 } // Tokyo
-                },
-                {
-                  start: { lat: 9.0820, lng: 8.6753 }, // Nigeria (Abuja)
-                  end: { lat: 25.2048, lng: 55.2708 } // Dubai
-                },
-                {
-                  start: { lat: 9.0820, lng: 8.6753 }, // Nigeria (Abuja)
-                  end: { lat: -23.5505, lng: -46.6333 } // São Paulo
-                },
-                {
-                  start: { lat: 9.0820, lng: 8.6753 }, // Nigeria (Abuja)
-                  end: { lat: -33.8688, lng: 151.2093 } // Sydney
-                }
-              ]} 
-            />
+            <WorldMap centralHub={{
+            lat: 9.0820,
+            lng: 8.6753,
+            label: "Nigeria - Challenge Hub"
+          }} dots={[{
+            start: {
+              lat: 9.0820,
+              lng: 8.6753
+            },
+            // Nigeria (Abuja)
+            end: {
+              lat: 40.7128,
+              lng: -74.0060
+            } // New York
+          }, {
+            start: {
+              lat: 9.0820,
+              lng: 8.6753
+            },
+            // Nigeria (Abuja)
+            end: {
+              lat: 51.5074,
+              lng: -0.1278
+            } // London
+          }, {
+            start: {
+              lat: 9.0820,
+              lng: 8.6753
+            },
+            // Nigeria (Abuja)
+            end: {
+              lat: 35.6762,
+              lng: 139.6503
+            } // Tokyo
+          }, {
+            start: {
+              lat: 9.0820,
+              lng: 8.6753
+            },
+            // Nigeria (Abuja)
+            end: {
+              lat: 25.2048,
+              lng: 55.2708
+            } // Dubai
+          }, {
+            start: {
+              lat: 9.0820,
+              lng: 8.6753
+            },
+            // Nigeria (Abuja)
+            end: {
+              lat: -23.5505,
+              lng: -46.6333
+            } // São Paulo
+          }, {
+            start: {
+              lat: 9.0820,
+              lng: 8.6753
+            },
+            // Nigeria (Abuja)
+            end: {
+              lat: -33.8688,
+              lng: 151.2093
+            } // Sydney
+          }]} />
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <Footer 
-        logo={<ZCIcon />} 
-        brandName="ZeroCode Challenge" 
-        socialLinks={[{
-          icon: <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />,
-          href: "https://twitter.com",
-          label: "Twitter"
-        }, {
-          icon: <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />,
-          href: "https://linkedin.com",
-          label: "LinkedIn"
-        }]} 
-        mainLinks={[{
-          href: "/challenge",
-          label: "Challenge"
-        }, {
-          href: "/mentors",
-          label: "Mentors"
-        }, {
-          href: "/prizes",
-          label: "Prizes"
-        }, {
-          href: "/contact",
-          label: "Contact"
-        }]} 
-        legalLinks={[{
-          href: "/privacy",
-          label: "Privacy"
-        }, {
-          href: "/terms",
-          label: "Terms"
-        }]} 
-        copyright={{
-          text: "© 2025 ZeroCode Challenge",
-          license: "All rights reserved"
-        }} 
-      />
+      <Footer logo={<ZCIcon />} brandName="ZeroCode Challenge" socialLinks={[{
+      icon: <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />,
+      href: "https://twitter.com",
+      label: "Twitter"
+    }, {
+      icon: <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />,
+      href: "https://linkedin.com",
+      label: "LinkedIn"
+    }]} mainLinks={[{
+      href: "/challenge",
+      label: "Challenge"
+    }, {
+      href: "/mentors",
+      label: "Mentors"
+    }, {
+      href: "/prizes",
+      label: "Prizes"
+    }, {
+      href: "/contact",
+      label: "Contact"
+    }]} legalLinks={[{
+      href: "/privacy",
+      label: "Privacy"
+    }, {
+      href: "/terms",
+      label: "Terms"
+    }]} copyright={{
+      text: "© 2025 ZeroCode Challenge",
+      license: "All rights reserved"
+    }} />
     </div>;
 };
-
 export default Index;
