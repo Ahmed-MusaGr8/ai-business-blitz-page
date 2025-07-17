@@ -15,22 +15,6 @@ import { Hexagon, Linkedin, Twitter } from "lucide-react";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
 
 const Index = () => {
-  const mentors = [{
-    name: "Sarah Chen",
-    title: "AI Pioneer & Billionaire", 
-    bio: "Founded 3 unicorn companies, specialized in AI automation",
-    image: ""
-  }, {
-    name: "Marcus Rodriguez",
-    title: "Tech Mogul & Investor",
-    bio: "Built and sold companies worth $2.8B, AI industry expert",
-    image: ""
-  }, {
-    name: "Dr. Aisha Patel",
-    title: "ML Research & Entrepreneur",
-    bio: "Former Google AI lead, now building billion-dollar ventures",
-    image: ""
-  }];
   
   const testimonials = [{
     name: "Alex Johnson",
@@ -219,37 +203,6 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {mentors.map((mentor, index) => (
-              <div key={index} className="text-center group">
-                <div className="relative mb-4 sm:mb-6">
-                  {/* Corner brackets */}
-                  <div className="absolute -top-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-t-2 border-white z-10"></div>
-                  <div className="absolute -top-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-t-2 border-white z-10"></div>
-                  <div className="absolute -bottom-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 border-l-2 border-b-2 border-white z-10"></div>
-                  <div className="absolute -bottom-2 -right-2 w-4 sm:w-6 h-4 sm:h-6 border-r-2 border-b-2 border-white z-10"></div>
-                  
-                  {/* Image container */}
-                  <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto overflow-hidden bg-gray-800">
-                  </div>
-                  
-                  {/* Name label */}
-                  <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-black border border-white px-2 sm:px-3 py-1 text-white text-xs sm:text-sm font-medium uppercase tracking-wider">
-                      {mentor.name.startsWith('Dr.') ? mentor.name.split(' ').slice(0, 2).join(' ').replace(' ', '').toUpperCase() : mentor.name.split(' ')[0].toUpperCase()}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-6 sm:mt-8 space-y-1 sm:space-y-2">
-                  <h3 className="text-white text-lg sm:text-xl lg:text-2xl font-bold">{mentor.name}</h3>
-                  <p className="text-blue-400 font-semibold text-sm sm:text-base lg:text-lg">{mentor.title}</p>
-                  <p className="text-gray-300 text-xs sm:text-sm lg:text-base px-2">{mentor.bio}</p>
-                  <button className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">
-                    Follow {mentor.name.split(' ')[0]} →
-                  </button>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
