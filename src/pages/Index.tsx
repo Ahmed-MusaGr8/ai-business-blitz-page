@@ -19,17 +19,17 @@ const Index = () => {
     name: "Sarah Chen",
     title: "AI Pioneer & Billionaire", 
     bio: "Founded 3 unicorn companies, specialized in AI automation",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face"
+    image: ""
   }, {
     name: "Marcus Rodriguez",
     title: "Tech Mogul & Investor",
     bio: "Built and sold companies worth $2.8B, AI industry expert",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+    image: ""
   }, {
     name: "Dr. Aisha Patel",
     title: "ML Research & Entrepreneur",
     bio: "Former Google AI lead, now building billion-dollar ventures",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
+    image: ""
   }];
   
   const testimonials = [{
@@ -230,11 +230,6 @@ const Index = () => {
                   
                   {/* Image container */}
                   <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto overflow-hidden bg-gray-800">
-                    <img 
-                      src={mentor.image} 
-                      alt={mentor.name} 
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
-                    />
                   </div>
                   
                   {/* Name label */}
@@ -404,11 +399,6 @@ const Index = () => {
               {/* Lovable */}
               <div className="text-center">
                 <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
-                  <img 
-                    src="/lovable-uploads/6db0d6e0-507c-456c-b582-7b040caa208f.png" 
-                    alt="Lovable" 
-                    className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  />
                 </div>
                 <p className="text-gray-300 text-xs sm:text-sm lg:text-base">AI web app builder</p>
               </div>
@@ -416,11 +406,6 @@ const Index = () => {
               {/* Entri */}
               <div className="text-center">
                 <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
-                  <img 
-                    src="/lovable-uploads/4c4ea64f-7350-4fff-bcf8-733776186042.png" 
-                    alt="Entri" 
-                    className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  />
                 </div>
                 <p className="text-gray-300 text-xs sm:text-sm lg:text-base">One free domain</p>
               </div>
@@ -428,11 +413,6 @@ const Index = () => {
               {/* RevenueCat */}
               <div className="text-center">
                 <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
-                  <img 
-                    src="/lovable-uploads/56336595-b9a0-406f-bc1e-c18856908d8d.png" 
-                    alt="RevenueCat" 
-                    className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  />
                 </div>
                 <p className="text-gray-300 text-xs sm:text-sm lg:text-base">Free payment collection</p>
               </div>
@@ -440,11 +420,6 @@ const Index = () => {
               {/* Supabase */}
               <div className="text-center">
                 <div className="h-20 sm:h-24 lg:h-28 flex items-center justify-center mb-4">
-                  <img 
-                    src="/lovable-uploads/3431972f-21a9-416d-98e9-b4f9cf22979b.png" 
-                    alt="Supabase" 
-                    className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  />
                 </div>
                 <p className="text-gray-300 text-xs sm:text-sm lg:text-base">Free database & auth</p>
               </div>
