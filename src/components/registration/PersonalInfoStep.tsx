@@ -83,7 +83,7 @@ export const PersonalInfoStep = ({
               <FormItem>
                 <FormLabel className="text-gray-700">Phone Number</FormLabel>
                 <FormControl>
-                  <Input placeholder="+1 (555) 123-4567" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
+                  <Input type="tel" placeholder="+1 (555) 123-4567" {...field} className="bg-white border-gray-300 text-gray-900 focus:border-blue-500" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
