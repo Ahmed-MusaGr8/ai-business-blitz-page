@@ -267,10 +267,10 @@ const Index = () => {
           <div className="relative text-center mb-16 sm:mb-20">
             {/* Lightning bolts - Made responsive and adjusted positioning */}
             <div className="absolute left-2 sm:left-4 lg:left-16 xl:left-32 top-1/2 transform -translate-y-1/2 -rotate-12">
-              <Zap className="w-8 h-10 sm:w-12 sm:h-16 lg:w-16 lg:h-20 xl:w-24 xl:h-28 text-white stroke-1" />
+              <Zap className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16 text-yellow-400 stroke-1" />
             </div>
             <div className="absolute right-2 sm:right-4 lg:right-16 xl:right-32 top-1/2 transform -translate-y-1/2 rotate-12">
-              <Zap className="w-8 h-10 sm:w-12 sm:h-16 lg:w-16 lg:h-20 xl:w-24 xl:h-28 text-white stroke-1" />
+              <Zap className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16 text-yellow-400 stroke-1" />
             </div>
             
             <div className="px-4 sm:px-8 lg:px-16 xl:px-32">
