@@ -1,4 +1,4 @@
-import { User, Brain, Target, Rocket, Users, TrendingUp } from "lucide-react";
+import { Crown, Zap, Handshake, TrendingUp, Sparkles, Rocket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 function Feature() {
@@ -20,8 +20,8 @@ function Feature() {
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-md h-full lg:col-span-2 p-6 aspect-square lg:aspect-auto flex justify-between flex-col hover:bg-gray-900/70 transition-all duration-300">
-              <Brain className="w-8 h-8 stroke-1 text-blue-400" />
+            <div className="bg-gray-900/50 rounded-md h-full lg:col-span-2 p-6 aspect-square lg:aspect-auto flex justify-between flex-col hover:bg-gray-900/70 transition-all duration-300">
+              <Crown className="w-8 h-8 stroke-1 text-blue-400" />
               <div className="flex flex-col">
                 <h3 className="text-xl tracking-tight text-white mb-2">Billionaire Mentorship</h3>
                 <p className="text-gray-300 max-w-xs text-base">
@@ -29,8 +29,8 @@ function Feature() {
                 </p>
               </div>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-md aspect-square p-6 flex justify-between flex-col hover:bg-gray-900/70 transition-all duration-300">
-              <Target className="w-8 h-8 stroke-1 text-blue-400" />
+            <div className="bg-gray-900/50 rounded-md aspect-square p-6 flex justify-between flex-col hover:bg-gray-900/70 transition-all duration-300">
+              <Zap className="w-8 h-8 stroke-1 text-blue-400" />
               <div className="flex flex-col">
                 <h3 className="text-xl tracking-tight text-white mb-2">Zero to One Mastery</h3>
                 <p className="text-gray-300 max-w-xs text-base">
@@ -39,8 +39,8 @@ function Feature() {
               </div>
             </div>
 
-            <div className="bg-gray-900/50 border border-gray-800 rounded-md aspect-square p-6 flex justify-between flex-col hover:bg-gray-900/70 transition-all duration-300">
-              <Users className="w-8 h-8 stroke-1 text-blue-400" />
+            <div className="bg-gray-900/50 rounded-md aspect-square p-6 flex justify-between flex-col hover:bg-gray-900/70 transition-all duration-300">
+              <Handshake className="w-8 h-8 stroke-1 text-blue-400" />
               <div className="flex flex-col">
                 <h3 className="text-xl tracking-tight text-white mb-2">Real Networking</h3>
                 <p className="text-gray-300 max-w-xs text-base">
@@ -48,7 +48,7 @@ function Feature() {
                 </p>
               </div>
             </div>
-            <div className="bg-gray-900/50 border border-gray-800 rounded-md h-full lg:col-span-2 p-6 aspect-square lg:aspect-auto flex justify-between flex-col hover:bg-gray-900/70 transition-all duration-300">
+            <div className="bg-gray-900/50 rounded-md h-full lg:col-span-2 p-6 aspect-square lg:aspect-auto flex justify-between flex-col hover:bg-gray-900/70 transition-all duration-300">
               <TrendingUp className="w-8 h-8 stroke-1 text-blue-400" />
               <div className="flex flex-col">
                 <h3 className="text-xl tracking-tight text-white mb-2">Scaling Strategies</h3>
