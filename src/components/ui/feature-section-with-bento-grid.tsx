@@ -1,12 +1,14 @@
 import { Crown, Zap, Handshake, TrendingUp, Sparkles, Rocket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+
 function Feature() {
-  return <div className="w-full py-12 lg:py-20 bg-black">
+  return (
+    <div className="w-full py-12 lg:py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-8">
           <div className="flex gap-4 flex-col items-center text-center">
             <div>
-              
+              <Badge variant="outline" className="text-blue-400 border-blue-400">Platform</Badge>
             </div>
             <div className="flex gap-2 flex-col">
               <h2 className="text-3xl md:text-5xl tracking-tighter max-w-4xl font-regular text-white">
@@ -122,6 +124,8 @@ function Feature() {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 }
+
 export { Feature };
