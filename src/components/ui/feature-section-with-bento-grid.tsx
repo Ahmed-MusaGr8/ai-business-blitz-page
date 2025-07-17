@@ -39,7 +39,10 @@ function Feature() {
               </div>
               <Crown className="w-8 h-8 stroke-1 text-white" />
               <div className="flex flex-col">
-                <h3 className="text-xl tracking-tight text-white">Billionaire Mentorship</h3>
+                <h3 className="text-xl tracking-tight text-white mb-2">Billionaire Mentorship</h3>
+                <p className="text-gray-300 max-w-xs text-base">
+                  Direct access to industry titans who've built and scaled billion-dollar businesses from the ground up.
+                </p>
               </div>
             </div>
             <div className="relative bg-black aspect-square p-4 flex justify-between flex-col hover:bg-gray-900/20 transition-all duration-300">
@@ -61,7 +64,10 @@ function Feature() {
               </div>
               <Zap className="w-8 h-8 stroke-1 text-white" />
               <div className="flex flex-col">
-                <h3 className="text-xl tracking-tight text-white">Zero to One Mastery</h3>
+                <h3 className="text-xl tracking-tight text-white mb-2">Zero to One Mastery</h3>
+                <p className="text-gray-300 max-w-xs text-base">
+                  Learn the exact strategies used to go from startup to unicorn status.
+                </p>
               </div>
             </div>
 
@@ -84,7 +90,10 @@ function Feature() {
               </div>
               <Handshake className="w-8 h-8 stroke-1 text-white" />
               <div className="flex flex-col">
-                <h3 className="text-xl tracking-tight text-white">Real Networking</h3>
+                <h3 className="text-xl tracking-tight text-white mb-2">Real Networking</h3>
+                <p className="text-gray-300 max-w-xs text-base">
+                  Connect with fellow entrepreneurs and build relationships that last a lifetime.
+                </p>
               </div>
             </div>
             <div className="relative bg-black h-full lg:col-span-2 p-4 aspect-square lg:aspect-auto flex justify-between flex-col hover:bg-gray-900/20 transition-all duration-300">
@@ -106,7 +115,10 @@ function Feature() {
               </div>
               <TrendingUp className="w-8 h-8 stroke-1 text-white" />
               <div className="flex flex-col">
-                <h3 className="text-xl tracking-tight text-white">Scaling Strategies</h3>
+                <h3 className="text-xl tracking-tight text-white mb-2">Scaling Strategies</h3>
+                <p className="text-gray-300 max-w-xs text-base">
+                  Discover the proven frameworks and methodologies used by the world's most successful entrepreneurs to scale their ventures.
+                </p>
               </div>
             </div>
           </div>
