@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight } from "lucide-react";
+import { ChevronDown, Play, Users, Trophy, DollarSign, Calendar, MapPin, Globe, Star, Check, ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -267,10 +267,10 @@ const Index = () => {
           <div className="relative text-center mb-16 sm:mb-20">
             {/* Lightning bolts - Made responsive and adjusted positioning */}
             <div className="absolute left-2 sm:left-4 lg:left-16 xl:left-32 top-1/2 transform -translate-y-1/2 -rotate-12">
-              <LightningBolt />
+              <Zap className="w-8 h-10 sm:w-12 sm:h-16 lg:w-16 lg:h-20 xl:w-24 xl:h-28 text-white stroke-1" />
             </div>
             <div className="absolute right-2 sm:right-4 lg:right-16 xl:right-32 top-1/2 transform -translate-y-1/2 rotate-12">
-              <LightningBolt />
+              <Zap className="w-8 h-10 sm:w-12 sm:h-16 lg:w-16 lg:h-20 xl:w-24 xl:h-28 text-white stroke-1" />
             </div>
             
             <div className="px-4 sm:px-8 lg:px-16 xl:px-32">
