@@ -153,7 +153,7 @@ const Index = () => {
                     Join the Challenge
                     <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
                   </Button>
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-800 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold transition-all w-full sm:w-auto" onClick={() => window.location.href = '/login'}>
+                  <Button size="lg" variant="outline" onClick={() => window.location.href = '/login'} className="border-white text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold transition-all w-full sm:w-auto text-slate-600 bg-zinc-50">
                     Participant Login
                   </Button>
                 </div>
