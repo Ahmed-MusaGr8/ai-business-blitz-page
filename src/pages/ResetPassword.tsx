@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, ArrowLeft } from "lucide-react";
 
 // ZC Logo Component
 const ZCIcon = () => (
@@ -17,62 +17,72 @@ const ZCIcon = () => (
   </svg>
 );
 
-const loginSchema = z.object({
+const resetPasswordSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(1, "Password is required"),
+  resetToken: z.string().min(1, "Reset token is required"),
+  newPassword: z.string().min(6, "Password must be at least 6 characters"),
+  confirmPassword: z.string().min(6, "Password must be at least 6 characters"),
+}).refine((data) => data.newPassword === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
 });
 
-type LoginData = z.infer<typeof loginSchema>;
+type ResetPasswordData = z.infer<typeof resetPasswordSchema>;
 
-const Login = () => {
+const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const form = useForm<LoginData>({
-    resolver: zodResolver(loginSchema),
+  const form = useForm<ResetPasswordData>({
+    resolver: zodResolver(resetPasswordSchema),
     defaultValues: {
       email: "",
-      password: "",
+      resetToken: "",
+      newPassword: "",
+      confirmPassword: "",
     },
   });
 
-  const onSubmit = async (data: LoginData) => {
+  const onSubmit = async (data: ResetPasswordData) => {
     setIsLoading(true);
     
     try {
-      const response = await fetch('https://krgzjhondqkcgdlpyuon.supabase.co/functions/v1/participant-login', {
+      const response = await fetch('https://krgzjhondqkcgdlpyuon.supabase.co/functions/v1/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtyZ3pqaG9uZHFrY2dkbHB5dW9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI3OTQzMjAsImV4cCI6MjA2ODM3MDMyMH0.6IDNIALtgiytsPYOqMJydmnZK1Qe_jpgGqAQLb6CGgo`
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          email: data.email,
+          resetToken: data.resetToken,
+          newPassword: data.newPassword
+        })
       });
 
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || 'Login failed');
+        throw new Error(result.error || 'Password reset failed');
       }
 
-      // Store token and redirect to dashboard
-      localStorage.setItem('participantToken', result.token);
-      localStorage.setItem('participantData', JSON.stringify(result.participant));
-      
       toast({
-        title: "Login Successful!",
-        description: `Welcome back, ${result.participant.firstName}!`,
+        title: "Password Reset Successful!",
+        description: "Your password has been updated. You can now login with your new password.",
       });
 
-      // Redirect to dashboard
-      window.location.href = '/dashboard';
+      // Redirect to login after successful reset
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 2000);
       
     } catch (error: any) {
-      console.error('Login error:', error);
+      console.error('Reset password error:', error);
       toast({
-        title: "Login Failed",
-        description: error.message || "Invalid email or password. Please try again.",
+        title: "Reset Failed",
+        description: error.message || "Failed to reset password. Please check your token and try again.",
         variant: "destructive"
       });
     } finally {
@@ -88,10 +98,10 @@ const Login = () => {
             <ZCIcon />
           </div>
           <CardTitle className="text-2xl font-bold text-gray-900">
-            Participant Login
+            Reset Password
           </CardTitle>
           <CardDescription className="text-gray-600">
-            Access your ZeroCode Challenge dashboard
+            Enter your email, reset token and new password
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -117,15 +127,33 @@ const Login = () => {
 
               <FormField
                 control={form.control}
-                name="password"
+                name="resetToken"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Reset Token</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="Enter the reset token"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="newPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>New Password</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Input
                           type={showPassword ? "text" : "password"}
-                          placeholder="Enter your password"
+                          placeholder="Enter new password"
                           {...field}
                         />
                         <Button
@@ -148,36 +176,58 @@ const Login = () => {
                 )}
               />
 
+              <FormField
+                control={form.control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirm New Password</FormLabel>
+                    <FormControl>
+                      <div className="relative">
+                        <Input
+                          type={showConfirmPassword ? "text" : "password"}
+                          placeholder="Confirm new password"
+                          {...field}
+                        />
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        >
+                          {showConfirmPassword ? (
+                            <EyeOff className="h-4 w-4" />
+                          ) : (
+                            <Eye className="h-4 w-4" />
+                          )}
+                        </Button>
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
               <Button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 disabled={isLoading}
               >
-                {isLoading ? "Signing in..." : "Sign In"}
+                {isLoading ? "Resetting..." : "Reset Password"}
               </Button>
             </form>
           </Form>
 
-          <div className="mt-6 text-center space-y-2">
-            <p className="text-sm text-gray-600">
-              <Button
-                variant="link"
-                className="p-0 h-auto text-blue-600 hover:text-blue-700"
-                onClick={() => window.location.href = '/forgot-password'}
-              >
-                Forgot your password?
-              </Button>
-            </p>
-            <p className="text-sm text-gray-600">
-              Don't have an account?{" "}
-              <Button
-                variant="link"
-                className="p-0 h-auto text-blue-600 hover:text-blue-700"
-                onClick={() => window.location.href = '/register'}
-              >
-                Register for the challenge
-              </Button>
-            </p>
+          <div className="mt-6 text-center">
+            <Button
+              variant="link"
+              className="p-0 h-auto text-blue-600 hover:text-blue-700"
+              onClick={() => window.location.href = '/login'}
+            >
+              <ArrowLeft className="h-4 w-4 mr-1" />
+              Back to Login
+            </Button>
           </div>
         </CardContent>
       </Card>
@@ -185,4 +235,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;
