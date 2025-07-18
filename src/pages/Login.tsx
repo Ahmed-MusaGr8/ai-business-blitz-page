@@ -7,7 +7,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { Eye, EyeOff, LogIn } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
+
+// ZC Logo Component
+const ZCIcon = () => (
+  <svg viewBox="0 0 32 32" className="h-12 w-12 text-black">
+    <rect width="32" height="32" rx="6" fill="currentColor"/>
+    <text x="16" y="22" textAnchor="middle" fill="white" fontFamily="system-ui" fontSize="14" fontWeight="bold">ZC</text>
+  </svg>
+);
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -77,7 +85,7 @@ const Login = () => {
       <Card className="w-full max-w-md bg-white shadow-lg">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <LogIn className="h-12 w-12 text-blue-600" />
+            <ZCIcon />
           </div>
           <CardTitle className="text-2xl font-bold text-gray-900">
             Participant Login

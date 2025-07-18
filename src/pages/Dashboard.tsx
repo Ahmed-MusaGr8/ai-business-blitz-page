@@ -10,11 +10,18 @@ import {
   Calendar, 
   Users, 
   FileText, 
-  Crown,
   CheckCircle,
   Clock,
   AlertCircle
 } from "lucide-react";
+
+// ZC Logo Component
+const ZCIcon = () => (
+  <svg viewBox="0 0 32 32" className="h-8 w-8 text-black">
+    <rect width="32" height="32" rx="6" fill="currentColor"/>
+    <text x="16" y="22" textAnchor="middle" fill="white" fontFamily="system-ui" fontSize="14" fontWeight="bold">ZC</text>
+  </svg>
+);
 
 interface ParticipantData {
   id: string;
@@ -54,7 +61,7 @@ const Dashboard = () => {
   const handleLogout = () => {
     localStorage.removeItem('participantToken');
     localStorage.removeItem('participantData');
-    window.location.href = '/';
+    window.location.href = '/login';
   };
 
   const getStatusBadge = (status: string) => {
@@ -103,8 +110,8 @@ const Dashboard = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Crown className="h-8 w-8 text-yellow-500 mr-2" />
-              <h1 className="text-xl font-semibold text-gray-900">ZeroCode Challenge</h1>
+              <ZCIcon />
+              <h1 className="text-xl font-semibold text-gray-900 ml-2">ZeroCode Challenge</h1>
             </div>
             
             <div className="flex items-center space-x-4">
