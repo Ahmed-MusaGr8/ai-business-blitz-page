@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { ChallengeDetailsModal } from "@/components/ChallengeDetailsModal";
 import { 
   Settings, 
   LogOut, 
@@ -268,14 +269,15 @@ const Dashboard = () => {
                 <Users className="h-4 w-4 mr-2" />
                 Join Discord Community
               </Button>
-              <Button 
-                className="w-full justify-start" 
-                variant="outline"
-                onClick={() => window.location.href = '/'}
-              >
-                <FileText className="h-4 w-4 mr-2" />
-                View Challenge Details
-              </Button>
+              <ChallengeDetailsModal>
+                <Button 
+                  className="w-full justify-start" 
+                  variant="outline"
+                >
+                  <FileText className="h-4 w-4 mr-2" />
+                  View Challenge Details
+                </Button>
+              </ChallengeDetailsModal>
             </CardContent>
           </Card>
         </div>
