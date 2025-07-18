@@ -46,9 +46,13 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Verify password
-    const bcrypt = await import("https://deno.land/x/bcrypt@v0.4.1/mod.ts");
-    const isValidPassword = await bcrypt.compare(password, participant.password_hash);
+    // Verify password using Web Crypto API
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const passwordHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    const isValidPassword = passwordHash === participant.password_hash;
 
     if (!isValidPassword) {
       console.error("Invalid password for:", email);

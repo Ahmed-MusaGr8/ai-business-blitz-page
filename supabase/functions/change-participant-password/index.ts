@@ -72,9 +72,13 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Verify current password
-    const bcrypt = await import("https://deno.land/x/bcrypt@v0.4.1/mod.ts");
-    const isValidPassword = await bcrypt.compare(currentPassword, participant.password_hash);
+    // Verify current password using Web Crypto API
+    const encoder = new TextEncoder();
+    const currentData = encoder.encode(currentPassword);
+    const currentHashBuffer = await crypto.subtle.digest('SHA-256', currentData);
+    const currentHashArray = Array.from(new Uint8Array(currentHashBuffer));
+    const currentPasswordHash = currentHashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    const isValidPassword = currentPasswordHash === participant.password_hash;
 
     if (!isValidPassword) {
       console.error("Invalid current password for:", participantData.email);
@@ -87,8 +91,11 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Hash new password
-    const newPasswordHash = await bcrypt.hash(newPassword);
+    // Hash new password using Web Crypto API
+    const newData = encoder.encode(newPassword);
+    const newHashBuffer = await crypto.subtle.digest('SHA-256', newData);
+    const newHashArray = Array.from(new Uint8Array(newHashBuffer));
+    const newPasswordHash = newHashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
     // Update password
     const { error: updateError } = await supabase

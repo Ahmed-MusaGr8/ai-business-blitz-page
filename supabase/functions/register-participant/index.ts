@@ -51,9 +51,12 @@ const handler = async (req: Request): Promise<Response> => {
     // Generate a default password (first name + birth year + challenge)
     const defaultPassword = `${registrationData.firstName}${new Date().getFullYear() - registrationData.age}Challenge`;
     
-    // Hash the password using bcrypt
-    const bcrypt = await import("https://deno.land/x/bcrypt@v0.4.1/mod.ts");
-    const passwordHash = await bcrypt.hash(defaultPassword);
+    // Hash the password using Web Crypto API (Deno compatible)
+    const encoder = new TextEncoder();
+    const data = encoder.encode(defaultPassword);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const passwordHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
     console.log("Registering participant:", registrationData.email);
 
