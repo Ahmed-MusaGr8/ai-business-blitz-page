@@ -148,10 +148,15 @@ const Index = () => {
                 <p className="text-sm sm:text-base lg:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                   7 intensive days learning to build one-person to billion-dollar businesses using cutting-edge AI tools and strategies
                 </p>
-                <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto" onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}>
-                  Join the Challenge
-                  <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button size="lg" className="bg-white text-slate-800 hover:bg-gray-100 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto" onClick={() => window.location.href = '/register'}>
+                    Join the Challenge
+                    <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-800 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-xl font-semibold transition-all w-full sm:w-auto" onClick={() => window.location.href = '/login'}>
+                    Participant Login
+                  </Button>
+                </div>
               </div>
               
               <div className="relative mt-6 lg:mt-0">
@@ -400,7 +405,7 @@ const Index = () => {
                         {feature}
                       </li>)}
                   </ul>
-                  <Button className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} size="lg" onClick={() => window.location.href = 'https://www.zerocodechallenge.pro/#/register'}>
+                  <Button className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} size="lg" onClick={() => window.location.href = '/register'}>
                     Register Now
                   </Button>
                 </CardContent>

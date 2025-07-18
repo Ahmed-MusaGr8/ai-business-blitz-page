@@ -20,6 +20,8 @@ const Register = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
+  const [defaultPassword, setDefaultPassword] = useState("");
+  const [submittedData, setSubmittedData] = useState<FormData | null>(null);
   const { toast } = useToast();
   const totalSteps = 5;
 
@@ -35,13 +37,38 @@ const Register = () => {
   const onSubmit = async (data: FormData) => {
     console.log("Form submitted with data:", data);
     
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitted(true);
-    toast({
-      title: "Registration Successful!",
-      description: "Check your email for confirmation and next steps.",
-    });
+    try {
+      const response = await fetch('https://krgzjhondqkcgdlpyuon.supabase.co/functions/v1/register-participant', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtyZ3pqaG9uZHFrY2dkbHB5dW9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI3OTQzMjAsImV4cCI6MjA2ODM3MDMyMH0.6IDNIALtgiytsPYOqMJydmnZK1Qe_jpgGqAQLb6CGgo`
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Registration failed');
+      }
+
+      setDefaultPassword(result.defaultPassword);
+      setSubmittedData(data);
+      setIsSubmitted(true);
+      
+      toast({
+        title: "Registration Successful!",
+        description: "Your participant dashboard has been created. Save your default password!",
+      });
+    } catch (error: any) {
+      console.error('Registration error:', error);
+      toast({
+        title: "Registration Failed",
+        description: error.message || "An error occurred during registration. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const nextStep = async () => {
@@ -87,7 +114,7 @@ const Register = () => {
   };
 
   if (isSubmitted) {
-    return <RegistrationSuccess />;
+    return <RegistrationSuccess data={submittedData} defaultPassword={defaultPassword} />;
   }
 
   return (

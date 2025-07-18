@@ -14,7 +14,108 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      participants: {
+        Row: {
+          age: number
+          application_status: string
+          city: string
+          code_of_conduct: boolean
+          country: string
+          created_at: string
+          data_consent: boolean | null
+          default_password: string
+          email: string
+          field_of_study: string
+          first_name: string
+          gender: string
+          goals: string
+          hear_about: string
+          id: string
+          is_team: boolean
+          job_opportunities: string
+          last_name: string
+          mentorship_interest: string
+          password_changed: boolean
+          password_hash: string
+          phone: string | null
+          photo_release: boolean | null
+          postal_code: string
+          state: string
+          team_members: string | null
+          team_name: string | null
+          terms_agreed: boolean
+          tshirt_size: string
+          university: string
+          updated_at: string
+        }
+        Insert: {
+          age: number
+          application_status?: string
+          city: string
+          code_of_conduct?: boolean
+          country: string
+          created_at?: string
+          data_consent?: boolean | null
+          default_password: string
+          email: string
+          field_of_study: string
+          first_name: string
+          gender: string
+          goals: string
+          hear_about: string
+          id?: string
+          is_team?: boolean
+          job_opportunities: string
+          last_name: string
+          mentorship_interest: string
+          password_changed?: boolean
+          password_hash: string
+          phone?: string | null
+          photo_release?: boolean | null
+          postal_code: string
+          state: string
+          team_members?: string | null
+          team_name?: string | null
+          terms_agreed?: boolean
+          tshirt_size: string
+          university: string
+          updated_at?: string
+        }
+        Update: {
+          age?: number
+          application_status?: string
+          city?: string
+          code_of_conduct?: boolean
+          country?: string
+          created_at?: string
+          data_consent?: boolean | null
+          default_password?: string
+          email?: string
+          field_of_study?: string
+          first_name?: string
+          gender?: string
+          goals?: string
+          hear_about?: string
+          id?: string
+          is_team?: boolean
+          job_opportunities?: string
+          last_name?: string
+          mentorship_interest?: string
+          password_changed?: boolean
+          password_hash?: string
+          phone?: string | null
+          photo_release?: boolean | null
+          postal_code?: string
+          state?: string
+          team_members?: string | null
+          team_name?: string | null
+          terms_agreed?: boolean
+          tshirt_size?: string
+          university?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
