@@ -476,7 +476,7 @@ const Index = () => {
             <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-3 sm:mb-4">
               Global Challenge Participants
             </p>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8">Entrepreneurs from around the world are joining the challenge - both online and on site at our studio in Nigeria.</p>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8">People from around the world are joining the challenge - both online and on site at our studio in Nigeria.</p>
           </div>
           
           <div className="container mx-auto px-4 text-center mb-6 sm:mb-8">
