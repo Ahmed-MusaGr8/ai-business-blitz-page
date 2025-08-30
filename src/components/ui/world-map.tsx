@@ -4,6 +4,7 @@
 import { useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import DottedMap from "dotted-map";
+import { useTheme } from "next-themes";
 
 interface MapProps {
   dots?: Array<{
@@ -20,6 +21,7 @@ export function WorldMap({
   centralHub,
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const { theme } = useTheme();
 
   // Memoize the map creation for better performance
   const { svgMap, projectPoint, createCurvedPath } = useMemo(() => {
@@ -27,9 +29,9 @@ export function WorldMap({
     
     const svgMap = map.getSVG({
       radius: 0.22,
-      color: "#FFFFFF80",
+      color: "#FFFFFF80", // Fixed white dots for black background
       shape: "circle",
-      backgroundColor: "black",
+      backgroundColor: "black", // Fixed black background
     });
 
     const projectPoint = (lat: number, lng: number) => {
@@ -63,7 +65,6 @@ export function WorldMap({
   const projectedCentralHub = useMemo(() => {
     return centralHub ? projectPoint(centralHub.lat, centralHub.lng) : null;
   }, [centralHub, projectPoint]);
-
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4">

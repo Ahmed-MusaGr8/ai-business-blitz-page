@@ -6,12 +6,13 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { DemoHeroGeometric } from "@/components/ui/demo";
 import GlobalCountdownTimer from "@/components/ui/global-countdown-timer";
+import { WorldMap } from "@/components/ui/world-map";
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
 import { Footer } from "@/components/ui/footer";
+import { Timeline } from "@/components/ui/timeline";
 import { Hexagon, Linkedin, Twitter } from "lucide-react";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
 import { Feature } from "@/components/ui/feature-section-with-bento-grid";
-import { LazyWorldMapDemo, LazyTimeline, LazyWorldMap } from "@/components/LazyComponents";
 const Index = () => {
   const faqs = [{
     question: "What exactly is the Zero Code Challenge?",
@@ -312,7 +313,7 @@ const Index = () => {
 
       {/* Challenge Timeline Section */}
       <section className="bg-black">
-        <LazyTimeline data={timelineData} />
+        <Timeline data={timelineData} />
       </section>
 
       {/* Prize Pool Section */}
@@ -442,7 +443,7 @@ const Index = () => {
           </div>
           
           <div className="overflow-x-auto">
-            <LazyWorldMap centralHub={{
+            <WorldMap centralHub={{
             lat: 9.0820,
             lng: 8.6753,
             label: "Nigeria - Challenge Hub"

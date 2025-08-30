@@ -99,39 +99,5 @@
 
   body {
     @apply bg-background text-foreground;
-    font-display: swap;
-  }
-  
-  /* Performance optimizations */
-  img {
-    content-visibility: auto;
-  }
-  
-  /* Reduce motion for users who prefer it */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-}
-
-@layer utilities {
-  /* GPU acceleration for smooth animations */
-  .gpu-accelerated {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-  
-  /* Optimize expensive operations */
-  .contain-layout {
-    contain: layout;
-  }
-  
-  .contain-paint {
-    contain: paint;
   }
 }
