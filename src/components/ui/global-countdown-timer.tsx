@@ -1,14 +1,13 @@
 "use client";
 
 import { useCountdown } from "@/hooks/useCountdown";
+import { memo } from "react";
 
-const GlobalCountdownTimer = () => {
+const GlobalCountdownTimer = memo(() => {
   // Set target date to September 4, 2025 - submission deadline (4 days before challenge starts on Sept 8)
   const timeLeft = useCountdown('2025-09-04T23:59:59Z');
 
-  const formatNumber = (num: number) => {
-    return num.toString().padStart(2, '0');
-  };
+  const formatNumber = (num: number) => num.toString().padStart(2, '0');
 
   return (
     <div className="w-full bg-black py-8 sm:py-10 md:py-12">
@@ -50,6 +49,6 @@ const GlobalCountdownTimer = () => {
       </div>
     </div>
   );
-};
+});
 
 export default GlobalCountdownTimer;

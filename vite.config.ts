@@ -28,13 +28,46 @@ export default defineConfig(({ mode }) => ({
     target: 'es2015',
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          motion: ['framer-motion'],
-          ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-tooltip'],
-          icons: ['lucide-react'],
-          router: ['react-router-dom'],
-          query: ['@tanstack/react-query'],
+        manualChunks: (id) => {
+          // Core React bundle
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'react-vendor';
+          }
+          
+          // Heavy animation libraries
+          if (id.includes('framer-motion')) {
+            return 'animations';
+          }
+          
+          // UI components bundle
+          if (id.includes('@radix-ui') || id.includes('components/ui')) {
+            return 'ui-components';
+          }
+          
+          // Icons bundle  
+          if (id.includes('lucide-react')) {
+            return 'icons';
+          }
+          
+          // Map and heavy components
+          if (id.includes('dotted-map') || id.includes('world-map') || id.includes('timeline')) {
+            return 'heavy-components';
+          }
+          
+          // Routing
+          if (id.includes('react-router')) {
+            return 'router';
+          }
+          
+          // Query and state management
+          if (id.includes('@tanstack/react-query')) {
+            return 'query';
+          }
+          
+          // Other node_modules
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         },
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
@@ -46,6 +79,17 @@ export default defineConfig(({ mode }) => ({
     reportCompressedSize: false,
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
+    include: [
+      'react', 
+      'react-dom', 
+      'framer-motion', 
+      'lucide-react',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-tooltip',
+      'react-router-dom',
+      '@tanstack/react-query'
+    ],
+    exclude: ['dotted-map']
   },
 }));
