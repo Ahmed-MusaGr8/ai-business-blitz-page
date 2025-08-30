@@ -1,9 +1,9 @@
 
 "use client";
 
-import { useRef, useMemo, useState, useEffect } from "react";
+import { useRef, useMemo } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
+import DottedMap from "dotted-map";
 
 interface MapProps {
   dots?: Array<{
@@ -20,52 +20,10 @@ export function WorldMap({
   centralHub,
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const { theme } = useTheme();
-  const [DottedMapClass, setDottedMapClass] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Load DottedMap dynamically to handle import issues
-  useEffect(() => {
-    const loadDottedMap = async () => {
-      try {
-        // Try different import methods
-        let DottedMap;
-        try {
-          DottedMap = (await import('dotted-map')).default;
-        } catch {
-          const module = await import('dotted-map');
-          DottedMap = (module as any).DottedMap || module;
-        }
-        
-        setDottedMapClass(() => DottedMap);
-      } catch (error) {
-        console.error('Failed to load dotted-map:', error);
-        // Fallback implementation
-        setDottedMapClass(() => class MockDottedMap {
-          constructor() {}
-          getSVG() {
-            return '<svg width="800" height="400"><rect width="800" height="400" fill="black"/></svg>';
-          }
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadDottedMap();
-  }, []);
 
   // Memoize the map creation for better performance
   const { svgMap, projectPoint, createCurvedPath } = useMemo(() => {
-    if (!DottedMapClass) {
-      return {
-        svgMap: '<svg width="800" height="400"><rect width="800" height="400" fill="black"/></svg>',
-        projectPoint: (lat: number, lng: number) => ({ x: 400, y: 200 }),
-        createCurvedPath: (start: any, end: any) => `M ${start.x} ${start.y} L ${end.x} ${end.y}`
-      };
-    }
-
-    const map = new DottedMapClass({ height: 100, grid: "diagonal" });
+    const map = new DottedMap({ height: 100, grid: "diagonal" });
     
     const svgMap = map.getSVG({
       radius: 0.22,
@@ -90,7 +48,7 @@ export function WorldMap({
     };
 
     return { svgMap, projectPoint, createCurvedPath };
-  }, [DottedMapClass]);
+  }, []);
 
   // Memoize projected points for better performance
   const projectedDots = useMemo(() => {
@@ -106,15 +64,6 @@ export function WorldMap({
     return centralHub ? projectPoint(centralHub.lat, centralHub.lng) : null;
   }, [centralHub, projectPoint]);
 
-  if (isLoading) {
-    return (
-      <div className="w-full max-w-7xl mx-auto px-4">
-        <div className="w-full aspect-[2/1] bg-black rounded-lg relative font-sans flex items-center justify-center">
-          <div className="text-white opacity-60">Loading world map...</div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4">

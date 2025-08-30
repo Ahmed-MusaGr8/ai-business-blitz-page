@@ -88,9 +88,9 @@ export default defineConfig(({ mode }) => ({
       '@radix-ui/react-dialog',
       '@radix-ui/react-tooltip',
       'react-router-dom',
-      '@tanstack/react-query'
+      '@tanstack/react-query',
+      'dotted-map'
     ],
-    exclude: ['dotted-map'],
     force: true
   },
   define: {
