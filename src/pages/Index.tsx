@@ -14,17 +14,6 @@ import { Hexagon, Linkedin, Twitter } from "lucide-react";
 import { SponsorsCarousel } from "@/components/SponsorsCarousel";
 import { Feature } from "@/components/ui/feature-section-with-bento-grid";
 const Index = () => {
-  const testimonials = [{
-    name: "Alex Johnson",
-    role: "2023 Winner",
-    quote: "This challenge changed my life. Went from zero coding experience to launching my AI startup.",
-    amount: "$50,000 Winner"
-  }, {
-    name: "Maria Santos",
-    role: "Tech Entrepreneur",
-    quote: "The mentorship was invaluable. Direct access to billionaires who actually care about your success.",
-    amount: "Runner-up"
-  }];
   const faqs = [{
     question: "What exactly is the Zero Code Challenge?",
     answer: "A hybrid 7-day intensive where you'll learn to build AI-powered businesses from scratch, mentored by billionaires and industry leaders. Participants compete for a $200K prize pool while gaining real-world skills."
@@ -368,83 +357,48 @@ const Index = () => {
             <p className="text-sm sm:text-base lg:text-xl text-gray-300">Invest in your future. The returns are unlimited.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
-            {[{
-            name: "Early Bird",
-            price: "$497",
-            originalPrice: "$997",
-            popular: false,
-            features: ["7-day challenge access", "All learning materials", "Group mentorship sessions", "Prize pool eligibility", "Recording access", "Community access"]
-          }, {
-            name: "Standard",
-            price: "$997",
-            originalPrice: null,
-            popular: true,
-            features: ["Everything in Early Bird", "1-on-1 mentor session", "VIP networking events", "Priority Q&A access", "Bonus masterclasses", "6-month community access"]
-          }, {
-            name: "VIP Experience",
-            price: "$1,997",
-            originalPrice: null,
-            popular: false,
-            features: ["Everything in Standard", "Direct mentor WhatsApp access", "Private dinner with mentors", "Guaranteed pitch feedback", "12-month mastermind access", "Investment intro opportunities"]
-          }].map((tier, index) => <Card key={index} className={`relative ${tier.popular ? 'bg-gradient-to-b from-slate-800/80 to-slate-900/80 border-slate-600' : 'bg-slate-700/50 border-slate-600'} hover:scale-105 transition-all`}>
-                {tier.popular && <Badge className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 bg-slate-700 text-white border-slate-600 text-xs sm:text-sm">
-                    Most Popular
-                  </Badge>}
-                <CardHeader className="text-center p-3 sm:p-4 lg:p-6">
-                  <CardTitle className="text-white text-base sm:text-lg lg:text-2xl">{tier.name}</CardTitle>
-                  <div className="py-3 sm:py-4">
-                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">{tier.price}</div>
-                    {tier.originalPrice && <div className="text-gray-400 line-through text-sm sm:text-base lg:text-lg">{tier.originalPrice}</div>}
-                  </div>
-                </CardHeader>
-                <CardContent className="p-3 sm:p-4 lg:p-6 pt-0">
-                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                    {tier.features.map((feature, fIndex) => <li key={fIndex} className="flex items-center text-gray-300 text-xs sm:text-sm lg:text-base">
-                        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>)}
-                  </ul>
-                  <Button className={`w-full ${tier.popular ? 'bg-slate-600 hover:bg-slate-500' : 'bg-slate-600 hover:bg-slate-500'} text-white text-sm sm:text-base`} size="lg" onClick={() => window.location.href = '/register'}>
-                    Register Now
-                  </Button>
-                </CardContent>
-              </Card>)}
+          <div className="flex justify-center max-w-md mx-auto">
+            <Card className="relative bg-gradient-to-b from-slate-800/80 to-slate-900/80 border-slate-600 hover:scale-105 transition-all w-full">
+              <Badge className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 bg-slate-700 text-white border-slate-600 text-xs sm:text-sm">
+                Complete Package
+              </Badge>
+              <CardHeader className="text-center p-3 sm:p-4 lg:p-6">
+                <CardTitle className="text-white text-base sm:text-lg lg:text-2xl">ZeroCode Challenge</CardTitle>
+                <div className="py-3 sm:py-4">
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">$10</div>
+                  <div className="text-gray-400 text-sm sm:text-base lg:text-lg">One-time payment</div>
+                </div>
+              </CardHeader>
+              <CardContent className="p-3 sm:p-4 lg:p-6 pt-0">
+                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                  {[
+                    "7-day challenge access",
+                    "All learning materials",
+                    "Community access & networking",
+                    "Group & 1-on-1 mentorship sessions",
+                    "VIP networking events",
+                    "Bonus masterclasses",
+                    "Direct mentor WhatsApp access",
+                    "Prize pool eligibility ($200K total)",
+                    "Recording access",
+                    "Extended community access",
+                    "Investment introduction opportunities"
+                  ].map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-300 text-xs sm:text-sm lg:text-base">
+                      <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button className="w-full bg-slate-600 hover:bg-slate-500 text-white text-sm sm:text-base" size="lg" onClick={() => window.location.href = '/register'}>
+                  Register Now
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Success Stories</h2>
-            <p className="text-sm sm:text-base lg:text-xl text-gray-300">See how past participants transformed their lives</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => <Card key={index} className="bg-slate-800/50 border-slate-600">
-                <CardHeader className="p-3 sm:p-4 lg:p-6">
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
-                      {testimonial.name.charAt(0)}
-                    </div>
-                    <div>
-                      <CardTitle className="text-white text-sm sm:text-base lg:text-lg">{testimonial.name}</CardTitle>
-                      <CardDescription className="text-gray-400 text-xs sm:text-sm lg:text-base">{testimonial.role}</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-3 sm:p-4 lg:p-6 pt-0">
-                  <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base">"{testimonial.quote}"</p>
-                  <Badge variant="secondary" className="bg-yellow-500/20 text-yellow-300 border-yellow-400 text-xs sm:text-sm">
-                    {testimonial.amount}
-                  </Badge>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-black">
