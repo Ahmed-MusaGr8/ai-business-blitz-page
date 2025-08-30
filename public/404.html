@@ -6,8 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zero Code Challenge - Build Your AI Empire | $200K Prize Pool</title>
     <script>
-      // Redirect to main page for GitHub Pages SPA
-      window.location.replace(window.location.origin + '/#' + window.location.pathname);
+      // Redirect to main page for GitHub Pages SPA with BrowserRouter
+      const pathname = window.location.pathname;
+      
+      // Store the current pathname in session storage for the app to handle
+      if (pathname !== '/') {
+        sessionStorage.setItem('redirectPath', pathname + window.location.search + window.location.hash);
+      }
+      
+      // Always redirect to the root
+      window.location.replace(window.location.origin + '/');
     </script>
   </head>
   <body>
