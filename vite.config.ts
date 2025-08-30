@@ -90,6 +90,10 @@ export default defineConfig(({ mode }) => ({
       'react-router-dom',
       '@tanstack/react-query'
     ],
-    exclude: ['dotted-map']
+    exclude: ['dotted-map'],
+    force: true
+  },
+  define: {
+    global: 'globalThis',
   },
 }));

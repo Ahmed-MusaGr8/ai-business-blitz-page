@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useRef, useMemo, useState, useEffect } from "react";
@@ -14,64 +13,65 @@ interface MapProps {
   centralHub?: { lat: number; lng: number; label?: string };
 }
 
-export function WorldMap({
+// Dynamic import wrapper for dotted-map
+let DottedMapClass: any = null;
+
+const getDottedMap = async () => {
+  if (!DottedMapClass) {
+    try {
+      const module = await import('dotted-map');
+      DottedMapClass = (module as any).default || module;
+    } catch (error) {
+      console.error('Failed to load dotted-map:', error);
+      // Fallback - return a mock implementation
+      DottedMapClass = class MockDottedMap {
+        constructor() {}
+        getSVG() {
+          return '<svg></svg>';
+        }
+      };
+    }
+  }
+  return DottedMapClass;
+};
+
+export function WorldMapWrapper(props: MapProps) {
+  const [mapLoaded, setMapLoaded] = useState(false);
+  
+  useEffect(() => {
+    getDottedMap().then(() => setMapLoaded(true));
+  }, []);
+
+  if (!mapLoaded) {
+    return (
+      <div className="w-full max-w-7xl mx-auto px-4">
+        <div className="w-full aspect-[2/1] bg-black rounded-lg relative font-sans flex items-center justify-center">
+          <div className="text-white">Loading map...</div>
+        </div>
+      </div>
+    );
+  }
+
+  return <WorldMapInternal {...props} />;
+}
+
+function WorldMapInternal({
   dots = [],
   lineColor = "#0ea5e9",
   centralHub,
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const { theme } = useTheme();
-  const [DottedMapClass, setDottedMapClass] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Load DottedMap dynamically to handle import issues
-  useEffect(() => {
-    const loadDottedMap = async () => {
-      try {
-        // Try different import methods
-        let DottedMap;
-        try {
-          DottedMap = (await import('dotted-map')).default;
-        } catch {
-          const module = await import('dotted-map');
-          DottedMap = (module as any).DottedMap || module;
-        }
-        
-        setDottedMapClass(() => DottedMap);
-      } catch (error) {
-        console.error('Failed to load dotted-map:', error);
-        // Fallback implementation
-        setDottedMapClass(() => class MockDottedMap {
-          constructor() {}
-          getSVG() {
-            return '<svg width="800" height="400"><rect width="800" height="400" fill="black"/></svg>';
-          }
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadDottedMap();
-  }, []);
 
   // Memoize the map creation for better performance
   const { svgMap, projectPoint, createCurvedPath } = useMemo(() => {
-    if (!DottedMapClass) {
-      return {
-        svgMap: '<svg width="800" height="400"><rect width="800" height="400" fill="black"/></svg>',
-        projectPoint: (lat: number, lng: number) => ({ x: 400, y: 200 }),
-        createCurvedPath: (start: any, end: any) => `M ${start.x} ${start.y} L ${end.x} ${end.y}`
-      };
-    }
-
     const map = new DottedMapClass({ height: 100, grid: "diagonal" });
     
     const svgMap = map.getSVG({
       radius: 0.22,
-      color: "#FFFFFF80",
+      color: "#FFFFFF80", // Fixed white dots for black background
       shape: "circle",
-      backgroundColor: "black",
+      backgroundColor: "black", // Fixed black background
     });
 
     const projectPoint = (lat: number, lng: number) => {
@@ -105,16 +105,6 @@ export function WorldMap({
   const projectedCentralHub = useMemo(() => {
     return centralHub ? projectPoint(centralHub.lat, centralHub.lng) : null;
   }, [centralHub, projectPoint]);
-
-  if (isLoading) {
-    return (
-      <div className="w-full max-w-7xl mx-auto px-4">
-        <div className="w-full aspect-[2/1] bg-black rounded-lg relative font-sans flex items-center justify-center">
-          <div className="text-white opacity-60">Loading world map...</div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4">
