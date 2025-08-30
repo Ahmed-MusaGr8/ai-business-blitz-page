@@ -200,8 +200,8 @@ const Index = () => {
                   <div>
                     <h3 className="text-white text-base sm:text-lg lg:text-xl font-bold mb-3 leading-tight">
                       Register for the<br />
-                      Hackathon via<br />
-                      Devpost
+                      ZeroCode Challenge<br />
+                      on our Landing Page
                     </h3>
                   </div>
                 </div>
@@ -220,9 +220,9 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-white text-base sm:text-lg lg:text-xl font-bold mb-3 leading-tight">
-                      Get your Builder Pack<br />
-                      email with reward<br />
-                      details
+                      Access your Builder<br />
+                      Dashboard & Exclusive<br />
+                      Community
                     </h3>
                   </div>
                 </div>
@@ -241,8 +241,8 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-white text-base sm:text-lg lg:text-xl font-bold mb-3 leading-tight">
-                      Access the tools and<br />
-                      start building May 30
+                      Complete Pre-event<br />
+                      Curriculum & Start Building
                     </h3>
                   </div>
                 </div>
